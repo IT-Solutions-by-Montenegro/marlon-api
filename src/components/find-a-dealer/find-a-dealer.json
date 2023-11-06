@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_find_a_dealer_find_a_dealers",
+  "info": {
+    "displayName": "Find a Dealer",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "banner": {
+      "displayName": "banner",
+      "type": "component",
+      "repeatable": false,
+      "component": "find-a-dealer.banner"
+    },
+    "title_and_paragraph": {
+      "displayName": "title-and-paragraph-section",
+      "type": "component",
+      "repeatable": false,
+      "component": "find-a-dealer.title-and-paragraph-section"
+    },
+    "interactive_map": {
+      "displayName": "interactive-map",
+      "type": "component",
+      "repeatable": true,
+      "component": "find-a-dealer.interactive-map"
+    },
+    "call_to_action": {
+      "displayName": "Call-to-Action",
+      "type": "component",
+      "repeatable": false,
+      "component": "find-a-dealer.call-to-action"
+    }
+  }
+}

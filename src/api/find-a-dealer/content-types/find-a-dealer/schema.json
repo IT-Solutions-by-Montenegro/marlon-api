@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "find_a_dealers",
+  "info": {
+    "singularName": "find-a-dealer",
+    "pluralName": "find-a-dealers",
+    "displayName": "Find A Dealer",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "find_a_dealer": {
+      "displayName": "Find a Dealer",
+      "type": "component",
+      "repeatable": false,
+      "component": "find-a-dealer.find-a-dealer"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_find_a_dealer_interactive_maps",
+  "info": {
+    "displayName": "interactive-map",
+    "icon": "pin"
+  },
+  "options": {},
+  "attributes": {
+    "dealer_name": {
+      "type": "string"
+    },
+    "address": {
+      "type": "text"
+    },
+    "phone_no": {
+      "type": "string"
+    }
+  }
+}
