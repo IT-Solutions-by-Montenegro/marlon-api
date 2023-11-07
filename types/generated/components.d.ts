@@ -44,11 +44,17 @@ export interface FindADealerInteractiveMap extends Schema.Component {
   info: {
     displayName: 'interactive-map';
     icon: 'pin';
+    description: '';
   };
   attributes: {
     dealer_name: Attribute.String;
     address: Attribute.Text;
     phone_no: Attribute.String;
+    dealers: Attribute.Relation<
+      'find-a-dealer.interactive-map',
+      'oneToMany',
+      'api::dealer.dealer'
+    >;
   };
 }
 

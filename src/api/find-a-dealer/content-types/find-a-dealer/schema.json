@@ -4,7 +4,8 @@
   "info": {
     "singularName": "find-a-dealer",
     "pluralName": "find-a-dealers",
-    "displayName": "Find A Dealer"
+    "displayName": "Find A Dealer",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,7 +19,7 @@
     },
     "title_and_paragraph": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "find-a-dealer.title-and-paragraph-section"
     },
     "interactive_map": {

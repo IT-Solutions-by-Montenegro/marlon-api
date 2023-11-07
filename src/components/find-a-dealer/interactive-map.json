@@ -2,7 +2,8 @@
   "collectionName": "components_find_a_dealer_interactive_maps",
   "info": {
     "displayName": "interactive-map",
-    "icon": "pin"
+    "icon": "pin",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -14,6 +15,11 @@
     },
     "phone_no": {
       "type": "string"
+    },
+    "dealers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::dealer.dealer"
     }
   }
 }
