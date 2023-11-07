@@ -677,12 +677,45 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiBrandBrand extends Schema.CollectionType {
+  collectionName: 'brands';
+  info: {
+    singularName: 'brand';
+    pluralName: 'brands';
+    displayName: 'Brand';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    image: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::brand.brand',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::brand.brand',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiDealerDealer extends Schema.CollectionType {
   collectionName: 'dealers';
   info: {
     singularName: 'dealer';
     pluralName: 'dealers';
     displayName: 'Dealer';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -694,6 +727,7 @@ export interface ApiDealerDealer extends Schema.CollectionType {
     map_link: Attribute.String;
     latitude: Attribute.String;
     longitude: Attribute.String;
+    postal_code: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -718,18 +752,12 @@ export interface ApiFindADealerFindADealer extends Schema.SingleType {
     singularName: 'find-a-dealer';
     pluralName: 'find-a-dealers';
     displayName: 'Find A Dealer';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    banner: Attribute.Component<'find-a-dealer.banner'>;
-    title_and_paragraph: Attribute.Component<
-      'find-a-dealer.title-and-paragraph-section',
-      true
-    >;
-    interactive_map: Attribute.Component<'find-a-dealer.interactive-map', true>;
-    call_to_action: Attribute.Component<'find-a-dealer.call-to-action'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -741,6 +769,122 @@ export interface ApiFindADealerFindADealer extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::find-a-dealer.find-a-dealer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiProductProduct extends Schema.CollectionType {
+  collectionName: 'products';
+  info: {
+    singularName: 'product';
+    pluralName: 'products';
+    displayName: 'Product';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    images: Attribute.Media;
+    features: Attribute.RichText;
+    part_number: Attribute.String;
+    warranty_doc: Attribute.Media;
+    brochure: Attribute.Media;
+    description: Attribute.Text;
+    brand: Attribute.Relation<
+      'api::product.product',
+      'oneToOne',
+      'api::brand.brand'
+    >;
+    product: Attribute.Relation<
+      'api::product.product',
+      'oneToOne',
+      'api::product.product'
+    >;
+    product_line: Attribute.Relation<
+      'api::product.product',
+      'oneToOne',
+      'api::product-line.product-line'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::product.product',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::product.product',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiProductCategoryProductCategory
+  extends Schema.CollectionType {
+  collectionName: 'product_categories';
+  info: {
+    singularName: 'product-category';
+    pluralName: 'product-categories';
+    displayName: 'Product Category';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    image: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::product-category.product-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::product-category.product-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiProductLineProductLine extends Schema.CollectionType {
+  collectionName: 'product_lines';
+  info: {
+    singularName: 'product-line';
+    pluralName: 'product-lines';
+    displayName: 'Product Line';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    image: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::product-line.product-line',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::product-line.product-line',
       'oneToOne',
       'admin::user'
     > &
@@ -764,8 +908,12 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::brand.brand': ApiBrandBrand;
       'api::dealer.dealer': ApiDealerDealer;
       'api::find-a-dealer.find-a-dealer': ApiFindADealerFindADealer;
+      'api::product.product': ApiProductProduct;
+      'api::product-category.product-category': ApiProductCategoryProductCategory;
+      'api::product-line.product-line': ApiProductLineProductLine;
     }
   }
 }

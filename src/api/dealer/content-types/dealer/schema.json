@@ -4,7 +4,8 @@
   "info": {
     "singularName": "dealer",
     "pluralName": "dealers",
-    "displayName": "Dealer"
+    "displayName": "Dealer",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -29,6 +30,9 @@
       "type": "string"
     },
     "longitude": {
+      "type": "string"
+    },
+    "postal_code": {
       "type": "string"
     }
   }

@@ -1,24 +1,13 @@
 {
   "collectionName": "components_find_a_dealer_interactive_maps",
   "info": {
-    "displayName": "interactive-map",
-    "icon": "pin",
-    "description": ""
+    "displayName": "Interactive Map"
   },
   "options": {},
   "attributes": {
-    "dealer_name": {
-      "type": "string"
-    },
-    "address": {
-      "type": "text"
-    },
-    "phone_no": {
-      "type": "string"
-    },
-    "dealers": {
+    "dealer": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "oneToOne",
       "target": "api::dealer.dealer"
     }
   }

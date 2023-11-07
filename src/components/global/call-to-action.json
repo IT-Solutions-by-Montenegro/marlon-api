@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_global_call_to_actions",
+  "info": {
+    "displayName": "Call to Action"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "button": {
+      "displayName": "Button",
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.button"
+    }
+  }
+}

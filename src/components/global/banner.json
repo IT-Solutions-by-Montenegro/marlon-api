@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_find_a_dealer_banners",
+  "collectionName": "components_global_banners",
   "info": {
-    "displayName": "banner"
+    "displayName": "Banner"
   },
   "options": {},
   "attributes": {
@@ -13,11 +13,13 @@
     },
     "img": {
       "allowedTypes": [
-        "images"
+        "images",
+        "files",
+        "videos",
+        "audios"
       ],
       "type": "media",
-      "multiple": true,
-      "required": true
+      "multiple": false
     }
   }
 }

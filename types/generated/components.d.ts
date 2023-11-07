@@ -1,82 +1,55 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
-export interface FindADealerBanner extends Schema.Component {
-  collectionName: 'components_find_a_dealer_banners';
+export interface ElementsButton extends Schema.Component {
+  collectionName: 'components_elements_buttons';
   info: {
-    displayName: 'banner';
+    displayName: 'Button';
+  };
+  attributes: {};
+}
+
+export interface GlobalBanner extends Schema.Component {
+  collectionName: 'components_global_banners';
+  info: {
+    displayName: 'Banner';
   };
   attributes: {
     title: Attribute.String;
     description: Attribute.Text;
-    img: Attribute.Media & Attribute.Required;
+    img: Attribute.Media;
   };
 }
 
-export interface FindADealerCallToAction extends Schema.Component {
-  collectionName: 'components_find_a_dealer_call_to_actions';
+export interface GlobalCallToAction extends Schema.Component {
+  collectionName: 'components_global_call_to_actions';
   info: {
-    displayName: 'Call-to-Action';
+    displayName: 'Call to Action';
   };
   attributes: {
     title: Attribute.String;
     description: Attribute.Text;
-    button_title: Attribute.String;
-    button_url: Attribute.String;
+    button: Attribute.Component<'elements.button'>;
   };
 }
 
-export interface FindADealerFindADealer extends Schema.Component {
-  collectionName: 'components_find_a_dealer_find_a_dealers';
+export interface GlobalTitleAndParagraph extends Schema.Component {
+  collectionName: 'components_global_title_and_paragraphs';
   info: {
-    displayName: 'Find a Dealer';
-    description: '';
-  };
-  attributes: {
-    banner: Attribute.Component<'find-a-dealer.banner'>;
-    title_and_paragraph: Attribute.Component<'find-a-dealer.title-and-paragraph-section'>;
-    interactive_map: Attribute.Component<'find-a-dealer.interactive-map', true>;
-    call_to_action: Attribute.Component<'find-a-dealer.call-to-action'>;
-  };
-}
-
-export interface FindADealerInteractiveMap extends Schema.Component {
-  collectionName: 'components_find_a_dealer_interactive_maps';
-  info: {
-    displayName: 'interactive-map';
-    icon: 'pin';
-    description: '';
-  };
-  attributes: {
-    dealer_name: Attribute.String;
-    address: Attribute.Text;
-    phone_no: Attribute.String;
-    dealers: Attribute.Relation<
-      'find-a-dealer.interactive-map',
-      'oneToMany',
-      'api::dealer.dealer'
-    >;
-  };
-}
-
-export interface FindADealerTitleAndParagraphSection extends Schema.Component {
-  collectionName: 'components_find_a_dealer_title_and_paragraph_sections';
-  info: {
-    displayName: 'title-and-paragraph-section';
+    displayName: 'Title and Paragraph';
   };
   attributes: {
     title: Attribute.String;
-    intro_paragraph: Attribute.Text;
+    paragraph: Attribute.Text;
   };
 }
 
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
-      'find-a-dealer.banner': FindADealerBanner;
-      'find-a-dealer.call-to-action': FindADealerCallToAction;
-      'find-a-dealer.find-a-dealer': FindADealerFindADealer;
-      'find-a-dealer.interactive-map': FindADealerInteractiveMap;
-      'find-a-dealer.title-and-paragraph-section': FindADealerTitleAndParagraphSection;
+      'elements.button': ElementsButton;
+      'global.banner': GlobalBanner;
+      'global.call-to-action': GlobalCallToAction;
+      'global.title-and-paragraph': GlobalTitleAndParagraph;
     }
   }
 }

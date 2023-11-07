@@ -15,14 +15,15 @@
     "banner": {
       "type": "component",
       "repeatable": false,
-      "component": "find-a-dealer.banner"
+      "component": "global.banner"
     },
     "title_and_paragraph": {
       "type": "component",
       "repeatable": false,
-      "component": "find-a-dealer.title-and-paragraph-section"
+      "component": "global.title-and-paragraph"
     },
     "interactive_map": {
+      "displayName": "Interactive Map",
       "type": "component",
       "repeatable": true,
       "component": "find-a-dealer.interactive-map"
@@ -30,7 +31,7 @@
     "call_to_action": {
       "type": "component",
       "repeatable": false,
-      "component": "find-a-dealer.call-to-action"
+      "component": "global.call-to-action"
     }
   }
 }
