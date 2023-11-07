@@ -1,22 +1,35 @@
 {
-  "kind": "collectionType",
+  "kind": "singleType",
   "collectionName": "find_a_dealers",
   "info": {
     "singularName": "find-a-dealer",
     "pluralName": "find-a-dealers",
-    "displayName": "Find A Dealer",
-    "description": ""
+    "displayName": "Find A Dealer"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "find_a_dealer": {
-      "displayName": "Find a Dealer",
+    "banner": {
       "type": "component",
       "repeatable": false,
-      "component": "find-a-dealer.find-a-dealer"
+      "component": "find-a-dealer.banner"
+    },
+    "title_and_paragraph": {
+      "type": "component",
+      "repeatable": true,
+      "component": "find-a-dealer.title-and-paragraph-section"
+    },
+    "interactive_map": {
+      "type": "component",
+      "repeatable": true,
+      "component": "find-a-dealer.interactive-map"
+    },
+    "call_to_action": {
+      "type": "component",
+      "repeatable": false,
+      "component": "find-a-dealer.call-to-action"
     }
   }
 }

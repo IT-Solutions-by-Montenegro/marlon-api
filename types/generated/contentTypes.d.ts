@@ -362,37 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiFindADealerFindADealer extends Schema.CollectionType {
-  collectionName: 'find_a_dealers';
-  info: {
-    singularName: 'find-a-dealer';
-    pluralName: 'find-a-dealers';
-    displayName: 'Find A Dealer';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    find_a_dealer: Attribute.Component<'find-a-dealer.find-a-dealer'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::find-a-dealer.find-a-dealer',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::find-a-dealer.find-a-dealer',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -708,6 +677,77 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiDealerDealer extends Schema.CollectionType {
+  collectionName: 'dealers';
+  info: {
+    singularName: 'dealer';
+    pluralName: 'dealers';
+    displayName: 'Dealer';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required & Attribute.Unique;
+    address: Attribute.Text;
+    phone: Attribute.String;
+    map_link: Attribute.String;
+    latitude: Attribute.String;
+    longitude: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::dealer.dealer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::dealer.dealer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiFindADealerFindADealer extends Schema.SingleType {
+  collectionName: 'find_a_dealers';
+  info: {
+    singularName: 'find-a-dealer';
+    pluralName: 'find-a-dealers';
+    displayName: 'Find A Dealer';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    banner: Attribute.Component<'find-a-dealer.banner'>;
+    title_and_paragraph: Attribute.Component<
+      'find-a-dealer.title-and-paragraph-section',
+      true
+    >;
+    interactive_map: Attribute.Component<'find-a-dealer.interactive-map', true>;
+    call_to_action: Attribute.Component<'find-a-dealer.call-to-action'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::find-a-dealer.find-a-dealer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::find-a-dealer.find-a-dealer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -718,13 +758,14 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::find-a-dealer.find-a-dealer': ApiFindADealerFindADealer;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::dealer.dealer': ApiDealerDealer;
+      'api::find-a-dealer.find-a-dealer': ApiFindADealerFindADealer;
     }
   }
 }
