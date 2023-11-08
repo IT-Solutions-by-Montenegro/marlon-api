@@ -8,6 +8,20 @@ export interface ElementsButton extends Schema.Component {
   attributes: {};
 }
 
+export interface FindADealerInteractiveMap extends Schema.Component {
+  collectionName: 'components_find_a_dealer_interactive_maps';
+  info: {
+    displayName: 'Interactive Map';
+  };
+  attributes: {
+    dealer: Attribute.Relation<
+      'find-a-dealer.interactive-map',
+      'oneToOne',
+      'api::dealer.dealer'
+    >;
+  };
+}
+
 export interface GlobalBanner extends Schema.Component {
   collectionName: 'components_global_banners';
   info: {
@@ -47,6 +61,7 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'elements.button': ElementsButton;
+      'find-a-dealer.interactive-map': FindADealerInteractiveMap;
       'global.banner': GlobalBanner;
       'global.call-to-action': GlobalCallToAction;
       'global.title-and-paragraph': GlobalTitleAndParagraph;
