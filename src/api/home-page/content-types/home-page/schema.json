@@ -1,0 +1,54 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_pages",
+  "info": {
+    "singularName": "home-page",
+    "pluralName": "home-pages",
+    "displayName": "HomePage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "banner": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.banner"
+    },
+    "title_and_paragraph": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.title-and-paragraph"
+    },
+    "nav_menu": {
+      "displayName": "Image Card",
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.image-card"
+    },
+    "call_to_action": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.call-to-action"
+    },
+    "products_section": {
+      "displayName": "Products Section",
+      "type": "component",
+      "repeatable": false,
+      "component": "homepage.products-section"
+    },
+    "testimonials": {
+      "displayName": "Testimonials",
+      "type": "component",
+      "repeatable": false,
+      "component": "global.testimonials"
+    },
+    "our_partners": {
+      "displayName": "Our Partners",
+      "type": "component",
+      "repeatable": false,
+      "component": "global.our-partners"
+    }
+  }
+}

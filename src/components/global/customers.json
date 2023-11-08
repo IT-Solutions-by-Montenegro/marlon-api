@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_global_customers",
+  "info": {
+    "displayName": "Customers"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "testimony": {
+      "type": "richtext"
+    },
+    "img": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

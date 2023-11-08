@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_elements_image_cards",
+  "info": {
+    "displayName": "Image Card",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "img": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "link": {
+      "type": "string"
+    }
+  }
+}

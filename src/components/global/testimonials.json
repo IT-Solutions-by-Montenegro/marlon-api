@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_global_testimonials",
+  "info": {
+    "displayName": "Testimonials"
+  },
+  "options": {},
+  "attributes": {
+    "customer": {
+      "displayName": "Customers",
+      "type": "component",
+      "repeatable": true,
+      "component": "global.customers"
+    },
+    "header": {
+      "type": "string"
+    }
+  }
+}

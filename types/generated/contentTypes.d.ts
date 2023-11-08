@@ -795,6 +795,42 @@ export interface ApiFindADealerFindADealer extends Schema.SingleType {
   };
 }
 
+export interface ApiHomePageHomePage extends Schema.SingleType {
+  collectionName: 'home_pages';
+  info: {
+    singularName: 'home-page';
+    pluralName: 'home-pages';
+    displayName: 'HomePage';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    banner: Attribute.Component<'global.banner'>;
+    title_and_paragraph: Attribute.Component<'global.title-and-paragraph'>;
+    nav_menu: Attribute.Component<'elements.image-card', true>;
+    call_to_action: Attribute.Component<'global.call-to-action'>;
+    products_section: Attribute.Component<'homepage.products-section'>;
+    testimonials: Attribute.Component<'global.testimonials'>;
+    our_partners: Attribute.Component<'global.our-partners'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::home-page.home-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::home-page.home-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiProductProduct extends Schema.CollectionType {
   collectionName: 'products';
   info: {
@@ -930,6 +966,7 @@ declare module '@strapi/types' {
       'api::brand.brand': ApiBrandBrand;
       'api::dealer.dealer': ApiDealerDealer;
       'api::find-a-dealer.find-a-dealer': ApiFindADealerFindADealer;
+      'api::home-page.home-page': ApiHomePageHomePage;
       'api::product.product': ApiProductProduct;
       'api::product-category.product-category': ApiProductCategoryProductCategory;
       'api::product-line.product-line': ApiProductLineProductLine;

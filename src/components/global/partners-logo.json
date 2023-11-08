@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_global_partners_logos",
+  "info": {
+    "displayName": "Partners Logo"
+  },
+  "options": {},
+  "attributes": {
+    "logo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
