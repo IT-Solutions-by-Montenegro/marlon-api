@@ -35,9 +35,9 @@
     "postal_code": {
       "type": "string"
     },
-    "product": {
+    "products": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::product.product"
     }
   }
