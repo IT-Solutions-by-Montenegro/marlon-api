@@ -728,6 +728,11 @@ export interface ApiDealerDealer extends Schema.CollectionType {
     latitude: Attribute.String;
     longitude: Attribute.String;
     postal_code: Attribute.String;
+    product: Attribute.Relation<
+      'api::dealer.dealer',
+      'oneToOne',
+      'api::product.product'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -758,6 +763,10 @@ export interface ApiFindADealerFindADealer extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
+    banner: Attribute.Component<'global.banner'>;
+    title_and_paragraph: Attribute.Component<'global.title-and-paragraph'>;
+    interactive_map: Attribute.Component<'find-a-dealer.interactive-map', true>;
+    call_to_action: Attribute.Component<'global.call-to-action'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -800,10 +809,10 @@ export interface ApiProductProduct extends Schema.CollectionType {
       'oneToOne',
       'api::brand.brand'
     >;
-    product: Attribute.Relation<
+    product_category: Attribute.Relation<
       'api::product.product',
       'oneToOne',
-      'api::product.product'
+      'api::product-category.product-category'
     >;
     product_line: Attribute.Relation<
       'api::product.product',

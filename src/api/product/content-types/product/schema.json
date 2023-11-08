@@ -59,10 +59,10 @@
       "relation": "oneToOne",
       "target": "api::brand.brand"
     },
-    "product": {
+    "product_category": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::product.product"
+      "target": "api::product-category.product-category"
     },
     "product_line": {
       "type": "relation",
