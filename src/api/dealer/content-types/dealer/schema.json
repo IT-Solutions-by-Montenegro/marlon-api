@@ -35,19 +35,19 @@
     "postal_code": {
       "type": "string"
     },
-    "product_line": {
+    "product_lines": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::product-line.product-line"
     },
-    "product_category": {
+    "product_categories": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::product-category.product-category"
     },
-    "brand": {
+    "brands": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::brand.brand"
     }
   }
