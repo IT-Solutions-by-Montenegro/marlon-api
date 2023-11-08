@@ -728,10 +728,20 @@ export interface ApiDealerDealer extends Schema.CollectionType {
     latitude: Attribute.String;
     longitude: Attribute.String;
     postal_code: Attribute.String;
-    product: Attribute.Relation<
+    product_line: Attribute.Relation<
       'api::dealer.dealer',
       'oneToOne',
-      'api::product.product'
+      'api::product-line.product-line'
+    >;
+    product_category: Attribute.Relation<
+      'api::dealer.dealer',
+      'oneToOne',
+      'api::product-category.product-category'
+    >;
+    brand: Attribute.Relation<
+      'api::dealer.dealer',
+      'oneToOne',
+      'api::brand.brand'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
