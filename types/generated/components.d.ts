@@ -1,15 +1,5 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
-export interface BlogBlogGallery extends Schema.Component {
-  collectionName: 'components_blog_blog_galleries';
-  info: {
-    displayName: 'Blog Gallery';
-  };
-  attributes: {
-    blog_gallery: Attribute.Component<'elements.blog-card', true>;
-  };
-}
-
 export interface BlogFeaturedBoatSection extends Schema.Component {
   collectionName: 'components_blog_featured_boat_sections';
   info: {
@@ -196,7 +186,6 @@ export interface PostPosts extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
-      'blog.blog-gallery': BlogBlogGallery;
       'blog.featured-boat-section': BlogFeaturedBoatSection;
       'elements.blog-card': ElementsBlogCard;
       'elements.button': ElementsButton;
