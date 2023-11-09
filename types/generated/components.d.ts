@@ -163,9 +163,14 @@ export interface PostPostGallery extends Schema.Component {
   collectionName: 'components_post_post_galleries';
   info: {
     displayName: 'Post Gallery';
+    description: '';
   };
   attributes: {
-    posts: Attribute.Component<'post.posts'>;
+    posts: Attribute.Relation<
+      'post.post-gallery',
+      'oneToMany',
+      'api::post.post'
+    >;
   };
 }
 
@@ -173,13 +178,10 @@ export interface PostPosts extends Schema.Component {
   collectionName: 'components_post_posts';
   info: {
     displayName: 'Posts';
+    description: '';
   };
   attributes: {
-    title: Attribute.String;
-    content: Attribute.RichText;
-    img: Attribute.Media;
-    cover_img: Attribute.Media;
-    isFeatured: Attribute.Boolean & Attribute.DefaultTo<false>;
+    posts: Attribute.Relation<'post.posts', 'oneToMany', 'api::post.post'>;
   };
 }
 

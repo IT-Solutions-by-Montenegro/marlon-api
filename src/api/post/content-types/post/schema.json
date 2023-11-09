@@ -1,5 +1,5 @@
 {
-  "kind": "singleType",
+  "kind": "collectionType",
   "collectionName": "posts",
   "info": {
     "singularName": "post",
@@ -11,21 +11,35 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "banner": {
-      "type": "component",
-      "repeatable": false,
-      "component": "global.banner"
+    "title": {
+      "type": "string"
     },
-    "call_to_action": {
-      "type": "component",
-      "repeatable": false,
-      "component": "global.call-to-action"
+    "content": {
+      "type": "richtext"
     },
-    "post_gallery": {
-      "displayName": "Post Gallery",
-      "type": "component",
-      "repeatable": false,
-      "component": "post.post-gallery"
+    "media": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "cover_img": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "isFeatured": {
+      "type": "boolean",
+      "default": false
+    },
+    "slug": {
+      "type": "string"
     }
   }
 }

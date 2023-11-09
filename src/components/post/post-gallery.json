@@ -1,15 +1,15 @@
 {
   "collectionName": "components_post_post_galleries",
   "info": {
-    "displayName": "Post Gallery"
+    "displayName": "Post Gallery",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "posts": {
-      "displayName": "Posts",
-      "type": "component",
-      "repeatable": false,
-      "component": "post.posts"
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::post.post"
     }
   }
 }
