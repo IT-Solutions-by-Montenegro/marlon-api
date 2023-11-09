@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ambassadors",
+  "info": {
+    "singularName": "ambassador",
+    "pluralName": "ambassadors",
+    "displayName": "Ambassador"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "img": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": false
+    },
+    "phone_no": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "product_lines": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-line.product-line"
+    }
+  }
+}

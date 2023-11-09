@@ -677,6 +677,83 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiAmbassadorAmbassador extends Schema.CollectionType {
+  collectionName: 'ambassadors';
+  info: {
+    singularName: 'ambassador';
+    pluralName: 'ambassadors';
+    displayName: 'Ambassador';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    img: Attribute.Media;
+    phone_no: Attribute.String;
+    email: Attribute.Email;
+    product_lines: Attribute.Relation<
+      'api::ambassador.ambassador',
+      'oneToMany',
+      'api::product-line.product-line'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::ambassador.ambassador',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::ambassador.ambassador',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiAmbassadorsTeamAmbassadorsTeam
+  extends Schema.CollectionType {
+  collectionName: 'ambassadors_teams';
+  info: {
+    singularName: 'ambassadors-team';
+    pluralName: 'ambassadors-teams';
+    displayName: 'Ambassadors Team';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    product_lines: Attribute.Relation<
+      'api::ambassadors-team.ambassadors-team',
+      'oneToMany',
+      'api::product-line.product-line'
+    >;
+    img: Attribute.Media;
+    phone_no: Attribute.String;
+    email: Attribute.Email;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::ambassadors-team.ambassadors-team',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::ambassadors-team.ambassadors-team',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiBrandBrand extends Schema.CollectionType {
   collectionName: 'brands';
   info: {
@@ -1094,6 +1171,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::ambassador.ambassador': ApiAmbassadorAmbassador;
+      'api::ambassadors-team.ambassadors-team': ApiAmbassadorsTeamAmbassadorsTeam;
       'api::brand.brand': ApiBrandBrand;
       'api::dealer.dealer': ApiDealerDealer;
       'api::find-a-dealer.find-a-dealer': ApiFindADealerFindADealer;
