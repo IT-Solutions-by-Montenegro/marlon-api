@@ -831,6 +831,41 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
   };
 }
 
+export interface ApiOfficeLocationOfficeLocation extends Schema.CollectionType {
+  collectionName: 'office_locations';
+  info: {
+    singularName: 'office-location';
+    pluralName: 'office-locations';
+    displayName: 'Office Location';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    operational_hours: Attribute.String;
+    phone_no: Attribute.String;
+    address: Attribute.String;
+    latitude: Attribute.String;
+    longitude: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::office-location.office-location',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::office-location.office-location',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPostPost extends Schema.CollectionType {
   collectionName: 'posts';
   info: {
@@ -1012,6 +1047,37 @@ export interface ApiProductLineProductLine extends Schema.CollectionType {
   };
 }
 
+export interface ApiTeamTeam extends Schema.CollectionType {
+  collectionName: 'teams';
+  info: {
+    singularName: 'team';
+    pluralName: 'teams';
+    displayName: 'Team';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    job_position: Attribute.String;
+    img: Attribute.Media;
+    office_location: Attribute.Relation<
+      'api::team.team',
+      'oneToOne',
+      'api::office-location.office-location'
+    >;
+    biography: Attribute.RichText;
+    linkedin_url: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::team.team', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::team.team', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1032,11 +1098,13 @@ declare module '@strapi/types' {
       'api::dealer.dealer': ApiDealerDealer;
       'api::find-a-dealer.find-a-dealer': ApiFindADealerFindADealer;
       'api::home-page.home-page': ApiHomePageHomePage;
+      'api::office-location.office-location': ApiOfficeLocationOfficeLocation;
       'api::post.post': ApiPostPost;
       'api::post-page.post-page': ApiPostPagePostPage;
       'api::product.product': ApiProductProduct;
       'api::product-category.product-category': ApiProductCategoryProductCategory;
       'api::product-line.product-line': ApiProductLineProductLine;
+      'api::team.team': ApiTeamTeam;
     }
   }
 }
