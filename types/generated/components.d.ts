@@ -1,5 +1,43 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface BlogBlogGallery extends Schema.Component {
+  collectionName: 'components_blog_blog_galleries';
+  info: {
+    displayName: 'Blog Gallery';
+  };
+  attributes: {
+    blog_gallery: Attribute.Component<'elements.blog-card', true>;
+  };
+}
+
+export interface BlogFeaturedBoatSection extends Schema.Component {
+  collectionName: 'components_blog_featured_boat_sections';
+  info: {
+    displayName: 'Featured Boat Section';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    button: Attribute.Component<'elements.button'>;
+    img: Attribute.Media;
+  };
+}
+
+export interface ElementsBlogCard extends Schema.Component {
+  collectionName: 'components_elements_blog_cards';
+  info: {
+    displayName: 'Blog Card';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    content: Attribute.RichText;
+    img: Attribute.Media;
+    cover: Attribute.Media;
+    isFeatured: Attribute.Boolean & Attribute.DefaultTo<false>;
+  };
+}
+
 export interface ElementsButton extends Schema.Component {
   collectionName: 'components_elements_buttons';
   info: {
@@ -131,9 +169,36 @@ export interface HomepageProductsSection extends Schema.Component {
   };
 }
 
+export interface PostPostGallery extends Schema.Component {
+  collectionName: 'components_post_post_galleries';
+  info: {
+    displayName: 'Post Gallery';
+  };
+  attributes: {
+    posts: Attribute.Component<'post.posts'>;
+  };
+}
+
+export interface PostPosts extends Schema.Component {
+  collectionName: 'components_post_posts';
+  info: {
+    displayName: 'Posts';
+  };
+  attributes: {
+    title: Attribute.String;
+    content: Attribute.RichText;
+    img: Attribute.Media;
+    cover_img: Attribute.Media;
+    isFeatured: Attribute.Boolean & Attribute.DefaultTo<false>;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'blog.blog-gallery': BlogBlogGallery;
+      'blog.featured-boat-section': BlogFeaturedBoatSection;
+      'elements.blog-card': ElementsBlogCard;
       'elements.button': ElementsButton;
       'elements.image-card': ElementsImageCard;
       'find-a-dealer.interactive-map': FindADealerInteractiveMap;
@@ -145,6 +210,8 @@ declare module '@strapi/types' {
       'global.testimonials': GlobalTestimonials;
       'global.title-and-paragraph': GlobalTitleAndParagraph;
       'homepage.products-section': HomepageProductsSection;
+      'post.post-gallery': PostPostGallery;
+      'post.posts': PostPosts;
     }
   }
 }
