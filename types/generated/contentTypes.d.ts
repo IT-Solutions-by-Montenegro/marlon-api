@@ -879,6 +879,7 @@ export interface ApiOfficeLocationOfficeLocation extends Schema.CollectionType {
     singularName: 'office-location';
     pluralName: 'office-locations';
     displayName: 'Office Location';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -886,10 +887,12 @@ export interface ApiOfficeLocationOfficeLocation extends Schema.CollectionType {
   attributes: {
     name: Attribute.String;
     operational_hours: Attribute.String;
-    phone_no: Attribute.String;
-    address: Attribute.String;
+    phone_no1: Attribute.String;
+    phone_no2: Attribute.String;
     latitude: Attribute.String;
     longitude: Attribute.String;
+    address: Attribute.String;
+    status: Attribute.Enumeration<['Active', 'Inactive']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "office-location",
     "pluralName": "office-locations",
-    "displayName": "Office Location"
+    "displayName": "Office Location",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -17,10 +18,10 @@
     "operational_hours": {
       "type": "string"
     },
-    "phone_no": {
+    "phone_no1": {
       "type": "string"
     },
-    "address": {
+    "phone_no2": {
       "type": "string"
     },
     "latitude": {
@@ -28,6 +29,16 @@
     },
     "longitude": {
       "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "Active",
+        "Inactive"
+      ]
     }
   }
 }
