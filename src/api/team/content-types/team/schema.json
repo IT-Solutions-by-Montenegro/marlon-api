@@ -42,6 +42,13 @@
     },
     "state": {
       "type": "string"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "Active",
+        "Inactive"
+      ]
     }
   }
 }

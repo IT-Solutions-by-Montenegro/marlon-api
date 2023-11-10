@@ -1109,6 +1109,7 @@ export interface ApiTeamTeam extends Schema.CollectionType {
     first_name: Attribute.String;
     last_name: Attribute.String;
     state: Attribute.String;
+    status: Attribute.Enumeration<['Active', 'Inactive']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
