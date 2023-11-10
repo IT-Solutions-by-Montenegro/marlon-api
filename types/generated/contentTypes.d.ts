@@ -683,12 +683,12 @@ export interface ApiAmbassadorAmbassador extends Schema.CollectionType {
     singularName: 'ambassador';
     pluralName: 'ambassadors';
     displayName: 'Ambassador';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String;
     img: Attribute.Media;
     phone_no: Attribute.String;
     email: Attribute.Email;
@@ -697,6 +697,10 @@ export interface ApiAmbassadorAmbassador extends Schema.CollectionType {
       'oneToMany',
       'api::product-line.product-line'
     >;
+    first_name: Attribute.String;
+    last_name: Attribute.String;
+    state: Attribute.String;
+    Status: Attribute.Enumeration<['Active', 'Inactive']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

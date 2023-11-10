@@ -4,23 +4,21 @@
   "info": {
     "singularName": "ambassador",
     "pluralName": "ambassadors",
-    "displayName": "Ambassador"
+    "displayName": "Ambassador",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
-      "type": "string"
-    },
     "img": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": false
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "phone_no": {
       "type": "string"
@@ -32,6 +30,22 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::product-line.product-line"
+    },
+    "first_name": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "Status": {
+      "type": "enumeration",
+      "enum": [
+        "Active",
+        "Inactive"
+      ]
     }
   }
 }
