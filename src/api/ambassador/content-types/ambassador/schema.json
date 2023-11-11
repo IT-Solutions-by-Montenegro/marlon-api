@@ -31,6 +31,14 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::personal-detail.personal-detail"
+    },
+    "office_location": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::office-location.office-location"
+    },
+    "date_joined": {
+      "type": "date"
     }
   }
 }

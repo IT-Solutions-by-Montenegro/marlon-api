@@ -68,6 +68,12 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::product-line.product-line"
+    },
+    "dealer_applications": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::dealer-application.dealer-application",
+      "mappedBy": "products"
     }
   }
 }

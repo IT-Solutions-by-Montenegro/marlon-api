@@ -701,6 +701,12 @@ export interface ApiAmbassadorAmbassador extends Schema.CollectionType {
       'oneToOne',
       'api::personal-detail.personal-detail'
     >;
+    office_location: Attribute.Relation<
+      'api::ambassador.ambassador',
+      'oneToOne',
+      'api::office-location.office-location'
+    >;
+    date_joined: Attribute.Date;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -765,7 +771,8 @@ export interface ApiAuthorAuthor extends Schema.CollectionType {
   info: {
     singularName: 'author';
     pluralName: 'authors';
-    displayName: 'Author';
+    displayName: 'Post Author';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -916,6 +923,57 @@ export interface ApiDealerDealer extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::dealer.dealer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiDealerApplicationDealerApplication
+  extends Schema.CollectionType {
+  collectionName: 'dealer_applications';
+  info: {
+    singularName: 'dealer-application';
+    pluralName: 'dealer-applications';
+    displayName: 'Dealer Application';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    business_name: Attribute.String;
+    first_name: Attribute.String;
+    last_name: Attribute.String;
+    full_name: Attribute.String;
+    address1: Attribute.String;
+    address2: Attribute.String;
+    city: Attribute.String;
+    province_state: Attribute.String;
+    country: Attribute.String;
+    postal_code: Attribute.String;
+    phone: Attribute.String;
+    alternative_no: Attribute.String;
+    email: Attribute.Email;
+    website_link: Attribute.String;
+    status: Attribute.Enumeration<['Approved', 'Rejected', 'Pending']>;
+    products: Attribute.Relation<
+      'api::dealer-application.dealer-application',
+      'manyToMany',
+      'api::product.product'
+    >;
+    message: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::dealer-application.dealer-application',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::dealer-application.dealer-application',
       'oneToOne',
       'admin::user'
     > &
@@ -1289,6 +1347,11 @@ export interface ApiProductProduct extends Schema.CollectionType {
       'oneToOne',
       'api::product-line.product-line'
     >;
+    dealer_applications: Attribute.Relation<
+      'api::product.product',
+      'manyToMany',
+      'api::dealer-application.dealer-application'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1476,6 +1539,7 @@ declare module '@strapi/types' {
       'api::brand.brand': ApiBrandBrand;
       'api::contact-form.contact-form': ApiContactFormContactForm;
       'api::dealer.dealer': ApiDealerDealer;
+      'api::dealer-application.dealer-application': ApiDealerApplicationDealerApplication;
       'api::find-a-dealer.find-a-dealer': ApiFindADealerFindADealer;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::job-posting.job-posting': ApiJobPostingJobPosting;
