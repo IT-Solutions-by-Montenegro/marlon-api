@@ -1,0 +1,39 @@
+{
+  "kind": "singleType",
+  "collectionName": "careers_pages",
+  "info": {
+    "singularName": "careers-page",
+    "pluralName": "careers-pages",
+    "displayName": "Careers Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "components": {
+      "type": "dynamiczone",
+      "components": [
+        "global.banner",
+        "global.title-and-paragraph"
+      ]
+    },
+    "job_posting": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::job-posting.job-posting"
+    },
+    "applicant": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::applicant.applicant"
+    }
+  }
+}

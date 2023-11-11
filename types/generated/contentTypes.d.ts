@@ -879,6 +879,50 @@ export interface ApiBrandBrand extends Schema.CollectionType {
   };
 }
 
+export interface ApiCareersPageCareersPage extends Schema.SingleType {
+  collectionName: 'careers_pages';
+  info: {
+    singularName: 'careers-page';
+    pluralName: 'careers-pages';
+    displayName: 'Careers Page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    slug: Attribute.UID<'api::careers-page.careers-page', 'title'>;
+    components: Attribute.DynamicZone<
+      ['global.banner', 'global.title-and-paragraph']
+    >;
+    job_posting: Attribute.Relation<
+      'api::careers-page.careers-page',
+      'oneToOne',
+      'api::job-posting.job-posting'
+    >;
+    applicant: Attribute.Relation<
+      'api::careers-page.careers-page',
+      'oneToOne',
+      'api::applicant.applicant'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::careers-page.careers-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::careers-page.careers-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiContactFormContactForm extends Schema.CollectionType {
   collectionName: 'contact_forms';
   info: {
@@ -1665,6 +1709,7 @@ declare module '@strapi/types' {
       'api::applicant.applicant': ApiApplicantApplicant;
       'api::author.author': ApiAuthorAuthor;
       'api::brand.brand': ApiBrandBrand;
+      'api::careers-page.careers-page': ApiCareersPageCareersPage;
       'api::contact-form.contact-form': ApiContactFormContactForm;
       'api::dealer.dealer': ApiDealerDealer;
       'api::dealer-application.dealer-application': ApiDealerApplicationDealerApplication;
