@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "products_pages",
+  "info": {
+    "singularName": "products-page",
+    "pluralName": "products-pages",
+    "displayName": "Products Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "office_location": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::office-location.office-location"
+    },
+    "components": {
+      "type": "dynamiczone",
+      "components": [
+        "global.nav-menu",
+        "global.banner",
+        "global.title-and-paragraph",
+        "global.call-to-action"
+      ]
+    }
+  }
+}

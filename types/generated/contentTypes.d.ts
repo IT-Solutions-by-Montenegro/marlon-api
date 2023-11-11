@@ -847,6 +847,50 @@ export interface ApiAuthorAuthor extends Schema.CollectionType {
   };
 }
 
+export interface ApiBecomeADealerBecomeADealer extends Schema.SingleType {
+  collectionName: 'become_a_dealers';
+  info: {
+    singularName: 'become-a-dealer';
+    pluralName: 'become-a-dealers';
+    displayName: 'Become a Dealer';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    slug: Attribute.UID<'api::become-a-dealer.become-a-dealer', 'title'>;
+    components: Attribute.DynamicZone<
+      ['global.banner', 'global.title-and-paragraph']
+    >;
+    dealer_application: Attribute.Relation<
+      'api::become-a-dealer.become-a-dealer',
+      'oneToOne',
+      'api::dealer-application.dealer-application'
+    >;
+    office_location: Attribute.Relation<
+      'api::become-a-dealer.become-a-dealer',
+      'oneToOne',
+      'api::office-location.office-location'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::become-a-dealer.become-a-dealer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::become-a-dealer.become-a-dealer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiBrandBrand extends Schema.CollectionType {
   collectionName: 'brands';
   info: {
@@ -956,6 +1000,43 @@ export interface ApiContactFormContactForm extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::contact-form.contact-form',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiContactPageContactPage extends Schema.SingleType {
+  collectionName: 'contact_pages';
+  info: {
+    singularName: 'contact-page';
+    pluralName: 'contact-pages';
+    displayName: 'Contact Page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    slug: Attribute.UID<'api::contact-page.contact-page', 'title'>;
+    components: Attribute.DynamicZone<['contact.contact-section']>;
+    office_location: Attribute.Relation<
+      'api::contact-page.contact-page',
+      'oneToOne',
+      'api::office-location.office-location'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contact-page.contact-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::contact-page.contact-page',
       'oneToOne',
       'admin::user'
     > &
@@ -1566,6 +1647,54 @@ export interface ApiTeamTeam extends Schema.CollectionType {
   };
 }
 
+export interface ApiTeamAmbassadorPageTeamAmbassadorPage
+  extends Schema.SingleType {
+  collectionName: 'team_ambassador_pages';
+  info: {
+    singularName: 'team-ambassador-page';
+    pluralName: 'team-ambassador-pages';
+    displayName: 'Team Ambassador Page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    slug: Attribute.UID<
+      'api::team-ambassador-page.team-ambassador-page',
+      'title'
+    >;
+    components: Attribute.DynamicZone<
+      ['global.banner', 'global.title-and-paragraph', 'global.call-to-action']
+    >;
+    ambassadors: Attribute.Relation<
+      'api::team-ambassador-page.team-ambassador-page',
+      'oneToMany',
+      'api::ambassador.ambassador'
+    >;
+    office_location: Attribute.Relation<
+      'api::team-ambassador-page.team-ambassador-page',
+      'oneToOne',
+      'api::office-location.office-location'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::team-ambassador-page.team-ambassador-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::team-ambassador-page.team-ambassador-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTestimonialTestimonial extends Schema.CollectionType {
   collectionName: 'testimonials';
   info: {
@@ -1649,6 +1778,56 @@ export interface ApiWarrantyWarranty extends Schema.CollectionType {
   };
 }
 
+export interface ApiWarrantyPageWarrantyPage extends Schema.SingleType {
+  collectionName: 'warranty_pages';
+  info: {
+    singularName: 'warranty-page';
+    pluralName: 'warranty-pages';
+    displayName: 'Warranty Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    slug: Attribute.UID<'api::warranty-page.warranty-page', 'title'>;
+    components: Attribute.DynamicZone<
+      ['global.banner', 'global.title-and-paragraph', 'global.partners-logo']
+    >;
+    warranty_registration: Attribute.Relation<
+      'api::warranty-page.warranty-page',
+      'oneToOne',
+      'api::warranty-registration.warranty-registration'
+    >;
+    warranty: Attribute.Relation<
+      'api::warranty-page.warranty-page',
+      'oneToOne',
+      'api::warranty.warranty'
+    >;
+    office_location: Attribute.Relation<
+      'api::warranty-page.warranty-page',
+      'oneToOne',
+      'api::office-location.office-location'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::warranty-page.warranty-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::warranty-page.warranty-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiWarrantyRegistrationWarrantyRegistration
   extends Schema.CollectionType {
   collectionName: 'warranty_registrations';
@@ -1708,9 +1887,11 @@ declare module '@strapi/types' {
       'api::ambassador.ambassador': ApiAmbassadorAmbassador;
       'api::applicant.applicant': ApiApplicantApplicant;
       'api::author.author': ApiAuthorAuthor;
+      'api::become-a-dealer.become-a-dealer': ApiBecomeADealerBecomeADealer;
       'api::brand.brand': ApiBrandBrand;
       'api::careers-page.careers-page': ApiCareersPageCareersPage;
       'api::contact-form.contact-form': ApiContactFormContactForm;
+      'api::contact-page.contact-page': ApiContactPageContactPage;
       'api::dealer.dealer': ApiDealerDealer;
       'api::dealer-application.dealer-application': ApiDealerApplicationDealerApplication;
       'api::find-a-dealer.find-a-dealer': ApiFindADealerFindADealer;
@@ -1726,8 +1907,10 @@ declare module '@strapi/types' {
       'api::product-category.product-category': ApiProductCategoryProductCategory;
       'api::product-line.product-line': ApiProductLineProductLine;
       'api::team.team': ApiTeamTeam;
+      'api::team-ambassador-page.team-ambassador-page': ApiTeamAmbassadorPageTeamAmbassadorPage;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'api::warranty.warranty': ApiWarrantyWarranty;
+      'api::warranty-page.warranty-page': ApiWarrantyPageWarrantyPage;
       'api::warranty-registration.warranty-registration': ApiWarrantyRegistrationWarrantyRegistration;
     }
   }

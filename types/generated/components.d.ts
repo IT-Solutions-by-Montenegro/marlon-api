@@ -13,6 +13,23 @@ export interface BlogFeaturedBoatSection extends Schema.Component {
   };
 }
 
+export interface ContactContactSection extends Schema.Component {
+  collectionName: 'components_contact_contact_sections';
+  info: {
+    displayName: 'Contact Section';
+  };
+  attributes: {
+    title: Attribute.Text;
+    btn1: Attribute.Component<'elements.button'>;
+    btn2: Attribute.Component<'elements.button'>;
+    office_location: Attribute.Relation<
+      'contact.contact-section',
+      'oneToOne',
+      'api::office-location.office-location'
+    >;
+  };
+}
+
 export interface ElementsBlogCard extends Schema.Component {
   collectionName: 'components_elements_blog_cards';
   info: {
@@ -202,6 +219,7 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'blog.featured-boat-section': BlogFeaturedBoatSection;
+      'contact.contact-section': ContactContactSection;
       'elements.blog-card': ElementsBlogCard;
       'elements.button': ElementsButton;
       'elements.image-card': ElementsImageCard;
