@@ -77,7 +77,6 @@ export interface GlobalBanner extends Schema.Component {
     title: Attribute.String;
     description: Attribute.Text;
     img: Attribute.Media;
-    nav_menu: Attribute.Component<'elements.image-card', true>;
   };
 }
 
