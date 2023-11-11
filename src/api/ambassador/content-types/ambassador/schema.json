@@ -12,30 +12,10 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "img": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
-    "phone_no": {
-      "type": "string"
-    },
-    "email": {
-      "type": "email"
-    },
     "product_lines": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::product-line.product-line"
-    },
-    "first_name": {
-      "type": "string"
-    },
-    "last_name": {
-      "type": "string"
     },
     "state": {
       "type": "string"
@@ -46,6 +26,11 @@
         "Active",
         "Inactive"
       ]
+    },
+    "personal_detail": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::personal-detail.personal-detail"
     }
   }
 }

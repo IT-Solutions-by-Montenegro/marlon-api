@@ -15,14 +15,6 @@
     "job_position": {
       "type": "string"
     },
-    "img": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
     "office_location": {
       "type": "relation",
       "relation": "oneToOne",
@@ -31,24 +23,17 @@
     "biography": {
       "type": "richtext"
     },
-    "socialmedia_link": {
-      "type": "string"
-    },
-    "first_name": {
-      "type": "string"
-    },
-    "last_name": {
-      "type": "string"
-    },
-    "state": {
-      "type": "string"
-    },
     "status": {
       "type": "enumeration",
       "enum": [
         "Active",
         "Inactive"
       ]
+    },
+    "personal_detail": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::personal-detail.personal-detail"
     }
   }
 }

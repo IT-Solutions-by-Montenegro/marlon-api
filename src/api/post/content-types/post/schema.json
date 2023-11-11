@@ -52,6 +52,12 @@
       "relation": "manyToMany",
       "target": "api::post-category.post-category",
       "mappedBy": "posts"
+    },
+    "author": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::author.author",
+      "inversedBy": "posts"
     }
   }
 }

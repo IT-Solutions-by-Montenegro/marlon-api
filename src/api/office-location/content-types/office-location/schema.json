@@ -39,6 +39,9 @@
         "Active",
         "Inactive"
       ]
+    },
+    "state": {
+      "type": "string"
     }
   }
 }
