@@ -1612,6 +1612,50 @@ export interface ApiProductLineProductLine extends Schema.CollectionType {
   };
 }
 
+export interface ApiProductsPageProductsPage extends Schema.SingleType {
+  collectionName: 'products_pages';
+  info: {
+    singularName: 'products-page';
+    pluralName: 'products-pages';
+    displayName: 'Products Page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    slug: Attribute.UID<'api::products-page.products-page', 'title'>;
+    office_location: Attribute.Relation<
+      'api::products-page.products-page',
+      'oneToOne',
+      'api::office-location.office-location'
+    >;
+    components: Attribute.DynamicZone<
+      [
+        'global.nav-menu',
+        'global.banner',
+        'global.title-and-paragraph',
+        'global.call-to-action'
+      ]
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::products-page.products-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::products-page.products-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTeamTeam extends Schema.CollectionType {
   collectionName: 'teams';
   info: {
@@ -1906,6 +1950,7 @@ declare module '@strapi/types' {
       'api::product.product': ApiProductProduct;
       'api::product-category.product-category': ApiProductCategoryProductCategory;
       'api::product-line.product-line': ApiProductLineProductLine;
+      'api::products-page.products-page': ApiProductsPageProductsPage;
       'api::team.team': ApiTeamTeam;
       'api::team-ambassador-page.team-ambassador-page': ApiTeamAmbassadorPageTeamAmbassadorPage;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
