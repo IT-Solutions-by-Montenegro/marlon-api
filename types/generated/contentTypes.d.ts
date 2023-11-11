@@ -677,6 +677,47 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiAboutUsAboutUs extends Schema.SingleType {
+  collectionName: 'about_uses';
+  info: {
+    singularName: 'about-us';
+    pluralName: 'about-uses';
+    displayName: 'About Us';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    slug: Attribute.UID<'api::about-us.about-us', 'title'>;
+    components: Attribute.DynamicZone<
+      [
+        'global.banner',
+        'global.title-and-paragraph',
+        'elements.image-card',
+        'global.call-to-action',
+        'global.nav-menu'
+      ]
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::about-us.about-us',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::about-us.about-us',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiAmbassadorAmbassador extends Schema.CollectionType {
   collectionName: 'ambassadors';
   info: {
@@ -1021,18 +1062,24 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
     singularName: 'home-page';
     pluralName: 'home-pages';
     displayName: 'HomePage';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    banner: Attribute.Component<'global.banner'>;
-    title_and_paragraph: Attribute.Component<'global.title-and-paragraph'>;
-    nav_menu: Attribute.Component<'elements.image-card', true>;
-    call_to_action: Attribute.Component<'global.call-to-action'>;
-    products_section: Attribute.Component<'homepage.products-section'>;
-    testimonials: Attribute.Component<'global.testimonials'>;
-    our_partners: Attribute.Component<'global.our-partners'>;
+    title: Attribute.String;
+    slug: Attribute.UID<'api::home-page.home-page', 'title'>;
+    block: Attribute.DynamicZone<
+      [
+        'global.banner',
+        'global.title-and-paragraph',
+        'global.call-to-action',
+        'homepage.products-section',
+        'global.testimonials',
+        'global.our-partners'
+      ]
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1517,6 +1564,86 @@ export interface ApiTestimonialTestimonial extends Schema.CollectionType {
   };
 }
 
+export interface ApiWarrantyWarranty extends Schema.CollectionType {
+  collectionName: 'warranties';
+  info: {
+    singularName: 'warranty';
+    pluralName: 'warranties';
+    displayName: 'Warranty';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    first_name: Attribute.String;
+    last_name: Attribute.String;
+    full_name: Attribute.String;
+    address1: Attribute.String;
+    address2: Attribute.String;
+    city: Attribute.String;
+    province_state: Attribute.String;
+    country: Attribute.String;
+    postal_code: Attribute.String;
+    phone_no: Attribute.String;
+    email: Attribute.Email;
+    message: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::warranty.warranty',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::warranty.warranty',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiWarrantyRegistrationWarrantyRegistration
+  extends Schema.CollectionType {
+  collectionName: 'warranty_registrations';
+  info: {
+    singularName: 'warranty-registration';
+    pluralName: 'warranty-registrations';
+    displayName: 'Warranty Registration';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    model_name: Attribute.String;
+    serial_no: Attribute.String;
+    dealer: Attribute.Relation<
+      'api::warranty-registration.warranty-registration',
+      'oneToOne',
+      'api::dealer.dealer'
+    >;
+    location: Attribute.String;
+    purchase_date: Attribute.Date;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::warranty-registration.warranty-registration',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::warranty-registration.warranty-registration',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1533,6 +1660,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::ambassador.ambassador': ApiAmbassadorAmbassador;
       'api::applicant.applicant': ApiApplicantApplicant;
       'api::author.author': ApiAuthorAuthor;
@@ -1554,6 +1682,8 @@ declare module '@strapi/types' {
       'api::product-line.product-line': ApiProductLineProductLine;
       'api::team.team': ApiTeamTeam;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
+      'api::warranty.warranty': ApiWarrantyWarranty;
+      'api::warranty-registration.warranty-registration': ApiWarrantyRegistrationWarrantyRegistration;
     }
   }
 }

@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "home_pages",
+  "collectionName": "about_uses",
   "info": {
-    "singularName": "home-page",
-    "pluralName": "home-pages",
-    "displayName": "HomePage",
+    "singularName": "about-us",
+    "pluralName": "about-uses",
+    "displayName": "About Us",
     "description": ""
   },
   "options": {
@@ -19,15 +19,14 @@
       "type": "uid",
       "targetField": "title"
     },
-    "block": {
+    "components": {
       "type": "dynamiczone",
       "components": [
         "global.banner",
         "global.title-and-paragraph",
+        "elements.image-card",
         "global.call-to-action",
-        "homepage.products-section",
-        "global.testimonials",
-        "global.our-partners"
+        "global.nav-menu"
       ]
     }
   }

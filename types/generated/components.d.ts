@@ -71,11 +71,13 @@ export interface GlobalBanner extends Schema.Component {
   collectionName: 'components_global_banners';
   info: {
     displayName: 'Banner';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
     description: Attribute.Text;
     img: Attribute.Media;
+    nav_menu: Attribute.Component<'elements.image-card', true>;
   };
 }
 
@@ -100,6 +102,18 @@ export interface GlobalCustomers extends Schema.Component {
     name: Attribute.String;
     testimony: Attribute.RichText;
     img: Attribute.Media;
+  };
+}
+
+export interface GlobalNavMenu extends Schema.Component {
+  collectionName: 'components_global_nav_menus';
+  info: {
+    displayName: 'nav_menu';
+  };
+  attributes: {
+    title: Attribute.String;
+    img: Attribute.Media;
+    link: Attribute.String;
   };
 }
 
@@ -196,6 +210,7 @@ declare module '@strapi/types' {
       'global.banner': GlobalBanner;
       'global.call-to-action': GlobalCallToAction;
       'global.customers': GlobalCustomers;
+      'global.nav-menu': GlobalNavMenu;
       'global.our-partners': GlobalOurPartners;
       'global.partners-logo': GlobalPartnersLogo;
       'global.testimonials': GlobalTestimonials;

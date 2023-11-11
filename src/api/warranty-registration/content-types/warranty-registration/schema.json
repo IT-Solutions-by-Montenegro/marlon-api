@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "warranty_registrations",
+  "info": {
+    "singularName": "warranty-registration",
+    "pluralName": "warranty-registrations",
+    "displayName": "Warranty Registration"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "model_name": {
+      "type": "string"
+    },
+    "serial_no": {
+      "type": "string"
+    },
+    "dealer": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::dealer.dealer"
+    },
+    "location": {
+      "type": "string"
+    },
+    "purchase_date": {
+      "type": "date"
+    }
+  }
+}
