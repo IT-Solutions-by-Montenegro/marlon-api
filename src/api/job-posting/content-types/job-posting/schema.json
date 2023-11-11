@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "job_postings",
+  "info": {
+    "singularName": "job-posting",
+    "pluralName": "job-postings",
+    "displayName": "Job Posting"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "position": {
+      "type": "string"
+    },
+    "job_description": {
+      "type": "string"
+    },
+    "duties_responsibilities": {
+      "type": "richtext"
+    },
+    "company_overview": {
+      "type": "richtext"
+    },
+    "posted_by": {
+      "type": "string"
+    },
+    "date_posted": {
+      "type": "date"
+    },
+    "salary": {
+      "type": "string"
+    },
+    "application_deadline": {
+      "type": "date"
+    },
+    "office_location": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::office-location.office-location"
+    }
+  }
+}

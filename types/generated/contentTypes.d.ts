@@ -831,6 +831,46 @@ export interface ApiBrandBrand extends Schema.CollectionType {
   };
 }
 
+export interface ApiContactFormContactForm extends Schema.CollectionType {
+  collectionName: 'contact_forms';
+  info: {
+    singularName: 'contact-form';
+    pluralName: 'contact-forms';
+    displayName: 'Contact_form';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    first_name: Attribute.String;
+    last_name: Attribute.String;
+    full_name: Attribute.String;
+    phone_no: Attribute.String;
+    email: Attribute.Email;
+    location: Attribute.String;
+    reason_of_contact: Attribute.Enumeration<
+      ['General Inquiries', 'Become a Dealer', 'Warranty', 'Products']
+    >;
+    message: Attribute.Text;
+    status: Attribute.Enumeration<['Read', 'Unread']>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contact-form.contact-form',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::contact-form.contact-form',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiDealerDealer extends Schema.CollectionType {
   collectionName: 'dealers';
   info: {
@@ -946,6 +986,48 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::home-page.home-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiJobPostingJobPosting extends Schema.CollectionType {
+  collectionName: 'job_postings';
+  info: {
+    singularName: 'job-posting';
+    pluralName: 'job-postings';
+    displayName: 'Job Posting';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    position: Attribute.String;
+    job_description: Attribute.String;
+    duties_responsibilities: Attribute.RichText;
+    company_overview: Attribute.RichText;
+    posted_by: Attribute.String;
+    date_posted: Attribute.Date;
+    salary: Attribute.String;
+    application_deadline: Attribute.Date;
+    office_location: Attribute.Relation<
+      'api::job-posting.job-posting',
+      'oneToOne',
+      'api::office-location.office-location'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::job-posting.job-posting',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::job-posting.job-posting',
       'oneToOne',
       'admin::user'
     > &
@@ -1392,9 +1474,11 @@ declare module '@strapi/types' {
       'api::applicant.applicant': ApiApplicantApplicant;
       'api::author.author': ApiAuthorAuthor;
       'api::brand.brand': ApiBrandBrand;
+      'api::contact-form.contact-form': ApiContactFormContactForm;
       'api::dealer.dealer': ApiDealerDealer;
       'api::find-a-dealer.find-a-dealer': ApiFindADealerFindADealer;
       'api::home-page.home-page': ApiHomePageHomePage;
+      'api::job-posting.job-posting': ApiJobPostingJobPosting;
       'api::office-location.office-location': ApiOfficeLocationOfficeLocation;
       'api::personal-detail.personal-detail': ApiPersonalDetailPersonalDetail;
       'api::post.post': ApiPostPost;
