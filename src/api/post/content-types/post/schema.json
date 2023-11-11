@@ -40,6 +40,18 @@
     },
     "slug": {
       "type": "string"
+    },
+    "post_tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::post-tag.post-tag",
+      "mappedBy": "posts"
+    },
+    "post_categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::post-category.post-category",
+      "mappedBy": "posts"
     }
   }
 }

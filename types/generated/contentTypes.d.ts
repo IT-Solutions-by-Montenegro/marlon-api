@@ -928,12 +928,57 @@ export interface ApiPostPost extends Schema.CollectionType {
     cover_img: Attribute.Media;
     isFeatured: Attribute.Boolean & Attribute.DefaultTo<false>;
     slug: Attribute.String;
+    post_tags: Attribute.Relation<
+      'api::post.post',
+      'manyToMany',
+      'api::post-tag.post-tag'
+    >;
+    post_categories: Attribute.Relation<
+      'api::post.post',
+      'manyToMany',
+      'api::post-category.post-category'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::post.post', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::post.post', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPostCategoryPostCategory extends Schema.CollectionType {
+  collectionName: 'post_categories';
+  info: {
+    singularName: 'post-category';
+    pluralName: 'post-categories';
+    displayName: 'Post Category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    posts: Attribute.Relation<
+      'api::post-category.post-category',
+      'manyToMany',
+      'api::post.post'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::post-category.post-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::post-category.post-category',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -963,6 +1008,41 @@ export interface ApiPostPagePostPage extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::post-page.post-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPostTagPostTag extends Schema.CollectionType {
+  collectionName: 'post_tags';
+  info: {
+    singularName: 'post-tag';
+    pluralName: 'post-tags';
+    displayName: 'Post Tag';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    posts: Attribute.Relation<
+      'api::post-tag.post-tag',
+      'manyToMany',
+      'api::post.post'
+    >;
+    name: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::post-tag.post-tag',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::post-tag.post-tag',
       'oneToOne',
       'admin::user'
     > &
@@ -1150,7 +1230,9 @@ declare module '@strapi/types' {
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::office-location.office-location': ApiOfficeLocationOfficeLocation;
       'api::post.post': ApiPostPost;
+      'api::post-category.post-category': ApiPostCategoryPostCategory;
       'api::post-page.post-page': ApiPostPagePostPage;
+      'api::post-tag.post-tag': ApiPostTagPostTag;
       'api::product.product': ApiProductProduct;
       'api::product-category.product-category': ApiProductCategoryProductCategory;
       'api::product-line.product-line': ApiProductLineProductLine;
