@@ -1078,6 +1078,7 @@ export interface ApiDealerDealer extends Schema.CollectionType {
       'oneToMany',
       'api::brand.brand'
     >;
+    email: Attribute.Email;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
