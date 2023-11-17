@@ -4,7 +4,8 @@
   "info": {
     "singularName": "job-posting",
     "pluralName": "job-postings",
-    "displayName": "Job Posting"
+    "displayName": "Job Posting",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -14,17 +15,8 @@
     "position": {
       "type": "string"
     },
-    "job_description": {
-      "type": "string"
-    },
     "duties_responsibilities": {
       "type": "richtext"
-    },
-    "company_overview": {
-      "type": "richtext"
-    },
-    "posted_by": {
-      "type": "string"
     },
     "date_posted": {
       "type": "date"
@@ -39,6 +31,9 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::office-location.office-location"
+    },
+    "job_description": {
+      "type": "richtext"
     }
   }
 }

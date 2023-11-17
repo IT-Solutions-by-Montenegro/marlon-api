@@ -70,6 +70,14 @@ export interface ElementsImageCard extends Schema.Component {
   };
 }
 
+export interface ElementsSocialMediaLinks extends Schema.Component {
+  collectionName: 'components_elements_social_media_links';
+  info: {
+    displayName: 'Social Media Links';
+  };
+  attributes: {};
+}
+
 export interface FindADealerInteractiveMap extends Schema.Component {
   collectionName: 'components_find_a_dealer_interactive_maps';
   info: {
@@ -223,6 +231,7 @@ declare module '@strapi/types' {
       'elements.blog-card': ElementsBlogCard;
       'elements.button': ElementsButton;
       'elements.image-card': ElementsImageCard;
+      'elements.social-media-links': ElementsSocialMediaLinks;
       'find-a-dealer.interactive-map': FindADealerInteractiveMap;
       'global.banner': GlobalBanner;
       'global.call-to-action': GlobalCallToAction;

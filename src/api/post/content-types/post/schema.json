@@ -4,7 +4,8 @@
   "info": {
     "singularName": "post",
     "pluralName": "posts",
-    "displayName": "Post"
+    "displayName": "Post",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,21 +19,23 @@
       "type": "richtext"
     },
     "media": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
     "cover_img": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "isFeatured": {
       "type": "boolean",
@@ -53,11 +56,23 @@
       "target": "api::post-category.post-category",
       "mappedBy": "posts"
     },
-    "author": {
+    "product_tags": {
       "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::author.author",
-      "inversedBy": "posts"
+      "relation": "manyToMany",
+      "target": "api::product-tag.product-tag",
+      "mappedBy": "posts"
+    },
+    "product_line_tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product-line-tag.product-line-tag",
+      "mappedBy": "posts"
+    },
+    "authors": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "post"
     }
   }
 }

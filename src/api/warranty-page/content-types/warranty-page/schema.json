@@ -27,16 +27,6 @@
         "global.partners-logo"
       ]
     },
-    "warranty_registration": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::warranty-registration.warranty-registration"
-    },
-    "warranty": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::warranty.warranty"
-    },
     "office_location": {
       "type": "relation",
       "relation": "oneToOne",

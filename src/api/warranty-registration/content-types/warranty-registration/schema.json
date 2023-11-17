@@ -4,29 +4,56 @@
   "info": {
     "singularName": "warranty-registration",
     "pluralName": "warranty-registrations",
-    "displayName": "Warranty Registration"
+    "displayName": "Warranty Registration",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "model_name": {
+    "first_name": {
       "type": "string"
     },
-    "serial_no": {
+    "last_name": {
       "type": "string"
     },
-    "dealer": {
+    "address1": {
+      "type": "string"
+    },
+    "address2": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "province_state": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "postal_code": {
+      "type": "string"
+    },
+    "phone_no": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "message": {
+      "type": "text"
+    },
+    "marlonRD": {
+      "type": "boolean",
+      "default": false
+    },
+    "warranty_products": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::dealer.dealer"
-    },
-    "location": {
-      "type": "string"
-    },
-    "purchase_date": {
-      "type": "date"
+      "relation": "oneToMany",
+      "target": "api::warranty-product.warranty-product",
+      "mappedBy": "warranty_registration"
     }
   }
 }

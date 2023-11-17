@@ -27,18 +27,50 @@
         "Inactive"
       ]
     },
-    "personal_detail": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::personal-detail.personal-detail"
-    },
-    "office_location": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::office-location.office-location"
-    },
     "date_joined": {
       "type": "date"
+    },
+    "first_name": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "biography": {
+      "type": "text"
+    },
+    "socialmedia_link": {
+      "displayName": "Social Media Links",
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.social-media-links"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "Fishing",
+        "Snowboarding",
+        "Jet Skiing",
+        "Hunting",
+        "Snowmobiling"
+      ]
+    },
+    "img": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "photo_gallery": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
     }
   }
 }

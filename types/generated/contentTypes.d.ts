@@ -660,6 +660,11 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.role'
     >;
+    post: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'manyToOne',
+      'api::post.post'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -737,109 +742,27 @@ export interface ApiAmbassadorAmbassador extends Schema.CollectionType {
     >;
     state: Attribute.String;
     Status: Attribute.Enumeration<['Active', 'Inactive']>;
-    personal_detail: Attribute.Relation<
-      'api::ambassador.ambassador',
-      'oneToOne',
-      'api::personal-detail.personal-detail'
-    >;
-    office_location: Attribute.Relation<
-      'api::ambassador.ambassador',
-      'oneToOne',
-      'api::office-location.office-location'
-    >;
     date_joined: Attribute.Date;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::ambassador.ambassador',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::ambassador.ambassador',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiApplicantApplicant extends Schema.CollectionType {
-  collectionName: 'applicants';
-  info: {
-    singularName: 'applicant';
-    pluralName: 'applicants';
-    displayName: 'Applicant';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
     first_name: Attribute.String;
     last_name: Attribute.String;
-    phone_no: Attribute.String;
-    email: Attribute.Email;
+    biography: Attribute.Text;
+    socialmedia_link: Attribute.Component<'elements.social-media-links', true>;
+    category: Attribute.Enumeration<
+      ['Fishing', 'Snowboarding', 'Jet Skiing', 'Hunting', 'Snowmobiling']
+    >;
     img: Attribute.Media;
-    message: Attribute.Text;
-    position: Attribute.String;
-    resume: Attribute.Media;
-    status: Attribute.Enumeration<
-      ['Pending', 'In Review', 'Shortlisted', 'Rejected', 'Hired']
-    >;
-    cover_letter: Attribute.Text;
+    photo_gallery: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::applicant.applicant',
+      'api::ambassador.ambassador',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::applicant.applicant',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiAuthorAuthor extends Schema.CollectionType {
-  collectionName: 'authors';
-  info: {
-    singularName: 'author';
-    pluralName: 'authors';
-    displayName: 'Post Author';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    posts: Attribute.Relation<
-      'api::author.author',
-      'oneToMany',
-      'api::post.post'
-    >;
-    personal_detail: Attribute.Relation<
-      'api::author.author',
-      'oneToOne',
-      'api::personal-detail.personal-detail'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::author.author',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::author.author',
+      'api::ambassador.ambassador',
       'oneToOne',
       'admin::user'
     > &
@@ -944,11 +867,6 @@ export interface ApiCareersPageCareersPage extends Schema.SingleType {
       'oneToOne',
       'api::job-posting.job-posting'
     >;
-    applicant: Attribute.Relation<
-      'api::careers-page.careers-page',
-      'oneToOne',
-      'api::applicant.applicant'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -972,7 +890,8 @@ export interface ApiContactFormContactForm extends Schema.CollectionType {
   info: {
     singularName: 'contact-form';
     pluralName: 'contact-forms';
-    displayName: 'Contact_form';
+    displayName: 'Contact Form';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -980,7 +899,6 @@ export interface ApiContactFormContactForm extends Schema.CollectionType {
   attributes: {
     first_name: Attribute.String;
     last_name: Attribute.String;
-    full_name: Attribute.String;
     phone_no: Attribute.String;
     email: Attribute.Email;
     location: Attribute.String;
@@ -1148,6 +1066,46 @@ export interface ApiDealerApplicationDealerApplication
   };
 }
 
+export interface ApiDealerContactDealerContact extends Schema.CollectionType {
+  collectionName: 'dealer_contacts';
+  info: {
+    singularName: 'dealer-contact';
+    pluralName: 'dealer-contacts';
+    displayName: 'Dealer Contact';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    dealer: Attribute.Relation<
+      'api::dealer-contact.dealer-contact',
+      'oneToOne',
+      'api::dealer.dealer'
+    >;
+    first_name: Attribute.String;
+    last_name: Attribute.String;
+    phone: Attribute.String;
+    email: Attribute.Email;
+    message: Attribute.Text;
+    status: Attribute.Enumeration<['New Lead', 'Contacted', 'Archived']>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::dealer-contact.dealer-contact',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::dealer-contact.dealer-contact',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiFindADealerFindADealer extends Schema.SingleType {
   collectionName: 'find_a_dealers';
   info: {
@@ -1224,22 +1182,61 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
   };
 }
 
+export interface ApiJobApplicantJobApplicant extends Schema.CollectionType {
+  collectionName: 'job_applicants';
+  info: {
+    singularName: 'job-applicant';
+    pluralName: 'job-applicants';
+    displayName: 'Job Applicant';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    first_name: Attribute.String;
+    last_name: Attribute.String;
+    phone_no: Attribute.String;
+    email: Attribute.Email;
+    img: Attribute.Media;
+    message: Attribute.Text;
+    position: Attribute.String;
+    resume: Attribute.Media;
+    status: Attribute.Enumeration<
+      ['Pending', 'In Review', 'Shortlisted', 'Rejected', 'Hired']
+    >;
+    cover_letter: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::job-applicant.job-applicant',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::job-applicant.job-applicant',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiJobPostingJobPosting extends Schema.CollectionType {
   collectionName: 'job_postings';
   info: {
     singularName: 'job-posting';
     pluralName: 'job-postings';
     displayName: 'Job Posting';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     position: Attribute.String;
-    job_description: Attribute.String;
     duties_responsibilities: Attribute.RichText;
-    company_overview: Attribute.RichText;
-    posted_by: Attribute.String;
     date_posted: Attribute.Date;
     salary: Attribute.String;
     application_deadline: Attribute.Date;
@@ -1248,6 +1245,7 @@ export interface ApiJobPostingJobPosting extends Schema.CollectionType {
       'oneToOne',
       'api::office-location.office-location'
     >;
+    job_description: Attribute.RichText;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1286,55 +1284,18 @@ export interface ApiOfficeLocationOfficeLocation extends Schema.CollectionType {
     longitude: Attribute.String;
     address: Attribute.String;
     status: Attribute.Enumeration<['Active', 'Inactive']>;
-    state: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::office-location.office-location',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::office-location.office-location',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiPersonalDetailPersonalDetail extends Schema.CollectionType {
-  collectionName: 'personal_details';
-  info: {
-    singularName: 'personal-detail';
-    pluralName: 'personal-details';
-    displayName: 'Personal Detail';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    first_name: Attribute.String;
-    last_name: Attribute.String;
-    img: Attribute.Media;
-    socialmedia_link: Attribute.String;
-    full_name: Attribute.String;
-    phone_no: Attribute.String;
     email: Attribute.Email;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::personal-detail.personal-detail',
+      'api::office-location.office-location',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::personal-detail.personal-detail',
+      'api::office-location.office-location',
       'oneToOne',
       'admin::user'
     > &
@@ -1348,6 +1309,7 @@ export interface ApiPostPost extends Schema.CollectionType {
     singularName: 'post';
     pluralName: 'posts';
     displayName: 'Post';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1369,10 +1331,20 @@ export interface ApiPostPost extends Schema.CollectionType {
       'manyToMany',
       'api::post-category.post-category'
     >;
-    author: Attribute.Relation<
+    product_tags: Attribute.Relation<
       'api::post.post',
-      'manyToOne',
-      'api::author.author'
+      'manyToMany',
+      'api::product-tag.product-tag'
+    >;
+    product_line_tags: Attribute.Relation<
+      'api::post.post',
+      'manyToMany',
+      'api::product-line-tag.product-line-tag'
+    >;
+    authors: Attribute.Relation<
+      'api::post.post',
+      'oneToMany',
+      'plugin::users-permissions.user'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1525,6 +1497,18 @@ export interface ApiProductProduct extends Schema.CollectionType {
       'manyToMany',
       'api::dealer-application.dealer-application'
     >;
+    warranty_registration: Attribute.Boolean & Attribute.DefaultTo<false>;
+    specs: Attribute.RichText;
+    related_products: Attribute.Relation<
+      'api::product.product',
+      'oneToMany',
+      'api::product.product'
+    >;
+    product: Attribute.Relation<
+      'api::product.product',
+      'manyToOne',
+      'api::product.product'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1613,6 +1597,76 @@ export interface ApiProductLineProductLine extends Schema.CollectionType {
   };
 }
 
+export interface ApiProductLineTagProductLineTag extends Schema.CollectionType {
+  collectionName: 'product_line_tags';
+  info: {
+    singularName: 'product-line-tag';
+    pluralName: 'product-line-tags';
+    displayName: 'Product Line Tag';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    posts: Attribute.Relation<
+      'api::product-line-tag.product-line-tag',
+      'manyToMany',
+      'api::post.post'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::product-line-tag.product-line-tag',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::product-line-tag.product-line-tag',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiProductTagProductTag extends Schema.CollectionType {
+  collectionName: 'product_tags';
+  info: {
+    singularName: 'product-tag';
+    pluralName: 'product-tags';
+    displayName: 'Product Tag';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    posts: Attribute.Relation<
+      'api::product-tag.product-tag',
+      'manyToMany',
+      'api::post.post'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::product-tag.product-tag',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::product-tag.product-tag',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiProductsPageProductsPage extends Schema.SingleType {
   collectionName: 'products_pages';
   info: {
@@ -1677,11 +1731,6 @@ export interface ApiTeamTeam extends Schema.CollectionType {
     >;
     biography: Attribute.RichText;
     status: Attribute.Enumeration<['Active', 'Inactive']>;
-    personal_detail: Attribute.Relation<
-      'api::team.team',
-      'oneToOne',
-      'api::personal-detail.personal-detail'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1782,47 +1831,6 @@ export interface ApiTestimonialTestimonial extends Schema.CollectionType {
   };
 }
 
-export interface ApiWarrantyWarranty extends Schema.CollectionType {
-  collectionName: 'warranties';
-  info: {
-    singularName: 'warranty';
-    pluralName: 'warranties';
-    displayName: 'Warranty';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    first_name: Attribute.String;
-    last_name: Attribute.String;
-    full_name: Attribute.String;
-    address1: Attribute.String;
-    address2: Attribute.String;
-    city: Attribute.String;
-    province_state: Attribute.String;
-    country: Attribute.String;
-    postal_code: Attribute.String;
-    phone_no: Attribute.String;
-    email: Attribute.Email;
-    message: Attribute.Text;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::warranty.warranty',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::warranty.warranty',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiWarrantyPageWarrantyPage extends Schema.SingleType {
   collectionName: 'warranty_pages';
   info: {
@@ -1839,16 +1847,6 @@ export interface ApiWarrantyPageWarrantyPage extends Schema.SingleType {
     slug: Attribute.UID<'api::warranty-page.warranty-page', 'title'>;
     components: Attribute.DynamicZone<
       ['global.banner', 'global.title-and-paragraph', 'global.partners-logo']
-    >;
-    warranty_registration: Attribute.Relation<
-      'api::warranty-page.warranty-page',
-      'oneToOne',
-      'api::warranty-registration.warranty-registration'
-    >;
-    warranty: Attribute.Relation<
-      'api::warranty-page.warranty-page',
-      'oneToOne',
-      'api::warranty.warranty'
     >;
     office_location: Attribute.Relation<
       'api::warranty-page.warranty-page',
@@ -1873,13 +1871,13 @@ export interface ApiWarrantyPageWarrantyPage extends Schema.SingleType {
   };
 }
 
-export interface ApiWarrantyRegistrationWarrantyRegistration
+export interface ApiWarrantyProductWarrantyProduct
   extends Schema.CollectionType {
-  collectionName: 'warranty_registrations';
+  collectionName: 'warranty_products';
   info: {
-    singularName: 'warranty-registration';
-    pluralName: 'warranty-registrations';
-    displayName: 'Warranty Registration';
+    singularName: 'warranty-product';
+    pluralName: 'warranty-products';
+    displayName: 'Warranty Product';
   };
   options: {
     draftAndPublish: true;
@@ -1888,12 +1886,65 @@ export interface ApiWarrantyRegistrationWarrantyRegistration
     model_name: Attribute.String;
     serial_no: Attribute.String;
     dealer: Attribute.Relation<
-      'api::warranty-registration.warranty-registration',
+      'api::warranty-product.warranty-product',
       'oneToOne',
       'api::dealer.dealer'
     >;
     location: Attribute.String;
     purchase_date: Attribute.Date;
+    warranty_registration: Attribute.Relation<
+      'api::warranty-product.warranty-product',
+      'manyToOne',
+      'api::warranty-registration.warranty-registration'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::warranty-product.warranty-product',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::warranty-product.warranty-product',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiWarrantyRegistrationWarrantyRegistration
+  extends Schema.CollectionType {
+  collectionName: 'warranty_registrations';
+  info: {
+    singularName: 'warranty-registration';
+    pluralName: 'warranty-registrations';
+    displayName: 'Warranty Registration';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    first_name: Attribute.String;
+    last_name: Attribute.String;
+    address1: Attribute.String;
+    address2: Attribute.String;
+    city: Attribute.String;
+    province_state: Attribute.String;
+    country: Attribute.String;
+    postal_code: Attribute.String;
+    phone_no: Attribute.String;
+    email: Attribute.Email;
+    message: Attribute.Text;
+    marlonRD: Attribute.Boolean & Attribute.DefaultTo<false>;
+    warranty_products: Attribute.Relation<
+      'api::warranty-registration.warranty-registration',
+      'oneToMany',
+      'api::warranty-product.warranty-product'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1930,8 +1981,6 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::ambassador.ambassador': ApiAmbassadorAmbassador;
-      'api::applicant.applicant': ApiApplicantApplicant;
-      'api::author.author': ApiAuthorAuthor;
       'api::become-a-dealer.become-a-dealer': ApiBecomeADealerBecomeADealer;
       'api::brand.brand': ApiBrandBrand;
       'api::careers-page.careers-page': ApiCareersPageCareersPage;
@@ -1939,11 +1988,12 @@ declare module '@strapi/types' {
       'api::contact-page.contact-page': ApiContactPageContactPage;
       'api::dealer.dealer': ApiDealerDealer;
       'api::dealer-application.dealer-application': ApiDealerApplicationDealerApplication;
+      'api::dealer-contact.dealer-contact': ApiDealerContactDealerContact;
       'api::find-a-dealer.find-a-dealer': ApiFindADealerFindADealer;
       'api::home-page.home-page': ApiHomePageHomePage;
+      'api::job-applicant.job-applicant': ApiJobApplicantJobApplicant;
       'api::job-posting.job-posting': ApiJobPostingJobPosting;
       'api::office-location.office-location': ApiOfficeLocationOfficeLocation;
-      'api::personal-detail.personal-detail': ApiPersonalDetailPersonalDetail;
       'api::post.post': ApiPostPost;
       'api::post-category.post-category': ApiPostCategoryPostCategory;
       'api::post-page.post-page': ApiPostPagePostPage;
@@ -1951,12 +2001,14 @@ declare module '@strapi/types' {
       'api::product.product': ApiProductProduct;
       'api::product-category.product-category': ApiProductCategoryProductCategory;
       'api::product-line.product-line': ApiProductLineProductLine;
+      'api::product-line-tag.product-line-tag': ApiProductLineTagProductLineTag;
+      'api::product-tag.product-tag': ApiProductTagProductTag;
       'api::products-page.products-page': ApiProductsPageProductsPage;
       'api::team.team': ApiTeamTeam;
       'api::team-ambassador-page.team-ambassador-page': ApiTeamAmbassadorPageTeamAmbassadorPage;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
-      'api::warranty.warranty': ApiWarrantyWarranty;
       'api::warranty-page.warranty-page': ApiWarrantyPageWarrantyPage;
+      'api::warranty-product.warranty-product': ApiWarrantyProductWarrantyProduct;
       'api::warranty-registration.warranty-registration': ApiWarrantyRegistrationWarrantyRegistration;
     }
   }

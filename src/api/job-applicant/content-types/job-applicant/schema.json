@@ -1,0 +1,63 @@
+{
+  "kind": "collectionType",
+  "collectionName": "job_applicants",
+  "info": {
+    "singularName": "job-applicant",
+    "pluralName": "job-applicants",
+    "displayName": "Job Applicant"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "first_name": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "phone_no": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "img": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "message": {
+      "type": "text"
+    },
+    "position": {
+      "type": "string"
+    },
+    "resume": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "Pending",
+        "In Review",
+        "Shortlisted",
+        "Rejected",
+        "Hired"
+      ]
+    },
+    "cover_letter": {
+      "type": "text"
+    }
+  }
+}

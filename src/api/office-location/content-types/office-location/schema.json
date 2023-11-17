@@ -40,8 +40,8 @@
         "Inactive"
       ]
     },
-    "state": {
-      "type": "string"
+    "email": {
+      "type": "email"
     }
   }
 }

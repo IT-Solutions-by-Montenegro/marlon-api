@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dealer_contacts",
+  "info": {
+    "singularName": "dealer-contact",
+    "pluralName": "dealer-contacts",
+    "displayName": "Dealer Contact"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "dealer": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::dealer.dealer"
+    },
+    "first_name": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "message": {
+      "type": "text"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "New Lead",
+        "Contacted",
+        "Archived"
+      ]
+    }
+  }
+}
