@@ -1711,6 +1711,41 @@ export interface ApiProductsPageProductsPage extends Schema.SingleType {
   };
 }
 
+export interface ApiSalesRepresentativeSalesRepresentative
+  extends Schema.CollectionType {
+  collectionName: 'sales_representatives';
+  info: {
+    singularName: 'sales-representative';
+    pluralName: 'sales-representatives';
+    displayName: 'Sales Representative';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    first_name: Attribute.String;
+    last_name: Attribute.String;
+    bio: Attribute.RichText;
+    socialmedia_link: Attribute.Component<'elements.social-media-links', true>;
+    img: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::sales-representative.sales-representative',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::sales-representative.sales-representative',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTeamTeam extends Schema.CollectionType {
   collectionName: 'teams';
   info: {
@@ -2004,6 +2039,7 @@ declare module '@strapi/types' {
       'api::product-line-tag.product-line-tag': ApiProductLineTagProductLineTag;
       'api::product-tag.product-tag': ApiProductTagProductTag;
       'api::products-page.products-page': ApiProductsPageProductsPage;
+      'api::sales-representative.sales-representative': ApiSalesRepresentativeSalesRepresentative;
       'api::team.team': ApiTeamTeam;
       'api::team-ambassador-page.team-ambassador-page': ApiTeamAmbassadorPageTeamAmbassadorPage;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;

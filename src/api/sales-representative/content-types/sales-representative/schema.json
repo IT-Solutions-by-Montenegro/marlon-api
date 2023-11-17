@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sales_representatives",
+  "info": {
+    "singularName": "sales-representative",
+    "pluralName": "sales-representatives",
+    "displayName": "Sales Representative"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "first_name": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "bio": {
+      "type": "richtext"
+    },
+    "socialmedia_link": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.social-media-links"
+    },
+    "img": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
