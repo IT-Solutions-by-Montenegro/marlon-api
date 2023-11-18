@@ -62,12 +62,6 @@
       "target": "api::product-tag.product-tag",
       "mappedBy": "posts"
     },
-    "product_line_tags": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::product-line-tag.product-line-tag",
-      "mappedBy": "posts"
-    },
     "authors": {
       "type": "relation",
       "relation": "oneToMany",

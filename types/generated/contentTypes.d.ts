@@ -1188,6 +1188,7 @@ export interface ApiJobApplicantJobApplicant extends Schema.CollectionType {
     singularName: 'job-applicant';
     pluralName: 'job-applicants';
     displayName: 'Job Applicant';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1199,12 +1200,16 @@ export interface ApiJobApplicantJobApplicant extends Schema.CollectionType {
     email: Attribute.Email;
     img: Attribute.Media;
     message: Attribute.Text;
-    position: Attribute.String;
     resume: Attribute.Media;
     status: Attribute.Enumeration<
       ['Pending', 'In Review', 'Shortlisted', 'Rejected', 'Hired']
     >;
     cover_letter: Attribute.Text;
+    job_posting: Attribute.Relation<
+      'api::job-applicant.job-applicant',
+      'oneToOne',
+      'api::job-posting.job-posting'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1335,11 +1340,6 @@ export interface ApiPostPost extends Schema.CollectionType {
       'api::post.post',
       'manyToMany',
       'api::product-tag.product-tag'
-    >;
-    product_line_tags: Attribute.Relation<
-      'api::post.post',
-      'manyToMany',
-      'api::product-line-tag.product-line-tag'
     >;
     authors: Attribute.Relation<
       'api::post.post',
@@ -1579,6 +1579,7 @@ export interface ApiProductLineProductLine extends Schema.CollectionType {
       'oneToMany',
       'api::product-category.product-category'
     >;
+    tag: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1590,41 +1591,6 @@ export interface ApiProductLineProductLine extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::product-line.product-line',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiProductLineTagProductLineTag extends Schema.CollectionType {
-  collectionName: 'product_line_tags';
-  info: {
-    singularName: 'product-line-tag';
-    pluralName: 'product-line-tags';
-    displayName: 'Product Line Tag';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    name: Attribute.String;
-    posts: Attribute.Relation<
-      'api::product-line-tag.product-line-tag',
-      'manyToMany',
-      'api::post.post'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::product-line-tag.product-line-tag',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::product-line-tag.product-line-tag',
       'oneToOne',
       'admin::user'
     > &
@@ -1766,6 +1732,9 @@ export interface ApiTeamTeam extends Schema.CollectionType {
     >;
     biography: Attribute.RichText;
     status: Attribute.Enumeration<['Active', 'Inactive']>;
+    first_name: Attribute.String;
+    last_name: Attribute.String;
+    socialmedia_link: Attribute.Component<'elements.social-media-links', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2036,7 +2005,6 @@ declare module '@strapi/types' {
       'api::product.product': ApiProductProduct;
       'api::product-category.product-category': ApiProductCategoryProductCategory;
       'api::product-line.product-line': ApiProductLineProductLine;
-      'api::product-line-tag.product-line-tag': ApiProductLineTagProductLineTag;
       'api::product-tag.product-tag': ApiProductTagProductTag;
       'api::products-page.products-page': ApiProductsPageProductsPage;
       'api::sales-representative.sales-representative': ApiSalesRepresentativeSalesRepresentative;

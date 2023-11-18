@@ -30,6 +30,9 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::product-category.product-category"
+    },
+    "tag": {
+      "type": "string"
     }
   }
 }

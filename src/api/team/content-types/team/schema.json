@@ -29,6 +29,17 @@
         "Active",
         "Inactive"
       ]
+    },
+    "first_name": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "socialmedia_link": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.social-media-links"
     }
   }
 }

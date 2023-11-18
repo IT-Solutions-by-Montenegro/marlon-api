@@ -4,7 +4,8 @@
   "info": {
     "singularName": "job-applicant",
     "pluralName": "job-applicants",
-    "displayName": "Job Applicant"
+    "displayName": "Job Applicant",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -24,27 +25,26 @@
       "type": "email"
     },
     "img": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "message": {
       "type": "text"
     },
-    "position": {
-      "type": "string"
-    },
     "resume": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "status": {
       "type": "enumeration",
@@ -58,6 +58,11 @@
     },
     "cover_letter": {
       "type": "text"
+    },
+    "job_posting": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::job-posting.job-posting"
     }
   }
 }
