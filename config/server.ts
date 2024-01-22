@@ -7,4 +7,9 @@ export default ({ env }) => ({
   webhooks: {
     populateRelations: env.bool('WEBHOOKS_POPULATE_RELATIONS', false),
   },
+  admin: {
+    auth: {
+      secret: env('ADMIN_JWT_SECRET', 'dfee1c43fb8d2e506ad627'),
+    },
+  },
 });

@@ -1,12 +1,13 @@
 import path from "path";
 
 export default ({ env }) => {
-  const client = env("DATABASE_CLIENT", "sqlite");
+  
+  const client = env("DATABASE_CLIENT");
 
   const connections = {
     mysql: {
       connection: {
-        connectionString: env("DATABASE_URL"),
+        // connectionString: env("DATABASE_URL"),
         host: env("DATABASE_HOST", "localhost"),
         port: env.int("DATABASE_PORT", 3306),
         database: env("DATABASE_NAME", "strapi"),
@@ -24,6 +25,7 @@ export default ({ env }) => {
           ),
         },
       },
+      debug: false,
       pool: {
         min: env.int("DATABASE_POOL_MIN", 2),
         max: env.int("DATABASE_POOL_MAX", 10),
@@ -55,7 +57,7 @@ export default ({ env }) => {
     },
     postgres: {
       connection: {
-        connectionString: env("DATABASE_URL"),
+        // connectionString: env("DATABASE_URL"),
         host: env("DATABASE_HOST", "localhost"),
         port: env.int("DATABASE_PORT", 5432),
         database: env("DATABASE_NAME", "strapi"),
@@ -66,18 +68,23 @@ export default ({ env }) => {
         },
         schema: env("DATABASE_SCHEMA", "public"),
       },
-      debug: false,
+      debug: true,
       acquireConnectionTimeout: 600000,
       pool: {
         min: 0,
-        max: 100,
-        acquireTimeoutMillis: 300000,
+        max: 200,
+        acquireTimeoutMillis: 600000,
         createTimeoutMillis: 300000,
         destroyTimeoutMillis: 50000,
-        idleTimeoutMillis: 300000,
+        idleTimeoutMillis: 600000,
         reapIntervalMillis: 10000,
         createRetryIntervalMillis: 2000,
         propagateCreateError: false,
+        afterCreate: (conn, done) => {
+          // .... add logic here ....
+          // you must call with new connection
+          done(null, conn);
+        },
       },
     },
     sqlite: {
@@ -92,6 +99,7 @@ export default ({ env }) => {
       useNullAsDefault: true,
     },
   };
+
 
   return {
     connection: {

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "post-category",
     "pluralName": "post-categories",
-    "displayName": "Post Category"
+    "displayName": "Post Category",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -19,6 +20,12 @@
       "relation": "manyToMany",
       "target": "api::post.post",
       "inversedBy": "post_categories"
+    },
+    "ref_name": {
+      "type": "string"
+    },
+    "href": {
+      "type": "string"
     }
   }
 }

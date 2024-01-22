@@ -16,14 +16,32 @@
       "type": "string"
     },
     "image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
+    },
+    "ref_name": {
+      "type": "string"
+    },
+    "href": {
+      "type": "string"
+    },
+    "is_active": {
+      "type": "integer",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "required": true
+    },
+    "seq": {
+      "type": "integer",
+      "default": 0
     }
   }
 }
