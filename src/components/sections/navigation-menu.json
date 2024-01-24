@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_sections_navigation_menus",
+  "info": {
+    "displayName": "Navigation Menu"
+  },
+  "options": {},
+  "attributes": {
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "cards.card"
+    }
+  }
+}

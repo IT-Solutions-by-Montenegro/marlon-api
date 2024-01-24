@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_sections_nav_bars",
+  "info": {
+    "displayName": "NavBar"
+  },
+  "options": {},
+  "attributes": {
+    "brand": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.nav-bar-branch"
+    },
+    "NavBarItems": {
+      "type": "component",
+      "repeatable": true,
+      "component": "global.nav-bar-item"
+    },
+    "menu": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.hamburger"
+    }
+  }
+}

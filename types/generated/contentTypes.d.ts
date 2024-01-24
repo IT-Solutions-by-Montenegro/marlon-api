@@ -1197,6 +1197,38 @@ export interface ApiDealerContactDealerContact extends Schema.CollectionType {
   };
 }
 
+export interface ApiEmailTemplateEmailTemplate extends Schema.CollectionType {
+  collectionName: 'email_templates';
+  info: {
+    singularName: 'email-template';
+    pluralName: 'email-templates';
+    displayName: 'Email Template';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    subject: Attribute.String & Attribute.Required;
+    content: Attribute.RichText;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::email-template.email-template',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::email-template.email-template',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiFindADealerFindADealer extends Schema.SingleType {
   collectionName: 'find_a_dealers';
   info: {
@@ -1252,7 +1284,17 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
         'global.call-to-action',
         'homepage.products-section',
         'global.testimonials',
-        'global.our-partners'
+        'global.our-partners',
+        'sections.product-category',
+        'sections.call-to-action',
+        'sections.navigation-menu',
+        'sections.title-paragraph',
+        'sections.banner',
+        'sections.nav-bar',
+        'sections.footer',
+        'sections.partners',
+        'sections.testimonial',
+        'sections.news'
       ]
     >;
     createdAt: Attribute.DateTime;
@@ -2099,6 +2141,7 @@ declare module '@strapi/types' {
       'api::dealer.dealer': ApiDealerDealer;
       'api::dealer-application.dealer-application': ApiDealerApplicationDealerApplication;
       'api::dealer-contact.dealer-contact': ApiDealerContactDealerContact;
+      'api::email-template.email-template': ApiEmailTemplateEmailTemplate;
       'api::find-a-dealer.find-a-dealer': ApiFindADealerFindADealer;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::job-applicant.job-applicant': ApiJobApplicantJobApplicant;

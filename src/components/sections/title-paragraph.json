@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_sections_title_paragraphs",
+  "info": {
+    "displayName": "Title Paragraph"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "paragraph": {
+      "type": "text"
+    }
+  }
+}

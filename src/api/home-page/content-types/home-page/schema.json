@@ -27,7 +27,17 @@
         "global.call-to-action",
         "homepage.products-section",
         "global.testimonials",
-        "global.our-partners"
+        "global.our-partners",
+        "sections.product-category",
+        "sections.call-to-action",
+        "sections.navigation-menu",
+        "sections.title-paragraph",
+        "sections.banner",
+        "sections.nav-bar",
+        "sections.footer",
+        "sections.partners",
+        "sections.testimonial",
+        "sections.news"
       ]
     }
   }

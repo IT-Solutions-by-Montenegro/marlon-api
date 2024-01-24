@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_global_texts",
+  "info": {
+    "displayName": "Text"
+  },
+  "options": {},
+  "attributes": {
+    "type": {
+      "type": "string"
+    },
+    "text": {
+      "type": "text"
+    },
+    "size": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    },
+    "weight": {
+      "type": "string"
+    }
+  }
+}

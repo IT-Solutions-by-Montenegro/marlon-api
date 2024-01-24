@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_sections_news",
+  "info": {
+    "displayName": "news"
+  },
+  "options": {},
+  "attributes": {
+    "highlight": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.text-icon"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "cards.card-news"
+    },
+    "title": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.text"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.anchor"
+    }
+  }
+}

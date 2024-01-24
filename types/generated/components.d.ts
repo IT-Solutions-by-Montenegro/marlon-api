@@ -13,6 +13,32 @@ export interface BlogFeaturedBoatSection extends Schema.Component {
   };
 }
 
+export interface CardsCardNews extends Schema.Component {
+  collectionName: 'components_cards_card_news';
+  info: {
+    displayName: 'CardNews';
+  };
+  attributes: {
+    image: Attribute.Media;
+    title: Attribute.Component<'global.text'>;
+    text: Attribute.Component<'global.text'>;
+    button: Attribute.Component<'global.button'>;
+  };
+}
+
+export interface CardsCard extends Schema.Component {
+  collectionName: 'components_cards_cards';
+  info: {
+    displayName: 'Card';
+  };
+  attributes: {
+    primary: Attribute.String;
+    secondary: Attribute.String;
+    image: Attribute.Media;
+    link: Attribute.Component<'global.anchor'>;
+  };
+}
+
 export interface ContactContactSection extends Schema.Component {
   collectionName: 'components_contact_contact_sections';
   info: {
@@ -92,6 +118,21 @@ export interface FindADealerInteractiveMap extends Schema.Component {
   };
 }
 
+export interface GlobalAnchor extends Schema.Component {
+  collectionName: 'components_global_anchors';
+  info: {
+    displayName: 'Anchor';
+    description: '';
+  };
+  attributes: {
+    text: Attribute.String;
+    context: Attribute.String;
+    size: Attribute.String;
+    link: Attribute.String;
+    icon: Attribute.Media;
+  };
+}
+
 export interface GlobalBanner extends Schema.Component {
   collectionName: 'components_global_banners';
   info: {
@@ -102,6 +143,19 @@ export interface GlobalBanner extends Schema.Component {
     title: Attribute.String;
     description: Attribute.Text;
     img: Attribute.Media;
+  };
+}
+
+export interface GlobalButton extends Schema.Component {
+  collectionName: 'components_global_buttons';
+  info: {
+    displayName: 'Button';
+    description: '';
+  };
+  attributes: {
+    text: Attribute.String;
+    context: Attribute.String;
+    size: Attribute.String;
   };
 }
 
@@ -126,6 +180,48 @@ export interface GlobalCustomers extends Schema.Component {
     name: Attribute.String;
     testimony: Attribute.RichText;
     img: Attribute.Media;
+  };
+}
+
+export interface GlobalHamburger extends Schema.Component {
+  collectionName: 'components_global_hamburgers';
+  info: {
+    displayName: 'Hamburger';
+    description: '';
+  };
+  attributes: {
+    name: Attribute.String;
+    icon: Attribute.Media;
+    image: Attribute.Media;
+  };
+}
+
+export interface GlobalNavBarBranch extends Schema.Component {
+  collectionName: 'components_global_nav_bar_branches';
+  info: {
+    displayName: 'Brand';
+    description: '';
+  };
+  attributes: {
+    icon: Attribute.Media;
+    name: Attribute.String;
+    link: Attribute.String;
+  };
+}
+
+export interface GlobalNavBarItem extends Schema.Component {
+  collectionName: 'components_global_nav_bar_items';
+  info: {
+    displayName: 'NavBarItem';
+    description: '';
+  };
+  attributes: {
+    name: Attribute.String;
+    icon: Attribute.Media;
+    link: Attribute.String;
+    responsive: Attribute.String;
+    width: Attribute.String;
+    height: Attribute.String;
   };
 }
 
@@ -162,6 +258,19 @@ export interface GlobalPartnersLogo extends Schema.Component {
   };
 }
 
+export interface GlobalTestemony extends Schema.Component {
+  collectionName: 'components_global_testemonies';
+  info: {
+    displayName: 'Testimony';
+    description: '';
+  };
+  attributes: {
+    image: Attribute.Media;
+    text: Attribute.Text;
+    name: Attribute.Component<'global.text-icon'>;
+  };
+}
+
 export interface GlobalTestimonials extends Schema.Component {
   collectionName: 'components_global_testimonials';
   info: {
@@ -170,6 +279,33 @@ export interface GlobalTestimonials extends Schema.Component {
   attributes: {
     customer: Attribute.Component<'global.customers', true>;
     header: Attribute.String;
+  };
+}
+
+export interface GlobalTextIcon extends Schema.Component {
+  collectionName: 'components_global_text_icons';
+  info: {
+    displayName: 'Text Icon';
+    description: '';
+  };
+  attributes: {
+    image: Attribute.Media;
+    text: Attribute.String;
+    type: Attribute.String;
+  };
+}
+
+export interface GlobalText extends Schema.Component {
+  collectionName: 'components_global_texts';
+  info: {
+    displayName: 'Text';
+  };
+  attributes: {
+    type: Attribute.String;
+    text: Attribute.Text;
+    size: Attribute.String;
+    color: Attribute.String;
+    weight: Attribute.String;
   };
 }
 
@@ -223,27 +359,171 @@ export interface PostPosts extends Schema.Component {
   };
 }
 
+export interface SectionsBanner extends Schema.Component {
+  collectionName: 'components_sections_banners';
+  info: {
+    displayName: 'Banner';
+    description: '';
+  };
+  attributes: {
+    highlight: Attribute.Component<'global.text-icon'>;
+    title: Attribute.Component<'global.text'>;
+    image: Attribute.Media;
+  };
+}
+
+export interface SectionsCallToAction extends Schema.Component {
+  collectionName: 'components_sections_call_to_actions';
+  info: {
+    displayName: 'Call To Action';
+    description: '';
+  };
+  attributes: {
+    highlight: Attribute.Component<'global.text-icon'>;
+    title: Attribute.String;
+    button: Attribute.Component<'global.anchor', true>;
+  };
+}
+
+export interface SectionsFooter extends Schema.Component {
+  collectionName: 'components_sections_footers';
+  info: {
+    displayName: 'footer';
+    description: '';
+  };
+  attributes: {
+    locations: Attribute.Component<'global.anchor', true>;
+    brand: Attribute.Component<'global.nav-bar-branch'>;
+    certifications: Attribute.Component<'global.anchor', true>;
+    socials: Attribute.Component<'global.anchor', true>;
+  };
+}
+
+export interface SectionsNavBar extends Schema.Component {
+  collectionName: 'components_sections_nav_bars';
+  info: {
+    displayName: 'NavBar';
+  };
+  attributes: {
+    brand: Attribute.Component<'global.nav-bar-branch'>;
+    NavBarItems: Attribute.Component<'global.nav-bar-item', true>;
+    menu: Attribute.Component<'global.hamburger'>;
+  };
+}
+
+export interface SectionsNavigationMenu extends Schema.Component {
+  collectionName: 'components_sections_navigation_menus';
+  info: {
+    displayName: 'Navigation Menu';
+  };
+  attributes: {
+    cards: Attribute.Component<'cards.card', true>;
+  };
+}
+
+export interface SectionsNews extends Schema.Component {
+  collectionName: 'components_sections_news';
+  info: {
+    displayName: 'news';
+  };
+  attributes: {
+    highlight: Attribute.Component<'global.text-icon'>;
+    image: Attribute.Media;
+    cards: Attribute.Component<'cards.card-news', true>;
+    title: Attribute.Component<'global.text'>;
+    button: Attribute.Component<'global.anchor'>;
+  };
+}
+
+export interface SectionsPartners extends Schema.Component {
+  collectionName: 'components_sections_partners';
+  info: {
+    displayName: 'Partners';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.Component<'global.text'>;
+    partners: Attribute.Component<'global.anchor', true>;
+  };
+}
+
+export interface SectionsProductCategory extends Schema.Component {
+  collectionName: 'components_sections_product_categories';
+  info: {
+    displayName: 'Product Category';
+  };
+  attributes: {
+    highlight: Attribute.Component<'global.text-icon'>;
+    title: Attribute.String;
+    cards: Attribute.Component<'cards.card', true>;
+    button: Attribute.Component<'global.anchor'>;
+  };
+}
+
+export interface SectionsTestimonial extends Schema.Component {
+  collectionName: 'components_sections_testimonials';
+  info: {
+    displayName: 'Testimonial';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.Component<'global.text'>;
+    testaments: Attribute.Component<'global.testemony', true>;
+  };
+}
+
+export interface SectionsTitleParagraph extends Schema.Component {
+  collectionName: 'components_sections_title_paragraphs';
+  info: {
+    displayName: 'Title Paragraph';
+  };
+  attributes: {
+    title: Attribute.String;
+    paragraph: Attribute.Text;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'blog.featured-boat-section': BlogFeaturedBoatSection;
+      'cards.card-news': CardsCardNews;
+      'cards.card': CardsCard;
       'contact.contact-section': ContactContactSection;
       'elements.blog-card': ElementsBlogCard;
       'elements.button': ElementsButton;
       'elements.image-card': ElementsImageCard;
       'elements.social-media-links': ElementsSocialMediaLinks;
       'find-a-dealer.interactive-map': FindADealerInteractiveMap;
+      'global.anchor': GlobalAnchor;
       'global.banner': GlobalBanner;
+      'global.button': GlobalButton;
       'global.call-to-action': GlobalCallToAction;
       'global.customers': GlobalCustomers;
+      'global.hamburger': GlobalHamburger;
+      'global.nav-bar-branch': GlobalNavBarBranch;
+      'global.nav-bar-item': GlobalNavBarItem;
       'global.nav-menu': GlobalNavMenu;
       'global.our-partners': GlobalOurPartners;
       'global.partners-logo': GlobalPartnersLogo;
+      'global.testemony': GlobalTestemony;
       'global.testimonials': GlobalTestimonials;
+      'global.text-icon': GlobalTextIcon;
+      'global.text': GlobalText;
       'global.title-and-paragraph': GlobalTitleAndParagraph;
       'homepage.products-section': HomepageProductsSection;
       'post.post-gallery': PostPostGallery;
       'post.posts': PostPosts;
+      'sections.banner': SectionsBanner;
+      'sections.call-to-action': SectionsCallToAction;
+      'sections.footer': SectionsFooter;
+      'sections.nav-bar': SectionsNavBar;
+      'sections.navigation-menu': SectionsNavigationMenu;
+      'sections.news': SectionsNews;
+      'sections.partners': SectionsPartners;
+      'sections.product-category': SectionsProductCategory;
+      'sections.testimonial': SectionsTestimonial;
+      'sections.title-paragraph': SectionsTitleParagraph;
     }
   }
 }

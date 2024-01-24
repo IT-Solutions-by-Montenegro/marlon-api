@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_cards_card_news",
+  "info": {
+    "displayName": "CardNews"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "title": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.text"
+    },
+    "text": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.text"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.button"
+    }
+  }
+}

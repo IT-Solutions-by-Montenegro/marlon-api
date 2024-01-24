@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_global_anchors",
+  "info": {
+    "displayName": "Anchor",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "context": {
+      "type": "string"
+    },
+    "size": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    },
+    "icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

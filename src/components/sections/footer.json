@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_sections_footers",
+  "info": {
+    "displayName": "footer",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "locations": {
+      "type": "component",
+      "repeatable": true,
+      "component": "global.anchor"
+    },
+    "brand": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.nav-bar-branch"
+    },
+    "certifications": {
+      "type": "component",
+      "repeatable": true,
+      "component": "global.anchor"
+    },
+    "socials": {
+      "type": "component",
+      "repeatable": true,
+      "component": "global.anchor"
+    }
+  }
+}

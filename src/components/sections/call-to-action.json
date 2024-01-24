@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_sections_call_to_actions",
+  "info": {
+    "displayName": "Call To Action",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "highlight": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.text-icon"
+    },
+    "title": {
+      "type": "string"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": true,
+      "component": "global.anchor"
+    }
+  }
+}
