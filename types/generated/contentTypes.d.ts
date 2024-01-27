@@ -1688,7 +1688,7 @@ export interface ApiNewsListNewsList extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String;
-    content: Attribute.String;
+    content: Attribute.Text;
     image: Attribute.Media;
     link: Attribute.String;
     createdAt: Attribute.DateTime;
