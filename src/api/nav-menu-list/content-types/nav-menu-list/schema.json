@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "nav_menu_lists",
+  "info": {
+    "singularName": "nav-menu-list",
+    "pluralName": "nav-menu-lists",
+    "displayName": "Nav Menu List",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

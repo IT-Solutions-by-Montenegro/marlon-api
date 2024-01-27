@@ -1,14 +1,24 @@
 {
   "collectionName": "components_sections_news",
   "info": {
-    "displayName": "news"
+    "displayName": "news",
+    "description": ""
   },
   "options": {},
   "attributes": {
+    "news_lists": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::news-list.news-list"
+    },
+    "title": {
+      "type": "string"
+    },
     "highlight": {
-      "type": "component",
-      "repeatable": false,
-      "component": "global.text-icon"
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
     },
     "image": {
       "allowedTypes": [
@@ -19,21 +29,6 @@
       ],
       "type": "media",
       "multiple": false
-    },
-    "cards": {
-      "type": "component",
-      "repeatable": true,
-      "component": "cards.card-news"
-    },
-    "title": {
-      "type": "component",
-      "repeatable": false,
-      "component": "global.text"
-    },
-    "button": {
-      "type": "component",
-      "repeatable": false,
-      "component": "global.anchor"
     }
   }
 }

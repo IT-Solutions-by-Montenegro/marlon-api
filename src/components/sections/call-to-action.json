@@ -6,18 +6,10 @@
   },
   "options": {},
   "attributes": {
-    "highlight": {
-      "type": "component",
-      "repeatable": false,
-      "component": "global.text-icon"
-    },
-    "title": {
-      "type": "string"
-    },
-    "button": {
-      "type": "component",
-      "repeatable": true,
-      "component": "global.anchor"
+    "call_action": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::call-action.call-action"
     }
   }
 }

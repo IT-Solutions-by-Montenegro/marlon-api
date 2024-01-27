@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "banner_lists",
+  "info": {
+    "singularName": "banner-list",
+    "pluralName": "banner-lists",
+    "displayName": "Banner List",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "caption": {
+      "type": "text"
+    },
+    "media": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "type": {
+      "type": "string"
+    }
+  }
+}

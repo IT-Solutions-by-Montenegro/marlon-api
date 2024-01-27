@@ -1,24 +1,20 @@
 {
   "collectionName": "components_sections_nav_bars",
   "info": {
-    "displayName": "NavBar"
+    "displayName": "NavBar",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "brand": {
-      "type": "component",
-      "repeatable": false,
-      "component": "global.nav-bar-branch"
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::brand.brand"
     },
-    "NavBarItems": {
-      "type": "component",
-      "repeatable": true,
-      "component": "global.nav-bar-item"
-    },
-    "menu": {
-      "type": "component",
-      "repeatable": false,
-      "component": "global.hamburger"
+    "nav_item_lists": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::nav-item-list.nav-item-list"
     }
   }
 }

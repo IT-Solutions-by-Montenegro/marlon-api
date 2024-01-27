@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "certification_lists",
+  "info": {
+    "singularName": "certification-list",
+    "pluralName": "certification-lists",
+    "displayName": "Certification List"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

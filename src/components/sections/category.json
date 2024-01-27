@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_sections_categories",
+  "info": {
+    "displayName": "Category",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "category_lists": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category-list.category-list"
+    },
+    "title": {
+      "type": "string"
+    },
+    "highlight": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    }
+  }
+}

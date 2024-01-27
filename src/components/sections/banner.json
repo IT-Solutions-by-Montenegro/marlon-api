@@ -6,25 +6,10 @@
   },
   "options": {},
   "attributes": {
-    "highlight": {
-      "type": "component",
-      "repeatable": false,
-      "component": "global.text-icon"
-    },
-    "title": {
-      "type": "component",
-      "repeatable": false,
-      "component": "global.text"
-    },
-    "image": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": false
+    "banner_list": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::banner-list.banner-list"
     }
   }
 }

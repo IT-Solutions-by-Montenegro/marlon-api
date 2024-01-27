@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_sections_nav_menus",
+  "info": {
+    "displayName": "Nav Menu"
+  },
+  "options": {},
+  "attributes": {
+    "nav_menu_lists": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::nav-menu-list.nav-menu-list"
+    }
+  }
+}

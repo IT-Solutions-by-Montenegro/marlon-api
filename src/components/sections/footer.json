@@ -6,25 +6,25 @@
   },
   "options": {},
   "attributes": {
-    "locations": {
-      "type": "component",
-      "repeatable": true,
-      "component": "global.anchor"
+    "social_links": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::social-link.social-link"
+    },
+    "certification_lists": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::certification-list.certification-list"
+    },
+    "location_lists": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::location-list.location-list"
     },
     "brand": {
-      "type": "component",
-      "repeatable": false,
-      "component": "global.nav-bar-branch"
-    },
-    "certifications": {
-      "type": "component",
-      "repeatable": true,
-      "component": "global.anchor"
-    },
-    "socials": {
-      "type": "component",
-      "repeatable": true,
-      "component": "global.anchor"
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::brand.brand"
     }
   }
 }

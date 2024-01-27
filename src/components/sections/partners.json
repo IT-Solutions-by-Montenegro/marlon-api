@@ -6,15 +6,13 @@
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "component",
-      "repeatable": false,
-      "component": "global.text"
+    "partner_lists": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::partner.partner"
     },
-    "partners": {
-      "type": "component",
-      "repeatable": true,
-      "component": "global.anchor"
+    "title": {
+      "type": "string"
     }
   }
 }

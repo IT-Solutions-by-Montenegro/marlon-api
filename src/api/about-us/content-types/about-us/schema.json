@@ -28,6 +28,11 @@
         "global.call-to-action",
         "global.nav-menu"
       ]
+    },
+    "testimonials": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::testimonial.testimonial"
     }
   }
 }

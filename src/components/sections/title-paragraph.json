@@ -1,15 +1,15 @@
 {
   "collectionName": "components_sections_title_paragraphs",
   "info": {
-    "displayName": "Title Paragraph"
+    "displayName": "Title Paragraph",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
-    "paragraph": {
-      "type": "text"
+    "paragraph_list": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::paragraph-list.paragraph-list"
     }
   }
 }

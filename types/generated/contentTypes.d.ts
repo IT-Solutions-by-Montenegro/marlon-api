@@ -796,6 +796,11 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
         'global.nav-menu'
       ]
     >;
+    testimonials: Attribute.Relation<
+      'api::about-us.about-us',
+      'oneToMany',
+      'api::testimonial.testimonial'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -807,6 +812,37 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::about-us.about-us',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiActionButtonActionButton extends Schema.CollectionType {
+  collectionName: 'action_buttons';
+  info: {
+    singularName: 'action-button';
+    pluralName: 'action-buttons';
+    displayName: 'Action Button';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    link: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::action-button.action-button',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::action-button.action-button',
       'oneToOne',
       'admin::user'
     > &
@@ -854,6 +890,40 @@ export interface ApiAmbassadorAmbassador extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::ambassador.ambassador',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiBannerListBannerList extends Schema.CollectionType {
+  collectionName: 'banner_lists';
+  info: {
+    singularName: 'banner-list';
+    pluralName: 'banner-lists';
+    displayName: 'Banner List';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    caption: Attribute.Text;
+    media: Attribute.Media;
+    type: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::banner-list.banner-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::banner-list.banner-list',
       'oneToOne',
       'admin::user'
     > &
@@ -919,6 +989,7 @@ export interface ApiBrandBrand extends Schema.CollectionType {
   attributes: {
     name: Attribute.String;
     image: Attribute.Media;
+    link: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -930,6 +1001,44 @@ export interface ApiBrandBrand extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::brand.brand',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCallActionCallAction extends Schema.CollectionType {
+  collectionName: 'call_actions';
+  info: {
+    singularName: 'call-action';
+    pluralName: 'call-actions';
+    displayName: 'Call Action';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    title: Attribute.String;
+    content: Attribute.Text;
+    action_buttons: Attribute.Relation<
+      'api::call-action.call-action',
+      'oneToMany',
+      'api::action-button.action-button'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::call-action.call-action',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::call-action.call-action',
       'oneToOne',
       'admin::user'
     > &
@@ -969,6 +1078,72 @@ export interface ApiCareersPageCareersPage extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::careers-page.careers-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCategoryListCategoryList extends Schema.CollectionType {
+  collectionName: 'category_lists';
+  info: {
+    singularName: 'category-list';
+    pluralName: 'category-lists';
+    displayName: 'Category List';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    title: Attribute.String;
+    link: Attribute.String;
+    image: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::category-list.category-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::category-list.category-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCertificationListCertificationList
+  extends Schema.CollectionType {
+  collectionName: 'certification_lists';
+  info: {
+    singularName: 'certification-list';
+    pluralName: 'certification-lists';
+    displayName: 'Certification List';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    link: Attribute.String;
+    image: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::certification-list.certification-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::certification-list.certification-list',
       'oneToOne',
       'admin::user'
     > &
@@ -1279,22 +1454,16 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
     slug: Attribute.UID<'api::home-page.home-page', 'title'>;
     block: Attribute.DynamicZone<
       [
-        'global.banner',
-        'global.title-and-paragraph',
-        'global.call-to-action',
-        'homepage.products-section',
-        'global.testimonials',
-        'global.our-partners',
-        'sections.product-category',
         'sections.call-to-action',
-        'sections.navigation-menu',
         'sections.title-paragraph',
         'sections.banner',
         'sections.nav-bar',
         'sections.footer',
         'sections.partners',
         'sections.testimonial',
-        'sections.news'
+        'sections.news',
+        'sections.nav-menu',
+        'sections.category'
       ]
     >;
     createdAt: Attribute.DateTime;
@@ -1402,6 +1571,144 @@ export interface ApiJobPostingJobPosting extends Schema.CollectionType {
   };
 }
 
+export interface ApiLocationListLocationList extends Schema.CollectionType {
+  collectionName: 'location_lists';
+  info: {
+    singularName: 'location-list';
+    pluralName: 'location-lists';
+    displayName: 'Location List';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    hours: Attribute.String;
+    phone_1: Attribute.String;
+    phone_2: Attribute.String;
+    address: Attribute.String;
+    lat: Attribute.String;
+    lon: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::location-list.location-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::location-list.location-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiNavItemListNavItemList extends Schema.CollectionType {
+  collectionName: 'nav_item_lists';
+  info: {
+    singularName: 'nav-item-list';
+    pluralName: 'nav-item-lists';
+    displayName: 'Nav Item List';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    link: Attribute.String;
+    config: Attribute.JSON;
+    icon: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::nav-item-list.nav-item-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::nav-item-list.nav-item-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiNavMenuListNavMenuList extends Schema.CollectionType {
+  collectionName: 'nav_menu_lists';
+  info: {
+    singularName: 'nav-menu-list';
+    pluralName: 'nav-menu-lists';
+    displayName: 'Nav Menu List';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    title: Attribute.String;
+    link: Attribute.String;
+    image: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::nav-menu-list.nav-menu-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::nav-menu-list.nav-menu-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiNewsListNewsList extends Schema.CollectionType {
+  collectionName: 'news_lists';
+  info: {
+    singularName: 'news-list';
+    pluralName: 'news-lists';
+    displayName: 'News List';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    content: Attribute.String;
+    image: Attribute.Media;
+    link: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::news-list.news-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::news-list.news-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiOfficeLocationOfficeLocation extends Schema.CollectionType {
   collectionName: 'office_locations';
   info: {
@@ -1434,6 +1741,70 @@ export interface ApiOfficeLocationOfficeLocation extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::office-location.office-location',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiParagraphListParagraphList extends Schema.CollectionType {
+  collectionName: 'paragraph_lists';
+  info: {
+    singularName: 'paragraph-list';
+    pluralName: 'paragraph-lists';
+    displayName: 'Paragraph List';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    content: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::paragraph-list.paragraph-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::paragraph-list.paragraph-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPartnerPartner extends Schema.CollectionType {
+  collectionName: 'partners';
+  info: {
+    singularName: 'partner';
+    pluralName: 'partners';
+    displayName: 'Partner List';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    link: Attribute.String;
+    logo: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::partner.partner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::partner.partner',
       'oneToOne',
       'admin::user'
     > &
@@ -1858,6 +2229,38 @@ export interface ApiSalesRepresentativeSalesRepresentative
   };
 }
 
+export interface ApiSocialLinkSocialLink extends Schema.CollectionType {
+  collectionName: 'social_links';
+  info: {
+    singularName: 'social-link';
+    pluralName: 'social-links';
+    displayName: 'Social Link';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    link: Attribute.String;
+    icon: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::social-link.social-link',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::social-link.social-link',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTeamTeam extends Schema.CollectionType {
   collectionName: 'teams';
   info: {
@@ -1945,6 +2348,7 @@ export interface ApiTestimonialTestimonial extends Schema.CollectionType {
     singularName: 'testimonial';
     pluralName: 'testimonials';
     displayName: 'Testimonial';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1955,7 +2359,7 @@ export interface ApiTestimonialTestimonial extends Schema.CollectionType {
     address: Attribute.String;
     testimonial_message: Attribute.Text;
     img: Attribute.Media;
-    isFeatured: Attribute.Boolean;
+    is_featured: Attribute.Boolean;
     rating: Attribute.Integer;
     date_submitted: Attribute.Date;
     product: Attribute.Relation<
@@ -2132,10 +2536,15 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::about-us.about-us': ApiAboutUsAboutUs;
+      'api::action-button.action-button': ApiActionButtonActionButton;
       'api::ambassador.ambassador': ApiAmbassadorAmbassador;
+      'api::banner-list.banner-list': ApiBannerListBannerList;
       'api::become-a-dealer.become-a-dealer': ApiBecomeADealerBecomeADealer;
       'api::brand.brand': ApiBrandBrand;
+      'api::call-action.call-action': ApiCallActionCallAction;
       'api::careers-page.careers-page': ApiCareersPageCareersPage;
+      'api::category-list.category-list': ApiCategoryListCategoryList;
+      'api::certification-list.certification-list': ApiCertificationListCertificationList;
       'api::contact-form.contact-form': ApiContactFormContactForm;
       'api::contact-page.contact-page': ApiContactPageContactPage;
       'api::dealer.dealer': ApiDealerDealer;
@@ -2146,7 +2555,13 @@ declare module '@strapi/types' {
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::job-applicant.job-applicant': ApiJobApplicantJobApplicant;
       'api::job-posting.job-posting': ApiJobPostingJobPosting;
+      'api::location-list.location-list': ApiLocationListLocationList;
+      'api::nav-item-list.nav-item-list': ApiNavItemListNavItemList;
+      'api::nav-menu-list.nav-menu-list': ApiNavMenuListNavMenuList;
+      'api::news-list.news-list': ApiNewsListNewsList;
       'api::office-location.office-location': ApiOfficeLocationOfficeLocation;
+      'api::paragraph-list.paragraph-list': ApiParagraphListParagraphList;
+      'api::partner.partner': ApiPartnerPartner;
       'api::post.post': ApiPostPost;
       'api::post-category.post-category': ApiPostCategoryPostCategory;
       'api::post-page.post-page': ApiPostPagePostPage;
@@ -2157,6 +2572,7 @@ declare module '@strapi/types' {
       'api::product-tag.product-tag': ApiProductTagProductTag;
       'api::products-page.products-page': ApiProductsPageProductsPage;
       'api::sales-representative.sales-representative': ApiSalesRepresentativeSalesRepresentative;
+      'api::social-link.social-link': ApiSocialLinkSocialLink;
       'api::team.team': ApiTeamTeam;
       'api::team-ambassador-page.team-ambassador-page': ApiTeamAmbassadorPageTeamAmbassadorPage;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;

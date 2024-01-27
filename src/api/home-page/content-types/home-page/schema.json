@@ -22,22 +22,16 @@
     "block": {
       "type": "dynamiczone",
       "components": [
-        "global.banner",
-        "global.title-and-paragraph",
-        "global.call-to-action",
-        "homepage.products-section",
-        "global.testimonials",
-        "global.our-partners",
-        "sections.product-category",
         "sections.call-to-action",
-        "sections.navigation-menu",
         "sections.title-paragraph",
         "sections.banner",
         "sections.nav-bar",
         "sections.footer",
         "sections.partners",
         "sections.testimonial",
-        "sections.news"
+        "sections.news",
+        "sections.nav-menu",
+        "sections.category"
       ]
     }
   }

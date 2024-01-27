@@ -6,15 +6,13 @@
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "component",
-      "repeatable": false,
-      "component": "global.text"
+    "testimonials": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::testimonial.testimonial"
     },
-    "testaments": {
-      "type": "component",
-      "repeatable": true,
-      "component": "global.testemony"
+    "title": {
+      "type": "string"
     }
   }
 }

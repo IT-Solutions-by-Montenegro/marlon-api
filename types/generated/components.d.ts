@@ -140,9 +140,11 @@ export interface GlobalBanner extends Schema.Component {
     description: '';
   };
   attributes: {
-    title: Attribute.String;
-    description: Attribute.Text;
-    img: Attribute.Media;
+    banner_list: Attribute.Relation<
+      'global.banner',
+      'oneToOne',
+      'api::banner-list.banner-list'
+    >;
   };
 }
 
@@ -366,9 +368,11 @@ export interface SectionsBanner extends Schema.Component {
     description: '';
   };
   attributes: {
-    highlight: Attribute.Component<'global.text-icon'>;
-    title: Attribute.Component<'global.text'>;
-    image: Attribute.Media;
+    banner_list: Attribute.Relation<
+      'sections.banner',
+      'oneToOne',
+      'api::banner-list.banner-list'
+    >;
   };
 }
 
@@ -379,9 +383,29 @@ export interface SectionsCallToAction extends Schema.Component {
     description: '';
   };
   attributes: {
-    highlight: Attribute.Component<'global.text-icon'>;
+    call_action: Attribute.Relation<
+      'sections.call-to-action',
+      'oneToOne',
+      'api::call-action.call-action'
+    >;
+  };
+}
+
+export interface SectionsCategory extends Schema.Component {
+  collectionName: 'components_sections_categories';
+  info: {
+    displayName: 'Category';
+    description: '';
+  };
+  attributes: {
+    category_lists: Attribute.Relation<
+      'sections.category',
+      'oneToMany',
+      'api::category-list.category-list'
+    >;
     title: Attribute.String;
-    button: Attribute.Component<'global.anchor', true>;
+    highlight: Attribute.String;
+    link: Attribute.String;
   };
 }
 
@@ -392,10 +416,26 @@ export interface SectionsFooter extends Schema.Component {
     description: '';
   };
   attributes: {
-    locations: Attribute.Component<'global.anchor', true>;
-    brand: Attribute.Component<'global.nav-bar-branch'>;
-    certifications: Attribute.Component<'global.anchor', true>;
-    socials: Attribute.Component<'global.anchor', true>;
+    social_links: Attribute.Relation<
+      'sections.footer',
+      'oneToMany',
+      'api::social-link.social-link'
+    >;
+    certification_lists: Attribute.Relation<
+      'sections.footer',
+      'oneToMany',
+      'api::certification-list.certification-list'
+    >;
+    location_lists: Attribute.Relation<
+      'sections.footer',
+      'oneToMany',
+      'api::location-list.location-list'
+    >;
+    brand: Attribute.Relation<
+      'sections.footer',
+      'oneToOne',
+      'api::brand.brand'
+    >;
   };
 }
 
@@ -403,21 +443,33 @@ export interface SectionsNavBar extends Schema.Component {
   collectionName: 'components_sections_nav_bars';
   info: {
     displayName: 'NavBar';
+    description: '';
   };
   attributes: {
-    brand: Attribute.Component<'global.nav-bar-branch'>;
-    NavBarItems: Attribute.Component<'global.nav-bar-item', true>;
-    menu: Attribute.Component<'global.hamburger'>;
+    brand: Attribute.Relation<
+      'sections.nav-bar',
+      'oneToOne',
+      'api::brand.brand'
+    >;
+    nav_item_lists: Attribute.Relation<
+      'sections.nav-bar',
+      'oneToMany',
+      'api::nav-item-list.nav-item-list'
+    >;
   };
 }
 
-export interface SectionsNavigationMenu extends Schema.Component {
-  collectionName: 'components_sections_navigation_menus';
+export interface SectionsNavMenu extends Schema.Component {
+  collectionName: 'components_sections_nav_menus';
   info: {
-    displayName: 'Navigation Menu';
+    displayName: 'Nav Menu';
   };
   attributes: {
-    cards: Attribute.Component<'cards.card', true>;
+    nav_menu_lists: Attribute.Relation<
+      'sections.nav-menu',
+      'oneToMany',
+      'api::nav-menu-list.nav-menu-list'
+    >;
   };
 }
 
@@ -425,13 +477,18 @@ export interface SectionsNews extends Schema.Component {
   collectionName: 'components_sections_news';
   info: {
     displayName: 'news';
+    description: '';
   };
   attributes: {
-    highlight: Attribute.Component<'global.text-icon'>;
+    news_lists: Attribute.Relation<
+      'sections.news',
+      'oneToMany',
+      'api::news-list.news-list'
+    >;
+    title: Attribute.String;
+    highlight: Attribute.String;
+    link: Attribute.String;
     image: Attribute.Media;
-    cards: Attribute.Component<'cards.card-news', true>;
-    title: Attribute.Component<'global.text'>;
-    button: Attribute.Component<'global.anchor'>;
   };
 }
 
@@ -442,21 +499,12 @@ export interface SectionsPartners extends Schema.Component {
     description: '';
   };
   attributes: {
-    title: Attribute.Component<'global.text'>;
-    partners: Attribute.Component<'global.anchor', true>;
-  };
-}
-
-export interface SectionsProductCategory extends Schema.Component {
-  collectionName: 'components_sections_product_categories';
-  info: {
-    displayName: 'Product Category';
-  };
-  attributes: {
-    highlight: Attribute.Component<'global.text-icon'>;
+    partner_lists: Attribute.Relation<
+      'sections.partners',
+      'oneToMany',
+      'api::partner.partner'
+    >;
     title: Attribute.String;
-    cards: Attribute.Component<'cards.card', true>;
-    button: Attribute.Component<'global.anchor'>;
   };
 }
 
@@ -467,8 +515,12 @@ export interface SectionsTestimonial extends Schema.Component {
     description: '';
   };
   attributes: {
-    title: Attribute.Component<'global.text'>;
-    testaments: Attribute.Component<'global.testemony', true>;
+    testimonials: Attribute.Relation<
+      'sections.testimonial',
+      'oneToMany',
+      'api::testimonial.testimonial'
+    >;
+    title: Attribute.String;
   };
 }
 
@@ -476,10 +528,14 @@ export interface SectionsTitleParagraph extends Schema.Component {
   collectionName: 'components_sections_title_paragraphs';
   info: {
     displayName: 'Title Paragraph';
+    description: '';
   };
   attributes: {
-    title: Attribute.String;
-    paragraph: Attribute.Text;
+    paragraph_list: Attribute.Relation<
+      'sections.title-paragraph',
+      'oneToOne',
+      'api::paragraph-list.paragraph-list'
+    >;
   };
 }
 
@@ -516,12 +572,12 @@ declare module '@strapi/types' {
       'post.posts': PostPosts;
       'sections.banner': SectionsBanner;
       'sections.call-to-action': SectionsCallToAction;
+      'sections.category': SectionsCategory;
       'sections.footer': SectionsFooter;
       'sections.nav-bar': SectionsNavBar;
-      'sections.navigation-menu': SectionsNavigationMenu;
+      'sections.nav-menu': SectionsNavMenu;
       'sections.news': SectionsNews;
       'sections.partners': SectionsPartners;
-      'sections.product-category': SectionsProductCategory;
       'sections.testimonial': SectionsTestimonial;
       'sections.title-paragraph': SectionsTitleParagraph;
     }
