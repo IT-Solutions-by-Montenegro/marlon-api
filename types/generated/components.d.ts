@@ -473,6 +473,14 @@ export interface SectionsNavMenu extends Schema.Component {
   };
 }
 
+export interface SectionsNavigationMenu extends Schema.Component {
+  collectionName: 'cs_navigation_menus';
+  info: {
+    displayName: 'Navigation Menu';
+  };
+  attributes: {};
+}
+
 export interface SectionsNews extends Schema.Component {
   collectionName: 'components_sections_news';
   info: {
@@ -576,6 +584,7 @@ declare module '@strapi/types' {
       'sections.footer': SectionsFooter;
       'sections.nav-bar': SectionsNavBar;
       'sections.nav-menu': SectionsNavMenu;
+      'sections.navigation-menu': SectionsNavigationMenu;
       'sections.news': SectionsNews;
       'sections.partners': SectionsPartners;
       'sections.testimonial': SectionsTestimonial;
