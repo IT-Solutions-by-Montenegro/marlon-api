@@ -6,14 +6,19 @@
   },
   "options": {},
   "attributes": {
-    "brand": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::brand.brand"
-    },
     "links": {
       "type": "component",
       "repeatable": true,
+      "component": "global.anchor"
+    },
+    "brand": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.anchor"
+    },
+    "menu": {
+      "type": "component",
+      "repeatable": false,
       "component": "global.anchor"
     }
   }

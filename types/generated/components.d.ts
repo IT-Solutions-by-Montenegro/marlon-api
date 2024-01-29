@@ -416,12 +416,9 @@ export interface SectionsNavBar extends Schema.Component {
     description: '';
   };
   attributes: {
-    brand: Attribute.Relation<
-      'sections.nav-bar',
-      'oneToOne',
-      'api::brand.brand'
-    >;
     links: Attribute.Component<'global.anchor', true>;
+    brand: Attribute.Component<'global.anchor'>;
+    menu: Attribute.Component<'global.anchor'>;
   };
 }
 
