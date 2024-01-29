@@ -6,11 +6,6 @@
   },
   "options": {},
   "attributes": {
-    "category_lists": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::category-list.category-list"
-    },
     "title": {
       "type": "string"
     },
@@ -19,6 +14,11 @@
     },
     "link": {
       "type": "string"
+    },
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "cards.card"
     }
   }
 }

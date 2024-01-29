@@ -1,14 +1,15 @@
 {
   "collectionName": "components_sections_nav_menus",
   "info": {
-    "displayName": "Nav Menu"
+    "displayName": "Nav Menu",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "nav_menu_lists": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::nav-menu-list.nav-menu-list"
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "cards.card"
     }
   }
 }

@@ -21,8 +21,7 @@
     "components": {
       "type": "dynamiczone",
       "components": [
-        "global.banner",
-        "global.title-and-paragraph"
+        "global.banner"
       ]
     },
     "dealer_application": {

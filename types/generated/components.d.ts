@@ -30,12 +30,13 @@ export interface CardsCard extends Schema.Component {
   collectionName: 'components_cards_cards';
   info: {
     displayName: 'Card';
+    description: '';
   };
   attributes: {
     primary: Attribute.String;
     secondary: Attribute.String;
     image: Attribute.Media;
-    link: Attribute.Component<'global.anchor'>;
+    button: Attribute.Component<'global.anchor'>;
   };
 }
 
@@ -126,8 +127,6 @@ export interface GlobalAnchor extends Schema.Component {
   };
   attributes: {
     text: Attribute.String;
-    context: Attribute.String;
-    size: Attribute.String;
     link: Attribute.String;
     icon: Attribute.Media;
   };
@@ -311,17 +310,6 @@ export interface GlobalText extends Schema.Component {
   };
 }
 
-export interface GlobalTitleAndParagraph extends Schema.Component {
-  collectionName: 'components_global_title_and_paragraphs';
-  info: {
-    displayName: 'Title and Paragraph';
-  };
-  attributes: {
-    title: Attribute.String;
-    paragraph: Attribute.Text;
-  };
-}
-
 export interface HomepageProductsSection extends Schema.Component {
   collectionName: 'components_homepage_products_sections';
   info: {
@@ -368,11 +356,10 @@ export interface SectionsBanner extends Schema.Component {
     description: '';
   };
   attributes: {
-    banner_list: Attribute.Relation<
-      'sections.banner',
-      'oneToOne',
-      'api::banner-list.banner-list'
-    >;
+    title: Attribute.String;
+    caption: Attribute.String;
+    media: Attribute.Media;
+    type: Attribute.String;
   };
 }
 
@@ -383,11 +370,10 @@ export interface SectionsCallToAction extends Schema.Component {
     description: '';
   };
   attributes: {
-    call_action: Attribute.Relation<
-      'sections.call-to-action',
-      'oneToOne',
-      'api::call-action.call-action'
-    >;
+    name: Attribute.String;
+    title: Attribute.String;
+    content: Attribute.Text;
+    button: Attribute.Component<'global.anchor', true>;
   };
 }
 
@@ -398,14 +384,10 @@ export interface SectionsCategory extends Schema.Component {
     description: '';
   };
   attributes: {
-    category_lists: Attribute.Relation<
-      'sections.category',
-      'oneToMany',
-      'api::category-list.category-list'
-    >;
     title: Attribute.String;
     highlight: Attribute.String;
     link: Attribute.String;
+    cards: Attribute.Component<'cards.card', true>;
   };
 }
 
@@ -416,26 +398,14 @@ export interface SectionsFooter extends Schema.Component {
     description: '';
   };
   attributes: {
-    social_links: Attribute.Relation<
-      'sections.footer',
-      'oneToMany',
-      'api::social-link.social-link'
-    >;
-    certification_lists: Attribute.Relation<
-      'sections.footer',
-      'oneToMany',
-      'api::certification-list.certification-list'
-    >;
     location_lists: Attribute.Relation<
       'sections.footer',
       'oneToMany',
       'api::location-list.location-list'
     >;
-    brand: Attribute.Relation<
-      'sections.footer',
-      'oneToOne',
-      'api::brand.brand'
-    >;
+    certifications: Attribute.Component<'global.anchor', true>;
+    brand: Attribute.Component<'global.anchor'>;
+    socials: Attribute.Component<'global.anchor', true>;
   };
 }
 
@@ -451,11 +421,7 @@ export interface SectionsNavBar extends Schema.Component {
       'oneToOne',
       'api::brand.brand'
     >;
-    nav_item_lists: Attribute.Relation<
-      'sections.nav-bar',
-      'oneToMany',
-      'api::nav-item-list.nav-item-list'
-    >;
+    links: Attribute.Component<'global.anchor', true>;
   };
 }
 
@@ -463,18 +429,15 @@ export interface SectionsNavMenu extends Schema.Component {
   collectionName: 'components_sections_nav_menus';
   info: {
     displayName: 'Nav Menu';
+    description: '';
   };
   attributes: {
-    nav_menu_lists: Attribute.Relation<
-      'sections.nav-menu',
-      'oneToMany',
-      'api::nav-menu-list.nav-menu-list'
-    >;
+    cards: Attribute.Component<'cards.card', true>;
   };
 }
 
 export interface SectionsNavigationMenu extends Schema.Component {
-  collectionName: 'cs_navigation_menus';
+  collectionName: 'components_sections_navigation_menus';
   info: {
     displayName: 'Navigation Menu';
   };
@@ -488,15 +451,15 @@ export interface SectionsNews extends Schema.Component {
     description: '';
   };
   attributes: {
+    title: Attribute.String;
+    highlight: Attribute.String;
+    link: Attribute.String;
+    image: Attribute.Media;
     news_lists: Attribute.Relation<
       'sections.news',
       'oneToMany',
       'api::news-list.news-list'
     >;
-    title: Attribute.String;
-    highlight: Attribute.String;
-    link: Attribute.String;
-    image: Attribute.Media;
   };
 }
 
@@ -514,6 +477,14 @@ export interface SectionsPartners extends Schema.Component {
     >;
     title: Attribute.String;
   };
+}
+
+export interface SectionsProductCategory extends Schema.Component {
+  collectionName: 'components_sections_product_categories';
+  info: {
+    displayName: 'Product Category';
+  };
+  attributes: {};
 }
 
 export interface SectionsTestimonial extends Schema.Component {
@@ -539,11 +510,8 @@ export interface SectionsTitleParagraph extends Schema.Component {
     description: '';
   };
   attributes: {
-    paragraph_list: Attribute.Relation<
-      'sections.title-paragraph',
-      'oneToOne',
-      'api::paragraph-list.paragraph-list'
-    >;
+    title: Attribute.String;
+    content: Attribute.Text;
   };
 }
 
@@ -574,7 +542,6 @@ declare module '@strapi/types' {
       'global.testimonials': GlobalTestimonials;
       'global.text-icon': GlobalTextIcon;
       'global.text': GlobalText;
-      'global.title-and-paragraph': GlobalTitleAndParagraph;
       'homepage.products-section': HomepageProductsSection;
       'post.post-gallery': PostPostGallery;
       'post.posts': PostPosts;
@@ -587,6 +554,7 @@ declare module '@strapi/types' {
       'sections.navigation-menu': SectionsNavigationMenu;
       'sections.news': SectionsNews;
       'sections.partners': SectionsPartners;
+      'sections.product-category': SectionsProductCategory;
       'sections.testimonial': SectionsTestimonial;
       'sections.title-paragraph': SectionsTitleParagraph;
     }

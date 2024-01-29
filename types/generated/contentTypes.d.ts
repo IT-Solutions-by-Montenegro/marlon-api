@@ -790,7 +790,6 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
     components: Attribute.DynamicZone<
       [
         'global.banner',
-        'global.title-and-paragraph',
         'elements.image-card',
         'global.call-to-action',
         'global.nav-menu'
@@ -944,9 +943,7 @@ export interface ApiBecomeADealerBecomeADealer extends Schema.SingleType {
   attributes: {
     title: Attribute.String;
     slug: Attribute.UID<'api::become-a-dealer.become-a-dealer', 'title'>;
-    components: Attribute.DynamicZone<
-      ['global.banner', 'global.title-and-paragraph']
-    >;
+    components: Attribute.DynamicZone<['global.banner']>;
     dealer_application: Attribute.Relation<
       'api::become-a-dealer.become-a-dealer',
       'oneToOne',
@@ -1059,9 +1056,7 @@ export interface ApiCareersPageCareersPage extends Schema.SingleType {
   attributes: {
     title: Attribute.String;
     slug: Attribute.UID<'api::careers-page.careers-page', 'title'>;
-    components: Attribute.DynamicZone<
-      ['global.banner', 'global.title-and-paragraph']
-    >;
+    components: Attribute.DynamicZone<['global.banner']>;
     job_posting: Attribute.Relation<
       'api::careers-page.careers-page',
       'oneToOne',
@@ -1417,7 +1412,6 @@ export interface ApiFindADealerFindADealer extends Schema.SingleType {
   };
   attributes: {
     banner: Attribute.Component<'global.banner'>;
-    title_and_paragraph: Attribute.Component<'global.title-and-paragraph'>;
     interactive_map: Attribute.Component<'find-a-dealer.interactive-map', true>;
     call_to_action: Attribute.Component<'global.call-to-action'>;
     createdAt: Attribute.DateTime;
@@ -2169,12 +2163,7 @@ export interface ApiProductsPageProductsPage extends Schema.SingleType {
       'api::office-location.office-location'
     >;
     components: Attribute.DynamicZone<
-      [
-        'global.nav-menu',
-        'global.banner',
-        'global.title-and-paragraph',
-        'global.call-to-action'
-      ]
+      ['global.nav-menu', 'global.banner', 'global.call-to-action']
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -2312,7 +2301,7 @@ export interface ApiTeamAmbassadorPageTeamAmbassadorPage
       'title'
     >;
     components: Attribute.DynamicZone<
-      ['global.banner', 'global.title-and-paragraph', 'global.call-to-action']
+      ['global.banner', 'global.call-to-action']
     >;
     ambassadors: Attribute.Relation<
       'api::team-ambassador-page.team-ambassador-page',
@@ -2400,7 +2389,7 @@ export interface ApiWarrantyPageWarrantyPage extends Schema.SingleType {
     title: Attribute.String;
     slug: Attribute.UID<'api::warranty-page.warranty-page', 'title'>;
     components: Attribute.DynamicZone<
-      ['global.banner', 'global.title-and-paragraph', 'global.partners-logo']
+      ['global.banner', 'global.partners-logo']
     >;
     office_location: Attribute.Relation<
       'api::warranty-page.warranty-page',

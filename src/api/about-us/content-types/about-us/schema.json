@@ -23,7 +23,6 @@
       "type": "dynamiczone",
       "components": [
         "global.banner",
-        "global.title-and-paragraph",
         "elements.image-card",
         "global.call-to-action",
         "global.nav-menu"

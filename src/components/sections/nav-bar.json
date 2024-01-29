@@ -11,10 +11,10 @@
       "relation": "oneToOne",
       "target": "api::brand.brand"
     },
-    "nav_item_lists": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::nav-item-list.nav-item-list"
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "global.anchor"
     }
   }
 }

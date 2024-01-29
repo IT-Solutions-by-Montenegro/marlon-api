@@ -28,7 +28,6 @@
       "components": [
         "global.nav-menu",
         "global.banner",
-        "global.title-and-paragraph",
         "global.call-to-action"
       ]
     }

@@ -6,10 +6,24 @@
   },
   "options": {},
   "attributes": {
-    "banner_list": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::banner-list.banner-list"
+    "title": {
+      "type": "string"
+    },
+    "caption": {
+      "type": "string"
+    },
+    "media": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "type": {
+      "type": "string"
     }
   }
 }

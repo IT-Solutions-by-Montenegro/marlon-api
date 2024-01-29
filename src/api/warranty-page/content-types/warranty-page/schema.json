@@ -23,7 +23,6 @@
       "type": "dynamiczone",
       "components": [
         "global.banner",
-        "global.title-and-paragraph",
         "global.partners-logo"
       ]
     },

@@ -6,10 +6,11 @@
   },
   "options": {},
   "attributes": {
-    "paragraph_list": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::paragraph-list.paragraph-list"
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "text"
     }
   }
 }
