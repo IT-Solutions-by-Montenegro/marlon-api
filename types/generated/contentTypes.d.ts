@@ -792,13 +792,9 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
         'global.banner',
         'elements.image-card',
         'global.call-to-action',
-        'global.nav-menu'
+        'global.nav-menu',
+        'sections.footer'
       ]
-    >;
-    testimonials: Attribute.Relation<
-      'api::about-us.about-us',
-      'oneToMany',
-      'api::testimonial.testimonial'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

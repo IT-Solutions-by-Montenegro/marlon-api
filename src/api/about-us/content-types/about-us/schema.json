@@ -25,13 +25,9 @@
         "global.banner",
         "elements.image-card",
         "global.call-to-action",
-        "global.nav-menu"
+        "global.nav-menu",
+        "sections.footer"
       ]
-    },
-    "testimonials": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::testimonial.testimonial"
     }
   }
 }
