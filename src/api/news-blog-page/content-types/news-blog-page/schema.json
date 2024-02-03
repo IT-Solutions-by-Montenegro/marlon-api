@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "news_blog_pages",
+  "info": {
+    "singularName": "news-blog-page",
+    "pluralName": "news-blog-pages",
+    "displayName": "News Blog Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "text"
+    },
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "sections.footer",
+        "sections.call-to-action",
+        "sections.banner"
+      ]
+    }
+  }
+}

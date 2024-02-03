@@ -32,7 +32,8 @@
     "blocks": {
       "type": "dynamiczone",
       "components": [
-        "sections.footer"
+        "sections.footer",
+        "sections.call-to-action"
       ]
     }
   }

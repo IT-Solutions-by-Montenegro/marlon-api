@@ -796,7 +796,9 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
         'sections.footer'
       ]
     >;
-    blocks: Attribute.DynamicZone<['sections.footer']>;
+    blocks: Attribute.DynamicZone<
+      ['sections.footer', 'sections.call-to-action']
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1659,6 +1661,40 @@ export interface ApiNavMenuListNavMenuList extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::nav-menu-list.nav-menu-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiNewsBlogPageNewsBlogPage extends Schema.SingleType {
+  collectionName: 'news_blog_pages';
+  info: {
+    singularName: 'news-blog-page';
+    pluralName: 'news-blog-pages';
+    displayName: 'News Blog Page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    slug: Attribute.Text;
+    blocks: Attribute.DynamicZone<
+      ['sections.footer', 'sections.call-to-action', 'sections.banner']
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::news-blog-page.news-blog-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::news-blog-page.news-blog-page',
       'oneToOne',
       'admin::user'
     > &
@@ -2544,6 +2580,7 @@ declare module '@strapi/types' {
       'api::location-list.location-list': ApiLocationListLocationList;
       'api::nav-item-list.nav-item-list': ApiNavItemListNavItemList;
       'api::nav-menu-list.nav-menu-list': ApiNavMenuListNavMenuList;
+      'api::news-blog-page.news-blog-page': ApiNewsBlogPageNewsBlogPage;
       'api::news-list.news-list': ApiNewsListNewsList;
       'api::office-location.office-location': ApiOfficeLocationOfficeLocation;
       'api::paragraph-list.paragraph-list': ApiParagraphListParagraphList;
