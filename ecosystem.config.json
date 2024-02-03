@@ -3,7 +3,7 @@
       {
         "name": "marlon-api",
         "script": "npm",
-        "args": "start"
+        "args": "develop"
       }
   ]
 }
