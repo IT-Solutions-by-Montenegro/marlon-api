@@ -1,9 +1,9 @@
 module.exports = {
-  "apps": [
+  apps: [
       {
-        "name": "marlon-api",
-        "script": "npm",
-        "args": "develop"
+        name: "marlon-api",
+        script: "npm",
+        args: "start",
       }
   ]
 }
