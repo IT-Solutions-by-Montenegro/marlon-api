@@ -12,8 +12,8 @@ RUN npm install --platform=linuxmusl --arch=x64 sharp
 
 # RUN NODE_ENV=production npm run build
 # RUN  npm run build
-COPY . .
-
+# COPY . .
+RUN ls -alt
 USER node
 
-CMD ["pm2-runtime", "ecosystem.config.json"]
+CMD ["pm2-runtime", "ecosystem.config.js"]
