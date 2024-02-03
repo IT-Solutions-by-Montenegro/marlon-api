@@ -28,6 +28,12 @@
         "global.nav-menu",
         "sections.footer"
       ]
+    },
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "sections.footer"
+      ]
     }
   }
 }

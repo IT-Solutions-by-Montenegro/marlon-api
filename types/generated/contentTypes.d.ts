@@ -796,6 +796,7 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
         'sections.footer'
       ]
     >;
+    blocks: Attribute.DynamicZone<['sections.footer']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
