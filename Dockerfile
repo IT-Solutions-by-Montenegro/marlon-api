@@ -5,6 +5,7 @@ FROM node:${NODE_VERSION}-alpine
 RUN npm install -g pm2
 WORKDIR /app
 
+
 COPY . ./
 RUN npm install --ignore-scripts=false --foreground-scripts --verbose sharp
 RUN npm install --platform=linuxmusl --arch=x64 sharp
