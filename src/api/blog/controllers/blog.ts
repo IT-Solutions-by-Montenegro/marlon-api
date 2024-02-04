@@ -17,6 +17,9 @@ export default factories.createCoreController(
     },
     async paginate(ctx) {
       const query = ctx.query;
+      if (query.category == "all") {
+        query.category = "";
+      }
       const where: any = {
         ...mergeTo(query.category, { category: query.category }),
         ...mergeTo(query.notIn, {
