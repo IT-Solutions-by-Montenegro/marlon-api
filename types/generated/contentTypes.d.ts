@@ -2128,6 +2128,7 @@ export interface ApiProductsPageProductsPage extends Schema.SingleType {
     singularName: 'products-page';
     pluralName: 'products-pages';
     displayName: 'Products Page';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -2135,13 +2136,14 @@ export interface ApiProductsPageProductsPage extends Schema.SingleType {
   attributes: {
     title: Attribute.String;
     slug: Attribute.UID<'api::products-page.products-page', 'title'>;
-    office_location: Attribute.Relation<
-      'api::products-page.products-page',
-      'oneToOne',
-      'api::office-location.office-location'
-    >;
-    components: Attribute.DynamicZone<
-      ['global.nav-menu', 'global.banner', 'global.call-to-action']
+    blocks: Attribute.DynamicZone<
+      [
+        'sections.banner',
+        'sections.call-to-action',
+        'sections.nav-bar',
+        'sections.footer',
+        'sections.navigation-menu'
+      ]
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
