@@ -26,7 +26,8 @@
         "sections.call-to-action",
         "sections.nav-bar",
         "sections.footer",
-        "sections.navigation-menu"
+        "sections.nav-menu",
+        "sections.news"
       ]
     }
   }
