@@ -4,7 +4,8 @@
   "info": {
     "singularName": "careers-page",
     "pluralName": "careers-pages",
-    "displayName": "Careers Page"
+    "displayName": "Careers Page",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,16 +19,15 @@
       "type": "uid",
       "targetField": "title"
     },
-    "components": {
+    "blocks": {
       "type": "dynamiczone",
       "components": [
-        "global.banner"
+        "sections.banner",
+        "sections.nav-bar",
+        "sections.info-two",
+        "sections.job-list",
+        "sections.footer"
       ]
-    },
-    "job_posting": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::job-posting.job-posting"
     }
   }
 }

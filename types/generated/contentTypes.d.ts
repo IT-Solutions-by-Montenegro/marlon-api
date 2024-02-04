@@ -1048,6 +1048,7 @@ export interface ApiCareersPageCareersPage extends Schema.SingleType {
     singularName: 'careers-page';
     pluralName: 'careers-pages';
     displayName: 'Careers Page';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1055,11 +1056,14 @@ export interface ApiCareersPageCareersPage extends Schema.SingleType {
   attributes: {
     title: Attribute.String;
     slug: Attribute.UID<'api::careers-page.careers-page', 'title'>;
-    components: Attribute.DynamicZone<['global.banner']>;
-    job_posting: Attribute.Relation<
-      'api::careers-page.careers-page',
-      'oneToOne',
-      'api::job-posting.job-posting'
+    blocks: Attribute.DynamicZone<
+      [
+        'sections.banner',
+        'sections.nav-bar',
+        'sections.info-two',
+        'sections.job-list',
+        'sections.footer'
+      ]
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

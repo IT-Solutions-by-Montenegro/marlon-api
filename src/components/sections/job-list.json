@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_sections_job_lists",
+  "info": {
+    "displayName": "Job List"
+  },
+  "options": {},
+  "attributes": {
+    "test": {
+      "type": "string"
+    }
+  }
+}

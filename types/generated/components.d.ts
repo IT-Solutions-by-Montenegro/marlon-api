@@ -440,6 +440,26 @@ export interface SectionsInfoOne extends Schema.Component {
   };
 }
 
+export interface SectionsInfoTwo extends Schema.Component {
+  collectionName: 'components_sections_info_twos';
+  info: {
+    displayName: 'Info Two';
+  };
+  attributes: {
+    test: Attribute.String;
+  };
+}
+
+export interface SectionsJobList extends Schema.Component {
+  collectionName: 'components_sections_job_lists';
+  info: {
+    displayName: 'Job List';
+  };
+  attributes: {
+    test: Attribute.String;
+  };
+}
+
 export interface SectionsNavBar extends Schema.Component {
   collectionName: 'components_sections_nav_bars';
   info: {
@@ -591,6 +611,8 @@ declare module '@strapi/types' {
       'sections.category': SectionsCategory;
       'sections.footer': SectionsFooter;
       'sections.info-one': SectionsInfoOne;
+      'sections.info-two': SectionsInfoTwo;
+      'sections.job-list': SectionsJobList;
       'sections.nav-bar': SectionsNavBar;
       'sections.nav-menu': SectionsNavMenu;
       'sections.navigation-menu': SectionsNavigationMenu;

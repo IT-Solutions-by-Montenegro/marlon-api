@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_sections_info_twos",
+  "info": {
+    "displayName": "Info Two"
+  },
+  "options": {},
+  "attributes": {
+    "test": {
+      "type": "string"
+    }
+  }
+}
