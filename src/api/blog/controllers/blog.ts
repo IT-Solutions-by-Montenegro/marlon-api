@@ -28,6 +28,7 @@ export default factories.createCoreController(
           },
         }),
       };
+
       return strapi.db.query("api::blog.blog").findMany({
         offset: query.page || 1,
         limit: query.limit || 10,
