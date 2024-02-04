@@ -12,7 +12,6 @@ export default factories.createCoreController(
       const [data, meta] = await strapi.db.connection.raw(
         "select distinct category from blogs"
       );
-
       return data.map((item) => item.category);
     },
     async paginate(ctx) {
