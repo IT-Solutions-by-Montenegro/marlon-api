@@ -138,13 +138,7 @@ export interface GlobalBanner extends Schema.Component {
     displayName: 'Banner';
     description: '';
   };
-  attributes: {
-    banner_list: Attribute.Relation<
-      'global.banner',
-      'oneToOne',
-      'api::banner-list.banner-list'
-    >;
-  };
+  attributes: {};
 }
 
 export interface GlobalButton extends Schema.Component {

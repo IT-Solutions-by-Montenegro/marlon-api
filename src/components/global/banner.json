@@ -5,11 +5,5 @@
     "description": ""
   },
   "options": {},
-  "attributes": {
-    "banner_list": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::banner-list.banner-list"
-    }
-  }
+  "attributes": {}
 }
