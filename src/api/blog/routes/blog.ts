@@ -5,7 +5,6 @@
 import { factories } from "@strapi/strapi";
 
 const defaultRouter = factories.createCoreRouter("api::blog.blog");
-
 const customRouter = (innerRouter, extraRoutes = []) => {
   let routes;
   return {
