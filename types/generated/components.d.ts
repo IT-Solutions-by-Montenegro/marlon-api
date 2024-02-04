@@ -515,6 +515,16 @@ export interface SectionsProductCategory extends Schema.Component {
   attributes: {};
 }
 
+export interface SectionsTeam extends Schema.Component {
+  collectionName: 'components_sections_teams';
+  info: {
+    displayName: 'Team';
+  };
+  attributes: {
+    test: Attribute.String;
+  };
+}
+
 export interface SectionsTestimonial extends Schema.Component {
   collectionName: 'components_sections_testimonials';
   info: {
@@ -587,6 +597,7 @@ declare module '@strapi/types' {
       'sections.news': SectionsNews;
       'sections.partners': SectionsPartners;
       'sections.product-category': SectionsProductCategory;
+      'sections.team': SectionsTeam;
       'sections.testimonial': SectionsTestimonial;
       'sections.title-paragraph': SectionsTitleParagraph;
     }
