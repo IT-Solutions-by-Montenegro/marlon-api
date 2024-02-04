@@ -26,7 +26,8 @@
         "sections.nav-bar",
         "sections.info-one",
         "sections.call-to-action",
-        "sections.footer"
+        "sections.footer",
+        "sections.team"
       ]
     }
   }

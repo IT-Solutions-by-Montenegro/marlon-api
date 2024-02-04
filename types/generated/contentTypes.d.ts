@@ -793,7 +793,8 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
         'sections.nav-bar',
         'sections.info-one',
         'sections.call-to-action',
-        'sections.footer'
+        'sections.footer',
+        'sections.team'
       ]
     >;
     createdAt: Attribute.DateTime;
