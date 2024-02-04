@@ -19,6 +19,11 @@ export default factories.createCoreController(
       const query = ctx.query;
       const where: any = {
         ...mergeTo(query.category, { category: query.category }),
+        ...mergeTo(query.notIn, {
+          id: {
+            $notIn: query.notIn,
+          },
+        }),
       };
       return strapi.db.query("api::blog.blog").findMany({
         offset: query.page || 1,

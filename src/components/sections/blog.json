@@ -5,5 +5,11 @@
     "description": ""
   },
   "options": {},
-  "attributes": {}
+  "attributes": {
+    "blogs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::blog.blog"
+    }
+  }
 }

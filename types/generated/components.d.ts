@@ -363,7 +363,9 @@ export interface SectionsBlog extends Schema.Component {
     displayName: 'Blog';
     description: '';
   };
-  attributes: {};
+  attributes: {
+    blogs: Attribute.Relation<'sections.blog', 'oneToMany', 'api::blog.blog'>;
+  };
 }
 
 export interface SectionsCallToAction extends Schema.Component {
