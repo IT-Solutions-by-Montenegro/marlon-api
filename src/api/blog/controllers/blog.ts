@@ -20,6 +20,7 @@ export default factories.createCoreController(
       if (query.category == "all") {
         query.category = "";
       }
+
       const where: any = {
         ...mergeTo(query.category, { category: query.category }),
         ...mergeTo(query.notIn, {
