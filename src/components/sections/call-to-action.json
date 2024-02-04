@@ -19,6 +19,9 @@
       "type": "component",
       "repeatable": true,
       "component": "global.anchor"
+    },
+    "bg": {
+      "type": "string"
     }
   }
 }

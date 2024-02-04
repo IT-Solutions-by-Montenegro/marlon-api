@@ -383,6 +383,7 @@ export interface SectionsCallToAction extends Schema.Component {
     title: Attribute.String;
     content: Attribute.Text;
     button: Attribute.Component<'global.anchor', true>;
+    bg: Attribute.String;
   };
 }
 
