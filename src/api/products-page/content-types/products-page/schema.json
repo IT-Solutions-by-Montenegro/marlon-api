@@ -27,7 +27,8 @@
         "sections.nav-bar",
         "sections.footer",
         "sections.nav-menu",
-        "sections.news"
+        "sections.news",
+        "sections.call-action-image"
       ]
     }
   }

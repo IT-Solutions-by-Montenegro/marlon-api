@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_sections_call_action_images",
+  "info": {
+    "displayName": "Call Action Image"
+  },
+  "options": {},
+  "attributes": {
+    "test": {
+      "type": "string"
+    }
+  }
+}

@@ -372,6 +372,16 @@ export interface SectionsBlog extends Schema.Component {
   };
 }
 
+export interface SectionsCallActionImage extends Schema.Component {
+  collectionName: 'components_sections_call_action_images';
+  info: {
+    displayName: 'Call Action Image';
+  };
+  attributes: {
+    test: Attribute.String;
+  };
+}
+
 export interface SectionsCallToAction extends Schema.Component {
   collectionName: 'components_sections_call_to_actions';
   info: {
@@ -554,6 +564,7 @@ declare module '@strapi/types' {
       'post.posts': PostPosts;
       'sections.banner': SectionsBanner;
       'sections.blog': SectionsBlog;
+      'sections.call-action-image': SectionsCallActionImage;
       'sections.call-to-action': SectionsCallToAction;
       'sections.category': SectionsCategory;
       'sections.footer': SectionsFooter;
