@@ -950,7 +950,7 @@ export interface ApiBlogBlog extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String;
-    caption: Attribute.String;
+    caption: Attribute.Text;
     link: Attribute.String;
     slug: Attribute.RichText &
       Attribute.CustomField<

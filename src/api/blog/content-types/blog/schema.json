@@ -16,7 +16,7 @@
       "type": "string"
     },
     "caption": {
-      "type": "string"
+      "type": "text"
     },
     "link": {
       "type": "string"
@@ -30,14 +30,15 @@
       "customField": "plugin::ckeditor.CKEditor"
     },
     "cover": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }
