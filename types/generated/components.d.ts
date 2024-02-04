@@ -394,6 +394,7 @@ export interface SectionsCallToAction extends Schema.Component {
     content: Attribute.Text;
     button: Attribute.Component<'global.anchor', true>;
     bg: Attribute.String;
+    cover: Attribute.Media;
   };
 }
 
@@ -426,6 +427,16 @@ export interface SectionsFooter extends Schema.Component {
     certifications: Attribute.Component<'global.anchor', true>;
     brand: Attribute.Component<'global.anchor'>;
     socials: Attribute.Component<'global.anchor', true>;
+  };
+}
+
+export interface SectionsInfoOne extends Schema.Component {
+  collectionName: 'components_sections_info_ones';
+  info: {
+    displayName: 'Info One';
+  };
+  attributes: {
+    test: Attribute.String;
   };
 }
 
@@ -569,6 +580,7 @@ declare module '@strapi/types' {
       'sections.call-to-action': SectionsCallToAction;
       'sections.category': SectionsCategory;
       'sections.footer': SectionsFooter;
+      'sections.info-one': SectionsInfoOne;
       'sections.nav-bar': SectionsNavBar;
       'sections.nav-menu': SectionsNavMenu;
       'sections.navigation-menu': SectionsNavigationMenu;

@@ -787,17 +787,14 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
   attributes: {
     title: Attribute.String;
     slug: Attribute.UID<'api::about-us.about-us', 'title'>;
-    components: Attribute.DynamicZone<
+    blocks: Attribute.DynamicZone<
       [
-        'global.banner',
-        'elements.image-card',
-        'global.call-to-action',
-        'global.nav-menu',
+        'sections.banner',
+        'sections.nav-bar',
+        'sections.info-one',
+        'sections.call-to-action',
         'sections.footer'
       ]
-    >;
-    blocks: Attribute.DynamicZone<
-      ['sections.footer', 'sections.call-to-action']
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

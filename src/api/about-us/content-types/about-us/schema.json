@@ -19,21 +19,14 @@
       "type": "uid",
       "targetField": "title"
     },
-    "components": {
-      "type": "dynamiczone",
-      "components": [
-        "global.banner",
-        "elements.image-card",
-        "global.call-to-action",
-        "global.nav-menu",
-        "sections.footer"
-      ]
-    },
     "blocks": {
       "type": "dynamiczone",
       "components": [
-        "sections.footer",
-        "sections.call-to-action"
+        "sections.banner",
+        "sections.nav-bar",
+        "sections.info-one",
+        "sections.call-to-action",
+        "sections.footer"
       ]
     }
   }

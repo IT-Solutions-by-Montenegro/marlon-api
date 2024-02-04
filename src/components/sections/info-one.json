@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_sections_info_ones",
+  "info": {
+    "displayName": "Info One"
+  },
+  "options": {},
+  "attributes": {
+    "test": {
+      "type": "string"
+    }
+  }
+}
