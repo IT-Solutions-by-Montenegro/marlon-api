@@ -364,7 +364,11 @@ export interface SectionsBlog extends Schema.Component {
     description: '';
   };
   attributes: {
-    text: Attribute.String;
+    featured_blog: Attribute.Relation<
+      'sections.blog',
+      'oneToOne',
+      'api::blog.blog'
+    >;
   };
 }
 

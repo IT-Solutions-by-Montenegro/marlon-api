@@ -42,6 +42,9 @@
     },
     "category": {
       "type": "string"
+    },
+    "is_featured": {
+      "type": "boolean"
     }
   }
 }

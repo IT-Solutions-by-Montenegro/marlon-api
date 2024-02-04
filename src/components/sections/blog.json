@@ -6,8 +6,10 @@
   },
   "options": {},
   "attributes": {
-    "text": {
-      "type": "string"
+    "featured_blog": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::blog.blog"
     }
   }
 }

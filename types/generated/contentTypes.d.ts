@@ -962,6 +962,7 @@ export interface ApiBlogBlog extends Schema.CollectionType {
       >;
     cover: Attribute.Media;
     category: Attribute.String;
+    is_featured: Attribute.Boolean;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1655,13 +1656,9 @@ export interface ApiNewsBlogPageNewsBlogPage extends Schema.SingleType {
         'sections.footer',
         'sections.call-to-action',
         'sections.banner',
-        'sections.blog'
+        'sections.blog',
+        'sections.nav-bar'
       ]
-    >;
-    blogs: Attribute.Relation<
-      'api::news-blog-page.news-blog-page',
-      'oneToMany',
-      'api::blog.blog'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
