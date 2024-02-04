@@ -357,6 +357,16 @@ export interface SectionsBanner extends Schema.Component {
   };
 }
 
+export interface SectionsBlog extends Schema.Component {
+  collectionName: 'components_sections_blogs';
+  info: {
+    displayName: 'Blog';
+  };
+  attributes: {
+    blogs: Attribute.Relation<'sections.blog', 'oneToMany', 'api::blog.blog'>;
+  };
+}
+
 export interface SectionsCallToAction extends Schema.Component {
   collectionName: 'components_sections_call_to_actions';
   info: {
@@ -537,6 +547,7 @@ declare module '@strapi/types' {
       'post.post-gallery': PostPostGallery;
       'post.posts': PostPosts;
       'sections.banner': SectionsBanner;
+      'sections.blog': SectionsBlog;
       'sections.call-to-action': SectionsCallToAction;
       'sections.category': SectionsCategory;
       'sections.footer': SectionsFooter;
