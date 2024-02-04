@@ -364,7 +364,7 @@ export interface SectionsBlog extends Schema.Component {
     description: '';
   };
   attributes: {
-    blogs: Attribute.Relation<'sections.blog', 'oneToMany', 'api::blog.blog'>;
+    text: Attribute.String;
   };
 }
 

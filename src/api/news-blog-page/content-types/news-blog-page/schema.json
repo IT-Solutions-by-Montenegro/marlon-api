@@ -26,11 +26,6 @@
         "sections.banner",
         "sections.blog"
       ]
-    },
-    "blogs": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::blog.blog"
     }
   }
 }
