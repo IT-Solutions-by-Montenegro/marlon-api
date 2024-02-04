@@ -529,6 +529,7 @@ export interface SectionsTitleParagraph extends Schema.Component {
   attributes: {
     title: Attribute.String;
     content: Attribute.Text;
+    highlight: Attribute.String;
   };
 }
 

@@ -2144,7 +2144,8 @@ export interface ApiProductsPageProductsPage extends Schema.SingleType {
         'sections.footer',
         'sections.nav-menu',
         'sections.news',
-        'sections.call-action-image'
+        'sections.call-action-image',
+        'sections.title-paragraph'
       ]
     >;
     createdAt: Attribute.DateTime;

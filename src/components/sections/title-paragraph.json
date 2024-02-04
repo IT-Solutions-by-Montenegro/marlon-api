@@ -11,6 +11,9 @@
     },
     "content": {
       "type": "text"
+    },
+    "highlight": {
+      "type": "string"
     }
   }
 }
