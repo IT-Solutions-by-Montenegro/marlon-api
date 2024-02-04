@@ -19,12 +19,15 @@ const customRouter = (innerRouter, extraRoutes = []) => {
   };
 };
 
-const extraRoutes = [
+export default customRouter(defaultRouter, [
   {
     method: "GET",
     path: "/blog/categories",
     handler: "api::blog.blog.categories",
   },
-];
-
-export default customRouter(defaultRouter, extraRoutes);
+  {
+    method: "GET",
+    path: "/blog/paginate",
+    handler: "api::blog.blog.paginate",
+  },
+]);

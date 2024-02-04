@@ -3,6 +3,7 @@
  */
 
 import { factories } from "@strapi/strapi";
+import { mergeTo } from "../../../utils";
 
 export default factories.createCoreController(
   "api::blog.blog",
@@ -13,6 +14,17 @@ export default factories.createCoreController(
       );
 
       return data.map((item) => item.category);
+    },
+    async paginate(ctx) {
+      const query = ctx.query;
+      const where: any = {
+        ...mergeTo(query.category, { category: query.category }),
+      };
+      return strapi.db.query("api::blog.blog").findMany({
+        offset: query.page || 1,
+        limit: query.limit || 10,
+        where,
+      });
     },
   })
 );

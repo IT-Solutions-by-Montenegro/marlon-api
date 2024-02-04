@@ -1658,6 +1658,11 @@ export interface ApiNewsBlogPageNewsBlogPage extends Schema.SingleType {
         'sections.blog'
       ]
     >;
+    blogs: Attribute.Relation<
+      'api::news-blog-page.news-blog-page',
+      'oneToMany',
+      'api::blog.blog'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

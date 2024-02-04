@@ -361,10 +361,9 @@ export interface SectionsBlog extends Schema.Component {
   collectionName: 'components_sections_blogs';
   info: {
     displayName: 'Blog';
+    description: '';
   };
-  attributes: {
-    blogs: Attribute.Relation<'sections.blog', 'oneToMany', 'api::blog.blog'>;
-  };
+  attributes: {};
 }
 
 export interface SectionsCallToAction extends Schema.Component {
