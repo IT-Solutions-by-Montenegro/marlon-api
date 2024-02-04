@@ -1642,6 +1642,7 @@ export interface ApiNewsBlogPageNewsBlogPage extends Schema.SingleType {
     singularName: 'news-blog-page';
     pluralName: 'news-blog-pages';
     displayName: 'News Blog Page';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1650,7 +1651,12 @@ export interface ApiNewsBlogPageNewsBlogPage extends Schema.SingleType {
     title: Attribute.String;
     slug: Attribute.Text;
     blocks: Attribute.DynamicZone<
-      ['sections.footer', 'sections.call-to-action', 'sections.banner']
+      [
+        'sections.footer',
+        'sections.call-to-action',
+        'sections.banner',
+        'sections.blog'
+      ]
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

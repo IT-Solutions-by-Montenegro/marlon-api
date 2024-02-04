@@ -4,7 +4,8 @@
   "info": {
     "singularName": "news-blog-page",
     "pluralName": "news-blog-pages",
-    "displayName": "News Blog Page"
+    "displayName": "News Blog Page",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -22,7 +23,8 @@
       "components": [
         "sections.footer",
         "sections.call-to-action",
-        "sections.banner"
+        "sections.banner",
+        "sections.blog"
       ]
     }
   }
