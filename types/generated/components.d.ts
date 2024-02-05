@@ -343,6 +343,16 @@ export interface PostPosts extends Schema.Component {
   };
 }
 
+export interface SectionsAmbassador extends Schema.Component {
+  collectionName: 'components_sections_ambassadors';
+  info: {
+    displayName: 'Ambassador';
+  };
+  attributes: {
+    test: Attribute.String;
+  };
+}
+
 export interface SectionsBanner extends Schema.Component {
   collectionName: 'components_sections_banners';
   info: {
@@ -604,6 +614,7 @@ declare module '@strapi/types' {
       'homepage.products-section': HomepageProductsSection;
       'post.post-gallery': PostPostGallery;
       'post.posts': PostPosts;
+      'sections.ambassador': SectionsAmbassador;
       'sections.banner': SectionsBanner;
       'sections.blog': SectionsBlog;
       'sections.call-action-image': SectionsCallActionImage;

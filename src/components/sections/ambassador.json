@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_sections_ambassadors",
+  "info": {
+    "displayName": "Ambassador"
+  },
+  "options": {},
+  "attributes": {
+    "test": {
+      "type": "string"
+    }
+  }
+}
