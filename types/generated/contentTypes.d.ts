@@ -1442,6 +1442,47 @@ export interface ApiFindADealerFindADealer extends Schema.SingleType {
   };
 }
 
+export interface ApiGalleryPageGalleryPage extends Schema.SingleType {
+  collectionName: 'gallery_pages';
+  info: {
+    singularName: 'gallery-page';
+    pluralName: 'gallery-pages';
+    displayName: 'Gallery Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    slug: Attribute.Text;
+    blocks: Attribute.DynamicZone<
+      [
+        'sections.banner',
+        'sections.call-to-action',
+        'sections.footer',
+        'sections.nav-bar',
+        'sections.gallery'
+      ]
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::gallery-page.gallery-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::gallery-page.gallery-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiHomePageHomePage extends Schema.SingleType {
   collectionName: 'home_pages';
   info: {
@@ -2518,6 +2559,7 @@ declare module '@strapi/types' {
       'api::dealer-contact.dealer-contact': ApiDealerContactDealerContact;
       'api::email-template.email-template': ApiEmailTemplateEmailTemplate;
       'api::find-a-dealer.find-a-dealer': ApiFindADealerFindADealer;
+      'api::gallery-page.gallery-page': ApiGalleryPageGalleryPage;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::job-applicant.job-applicant': ApiJobApplicantJobApplicant;
       'api::job-posting.job-posting': ApiJobPostingJobPosting;

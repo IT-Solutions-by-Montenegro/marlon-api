@@ -440,6 +440,16 @@ export interface SectionsFooter extends Schema.Component {
   };
 }
 
+export interface SectionsGallery extends Schema.Component {
+  collectionName: 'components_sections_galleries';
+  info: {
+    displayName: 'Gallery';
+  };
+  attributes: {
+    test: Attribute.String;
+  };
+}
+
 export interface SectionsInfoOne extends Schema.Component {
   collectionName: 'components_sections_info_ones';
   info: {
@@ -621,6 +631,7 @@ declare module '@strapi/types' {
       'sections.call-to-action': SectionsCallToAction;
       'sections.category': SectionsCategory;
       'sections.footer': SectionsFooter;
+      'sections.gallery': SectionsGallery;
       'sections.info-one': SectionsInfoOne;
       'sections.info-two': SectionsInfoTwo;
       'sections.job-list': SectionsJobList;
