@@ -893,6 +893,46 @@ export interface ApiAmbassadorAmbassador extends Schema.CollectionType {
   };
 }
 
+export interface ApiAmbassadorPageAmbassadorPage extends Schema.SingleType {
+  collectionName: 'ambassador_pages';
+  info: {
+    singularName: 'ambassador-page';
+    pluralName: 'ambassador-pages';
+    displayName: 'Ambassador Page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    slug: Attribute.Text;
+    blocks: Attribute.DynamicZone<
+      [
+        'sections.ambassador',
+        'sections.banner',
+        'sections.call-to-action',
+        'sections.footer',
+        'sections.nav-bar'
+      ]
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::ambassador-page.ambassador-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::ambassador-page.ambassador-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiBecomeADealerBecomeADealer extends Schema.SingleType {
   collectionName: 'become_a_dealers';
   info: {
@@ -2464,6 +2504,7 @@ declare module '@strapi/types' {
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::action-button.action-button': ApiActionButtonActionButton;
       'api::ambassador.ambassador': ApiAmbassadorAmbassador;
+      'api::ambassador-page.ambassador-page': ApiAmbassadorPageAmbassadorPage;
       'api::become-a-dealer.become-a-dealer': ApiBecomeADealerBecomeADealer;
       'api::blog.blog': ApiBlogBlog;
       'api::brand.brand': ApiBrandBrand;
