@@ -28,11 +28,6 @@
     "last_name": {
       "type": "string"
     },
-    "socialmedia_link": {
-      "type": "component",
-      "repeatable": true,
-      "component": "elements.social-media-links"
-    },
     "location_list": {
       "type": "relation",
       "relation": "oneToOne",
@@ -45,6 +40,11 @@
         "preset": "standard"
       },
       "customField": "plugin::ckeditor.CKEditor"
+    },
+    "social_links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "global.social"
     }
   }
 }

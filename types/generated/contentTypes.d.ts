@@ -2365,7 +2365,6 @@ export interface ApiTeamTeam extends Schema.CollectionType {
     status: Attribute.Enumeration<['Active', 'Inactive']>;
     first_name: Attribute.String;
     last_name: Attribute.String;
-    socialmedia_link: Attribute.Component<'elements.social-media-links', true>;
     location_list: Attribute.Relation<
       'api::team.team',
       'oneToOne',
@@ -2379,6 +2378,7 @@ export interface ApiTeamTeam extends Schema.CollectionType {
           preset: 'standard';
         }
       >;
+    social_links: Attribute.Component<'global.social', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
