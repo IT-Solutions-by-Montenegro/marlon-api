@@ -129,6 +129,7 @@ export interface GlobalAnchor extends Schema.Component {
     text: Attribute.String;
     link: Attribute.String;
     icon: Attribute.Media;
+    theme: Attribute.String;
   };
 }
 

@@ -22,6 +22,9 @@
         "videos",
         "audios"
       ]
+    },
+    "theme": {
+      "type": "string"
     }
   }
 }
