@@ -1442,6 +1442,39 @@ export interface ApiFindADealerFindADealer extends Schema.SingleType {
   };
 }
 
+export interface ApiGalleryGallery extends Schema.CollectionType {
+  collectionName: 'galleries';
+  info: {
+    singularName: 'gallery';
+    pluralName: 'galleries';
+    displayName: 'Gallery';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    url: Attribute.String;
+    media: Attribute.Media;
+    is_active: Attribute.Boolean & Attribute.DefaultTo<true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::gallery.gallery',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::gallery.gallery',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiGalleryPageGalleryPage extends Schema.SingleType {
   collectionName: 'gallery_pages';
   info: {
@@ -2717,6 +2750,7 @@ declare module '@strapi/types' {
       'api::dealer-contact.dealer-contact': ApiDealerContactDealerContact;
       'api::email-template.email-template': ApiEmailTemplateEmailTemplate;
       'api::find-a-dealer.find-a-dealer': ApiFindADealerFindADealer;
+      'api::gallery.gallery': ApiGalleryGallery;
       'api::gallery-page.gallery-page': ApiGalleryPageGalleryPage;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::job-applicant.job-applicant': ApiJobApplicantJobApplicant;

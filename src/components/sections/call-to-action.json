@@ -20,9 +20,6 @@
       "repeatable": true,
       "component": "global.anchor"
     },
-    "bg": {
-      "type": "string"
-    },
     "cover": {
       "type": "media",
       "multiple": false,
