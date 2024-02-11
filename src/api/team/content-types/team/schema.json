@@ -15,14 +15,6 @@
     "job_position": {
       "type": "string"
     },
-    "office_location": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::office-location.office-location"
-    },
-    "biography": {
-      "type": "richtext"
-    },
     "status": {
       "type": "enumeration",
       "enum": [
@@ -40,6 +32,19 @@
       "type": "component",
       "repeatable": true,
       "component": "elements.social-media-links"
+    },
+    "location_list": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::location-list.location-list"
+    },
+    "info": {
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "standard"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
     }
   }
 }

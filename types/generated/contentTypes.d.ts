@@ -2329,16 +2329,23 @@ export interface ApiTeamTeam extends Schema.CollectionType {
   };
   attributes: {
     job_position: Attribute.String;
-    office_location: Attribute.Relation<
-      'api::team.team',
-      'oneToOne',
-      'api::office-location.office-location'
-    >;
-    biography: Attribute.RichText;
     status: Attribute.Enumeration<['Active', 'Inactive']>;
     first_name: Attribute.String;
     last_name: Attribute.String;
     socialmedia_link: Attribute.Component<'elements.social-media-links', true>;
+    location_list: Attribute.Relation<
+      'api::team.team',
+      'oneToOne',
+      'api::location-list.location-list'
+    >;
+    info: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'standard';
+        }
+      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
