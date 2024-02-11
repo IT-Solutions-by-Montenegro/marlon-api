@@ -1458,6 +1458,11 @@ export interface ApiGalleryGallery extends Schema.CollectionType {
     url: Attribute.String;
     media: Attribute.Media;
     is_active: Attribute.Boolean & Attribute.DefaultTo<true>;
+    gallery_category: Attribute.Relation<
+      'api::gallery.gallery',
+      'oneToOne',
+      'api::gallery-category.gallery-category'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

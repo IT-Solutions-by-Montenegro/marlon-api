@@ -32,6 +32,11 @@
     "is_active": {
       "type": "boolean",
       "default": true
+    },
+    "gallery_category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::gallery-category.gallery-category"
     }
   }
 }
