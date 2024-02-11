@@ -257,10 +257,16 @@ export interface GlobalPersonImage extends Schema.Component {
   collectionName: 'components_global_person_images';
   info: {
     displayName: 'Person Image';
+    description: '';
   };
   attributes: {
     url: Attribute.String;
     image: Attribute.Media;
+    section: Attribute.Relation<
+      'global.person-image',
+      'oneToOne',
+      'api::section.section'
+    >;
   };
 }
 

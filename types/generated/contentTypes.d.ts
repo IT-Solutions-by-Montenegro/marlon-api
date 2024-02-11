@@ -2371,6 +2371,36 @@ export interface ApiSalesRepresentativeSalesRepresentative
   };
 }
 
+export interface ApiSectionSection extends Schema.CollectionType {
+  collectionName: 'sections';
+  info: {
+    singularName: 'section';
+    pluralName: 'sections';
+    displayName: 'section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::section.section',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::section.section',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiSocialLinkSocialLink extends Schema.CollectionType {
   collectionName: 'social_links';
   info: {
@@ -2710,6 +2740,7 @@ declare module '@strapi/types' {
       'api::product-tag.product-tag': ApiProductTagProductTag;
       'api::products-page.products-page': ApiProductsPageProductsPage;
       'api::sales-representative.sales-representative': ApiSalesRepresentativeSalesRepresentative;
+      'api::section.section': ApiSectionSection;
       'api::social-link.social-link': ApiSocialLinkSocialLink;
       'api::socmed-list.socmed-list': ApiSocmedListSocmedList;
       'api::team.team': ApiTeamTeam;
