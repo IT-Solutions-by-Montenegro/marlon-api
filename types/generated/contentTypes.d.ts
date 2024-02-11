@@ -1895,6 +1895,8 @@ export interface ApiPersonPerson extends Schema.CollectionType {
       'api::position.position'
     >;
     social_links: Attribute.Component<'global.social', true>;
+    middle_name: Attribute.String;
+    full_name: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
