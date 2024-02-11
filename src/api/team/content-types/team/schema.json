@@ -12,22 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "job_position": {
-      "type": "string"
-    },
-    "status": {
-      "type": "enumeration",
-      "enum": [
-        "Active",
-        "Inactive"
-      ]
-    },
-    "first_name": {
-      "type": "string"
-    },
-    "last_name": {
-      "type": "string"
-    },
     "location_list": {
       "type": "relation",
       "relation": "oneToOne",
@@ -41,10 +25,13 @@
       },
       "customField": "plugin::ckeditor.CKEditor"
     },
-    "social_links": {
-      "type": "component",
-      "repeatable": true,
-      "component": "global.social"
+    "person": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::person.person"
+    },
+    "is_active": {
+      "type": "boolean"
     }
   }
 }

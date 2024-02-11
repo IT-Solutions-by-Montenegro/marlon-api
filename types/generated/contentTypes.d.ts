@@ -1873,6 +1873,7 @@ export interface ApiPersonPerson extends Schema.CollectionType {
     singularName: 'person';
     pluralName: 'people';
     displayName: 'Person';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1888,6 +1889,12 @@ export interface ApiPersonPerson extends Schema.CollectionType {
           preset: 'standard';
         }
       >;
+    position: Attribute.Relation<
+      'api::person.person',
+      'oneToOne',
+      'api::position.position'
+    >;
+    social_links: Attribute.Component<'global.social', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2438,10 +2445,6 @@ export interface ApiTeamTeam extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    job_position: Attribute.String;
-    status: Attribute.Enumeration<['Active', 'Inactive']>;
-    first_name: Attribute.String;
-    last_name: Attribute.String;
     location_list: Attribute.Relation<
       'api::team.team',
       'oneToOne',
@@ -2455,7 +2458,12 @@ export interface ApiTeamTeam extends Schema.CollectionType {
           preset: 'standard';
         }
       >;
-    social_links: Attribute.Component<'global.social', true>;
+    person: Attribute.Relation<
+      'api::team.team',
+      'oneToOne',
+      'api::person.person'
+    >;
+    is_active: Attribute.Boolean;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
