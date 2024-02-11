@@ -1477,6 +1477,37 @@ export interface ApiGalleryGallery extends Schema.CollectionType {
   };
 }
 
+export interface ApiGalleryCategoryGalleryCategory
+  extends Schema.CollectionType {
+  collectionName: 'gallery_categories';
+  info: {
+    singularName: 'gallery-category';
+    pluralName: 'gallery-categories';
+    displayName: 'Gallery Category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::gallery-category.gallery-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::gallery-category.gallery-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiGalleryPageGalleryPage extends Schema.SingleType {
   collectionName: 'gallery_pages';
   info: {
@@ -2753,6 +2784,7 @@ declare module '@strapi/types' {
       'api::email-template.email-template': ApiEmailTemplateEmailTemplate;
       'api::find-a-dealer.find-a-dealer': ApiFindADealerFindADealer;
       'api::gallery.gallery': ApiGalleryGallery;
+      'api::gallery-category.gallery-category': ApiGalleryCategoryGalleryCategory;
       'api::gallery-page.gallery-page': ApiGalleryPageGalleryPage;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::job-applicant.job-applicant': ApiJobApplicantJobApplicant;
