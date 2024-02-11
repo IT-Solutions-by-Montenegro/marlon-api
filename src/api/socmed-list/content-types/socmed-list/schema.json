@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "socmed_lists",
+  "info": {
+    "singularName": "socmed-list",
+    "pluralName": "socmed-lists",
+    "displayName": "Socmed List",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

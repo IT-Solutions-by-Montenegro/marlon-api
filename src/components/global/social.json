@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_global_socials",
+  "info": {
+    "displayName": "Social"
+  },
+  "options": {},
+  "attributes": {
+    "url": {
+      "type": "string"
+    },
+    "socmed_list": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::socmed-list.socmed-list"
+    }
+  }
+}

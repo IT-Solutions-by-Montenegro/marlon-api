@@ -253,6 +253,21 @@ export interface GlobalPartnersLogo extends Schema.Component {
   };
 }
 
+export interface GlobalSocial extends Schema.Component {
+  collectionName: 'components_global_socials';
+  info: {
+    displayName: 'Social';
+  };
+  attributes: {
+    url: Attribute.String;
+    socmed_list: Attribute.Relation<
+      'global.social',
+      'oneToOne',
+      'api::socmed-list.socmed-list'
+    >;
+  };
+}
+
 export interface GlobalTestemony extends Schema.Component {
   collectionName: 'components_global_testemonies';
   info: {
@@ -437,6 +452,7 @@ export interface SectionsFooter extends Schema.Component {
     certifications: Attribute.Component<'global.anchor', true>;
     brand: Attribute.Component<'global.anchor'>;
     socials: Attribute.Component<'global.anchor', true>;
+    social_links: Attribute.Component<'global.social', true>;
   };
 }
 
@@ -617,6 +633,7 @@ declare module '@strapi/types' {
       'global.nav-menu': GlobalNavMenu;
       'global.our-partners': GlobalOurPartners;
       'global.partners-logo': GlobalPartnersLogo;
+      'global.social': GlobalSocial;
       'global.testemony': GlobalTestemony;
       'global.testimonials': GlobalTestimonials;
       'global.text-icon': GlobalTextIcon;

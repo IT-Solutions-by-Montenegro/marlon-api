@@ -2316,6 +2316,39 @@ export interface ApiSocialLinkSocialLink extends Schema.CollectionType {
   };
 }
 
+export interface ApiSocmedListSocmedList extends Schema.CollectionType {
+  collectionName: 'socmed_lists';
+  info: {
+    singularName: 'socmed-list';
+    pluralName: 'socmed-lists';
+    displayName: 'Socmed List';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    url: Attribute.String;
+    icon: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::socmed-list.socmed-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::socmed-list.socmed-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTeamTeam extends Schema.CollectionType {
   collectionName: 'teams';
   info: {
@@ -2588,6 +2621,7 @@ declare module '@strapi/types' {
       'api::products-page.products-page': ApiProductsPageProductsPage;
       'api::sales-representative.sales-representative': ApiSalesRepresentativeSalesRepresentative;
       'api::social-link.social-link': ApiSocialLinkSocialLink;
+      'api::socmed-list.socmed-list': ApiSocmedListSocmedList;
       'api::team.team': ApiTeamTeam;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'api::warranty-page.warranty-page': ApiWarrantyPageWarrantyPage;

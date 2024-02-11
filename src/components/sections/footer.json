@@ -25,6 +25,11 @@
       "type": "component",
       "repeatable": true,
       "component": "global.anchor"
+    },
+    "social_links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "global.social"
     }
   }
 }
