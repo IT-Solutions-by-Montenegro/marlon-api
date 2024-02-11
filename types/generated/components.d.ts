@@ -253,6 +253,17 @@ export interface GlobalPartnersLogo extends Schema.Component {
   };
 }
 
+export interface GlobalPersonImage extends Schema.Component {
+  collectionName: 'components_global_person_images';
+  info: {
+    displayName: 'Person Image';
+  };
+  attributes: {
+    url: Attribute.String;
+    image: Attribute.Media;
+  };
+}
+
 export interface GlobalSocial extends Schema.Component {
   collectionName: 'components_global_socials';
   info: {
@@ -633,6 +644,7 @@ declare module '@strapi/types' {
       'global.nav-menu': GlobalNavMenu;
       'global.our-partners': GlobalOurPartners;
       'global.partners-logo': GlobalPartnersLogo;
+      'global.person-image': GlobalPersonImage;
       'global.social': GlobalSocial;
       'global.testemony': GlobalTestemony;
       'global.testimonials': GlobalTestimonials;

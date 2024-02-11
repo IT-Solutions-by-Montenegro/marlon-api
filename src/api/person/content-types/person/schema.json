@@ -41,6 +41,11 @@
     },
     "full_name": {
       "type": "string"
+    },
+    "image": {
+      "type": "component",
+      "repeatable": true,
+      "component": "global.person-image"
     }
   }
 }
