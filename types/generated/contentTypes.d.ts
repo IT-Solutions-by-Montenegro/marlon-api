@@ -1889,9 +1889,9 @@ export interface ApiPersonPerson extends Schema.CollectionType {
           preset: 'standard';
         }
       >;
-    position: Attribute.Relation<
+    positions: Attribute.Relation<
       'api::person.person',
-      'oneToOne',
+      'oneToMany',
       'api::position.position'
     >;
     social_links: Attribute.Component<'global.social', true>;

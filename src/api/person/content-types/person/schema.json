@@ -26,9 +26,9 @@
       },
       "customField": "plugin::ckeditor.CKEditor"
     },
-    "position": {
+    "positions": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::position.position"
     },
     "social_links": {
