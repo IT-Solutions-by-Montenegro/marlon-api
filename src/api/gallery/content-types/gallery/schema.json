@@ -32,9 +32,6 @@
     "is_active": {
       "type": "boolean",
       "default": true
-    },
-    "category": {
-      "type": "string"
     }
   }
 }

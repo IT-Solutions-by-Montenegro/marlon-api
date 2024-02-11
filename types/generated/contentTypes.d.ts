@@ -1458,7 +1458,6 @@ export interface ApiGalleryGallery extends Schema.CollectionType {
     url: Attribute.String;
     media: Attribute.Media;
     is_active: Attribute.Boolean & Attribute.DefaultTo<true>;
-    category: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
