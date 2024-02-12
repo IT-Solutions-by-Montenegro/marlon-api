@@ -1,12 +1,16 @@
 {
   "collectionName": "components_sections_ambassadors",
   "info": {
-    "displayName": "Ambassador"
+    "displayName": "Ambassador",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "test": {
+    "title": {
       "type": "string"
+    },
+    "caption": {
+      "type": "text"
     }
   }
 }

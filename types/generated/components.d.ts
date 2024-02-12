@@ -380,9 +380,11 @@ export interface SectionsAmbassador extends Schema.Component {
   collectionName: 'components_sections_ambassadors';
   info: {
     displayName: 'Ambassador';
+    description: '';
   };
   attributes: {
-    test: Attribute.String;
+    title: Attribute.String;
+    caption: Attribute.Text;
   };
 }
 
