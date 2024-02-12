@@ -38,6 +38,9 @@
         "preset": "standard"
       },
       "customField": "plugin::ckeditor.CKEditor"
+    },
+    "asc": {
+      "type": "string"
     }
   }
 }

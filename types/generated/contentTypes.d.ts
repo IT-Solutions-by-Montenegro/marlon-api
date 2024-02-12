@@ -1660,17 +1660,17 @@ export interface ApiJobPostingJobPosting extends Schema.CollectionType {
     date_posted: Attribute.Date;
     salary: Attribute.String;
     application_deadline: Attribute.Date;
-    position: Attribute.Relation<
-      'api::job-posting.job-posting',
-      'oneToOne',
-      'api::position.position'
-    >;
     location_list: Attribute.Relation<
       'api::job-posting.job-posting',
       'oneToOne',
       'api::location-list.location-list'
     >;
     job_posting: Attribute.String;
+    job_position: Attribute.Relation<
+      'api::job-posting.job-posting',
+      'oneToOne',
+      'api::position.position'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2026,6 +2026,7 @@ export interface ApiPositionPosition extends Schema.CollectionType {
           preset: 'standard';
         }
       >;
+    asc: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

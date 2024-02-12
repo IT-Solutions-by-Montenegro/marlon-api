@@ -21,11 +21,6 @@
     "application_deadline": {
       "type": "date"
     },
-    "position": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::position.position"
-    },
     "location_list": {
       "type": "relation",
       "relation": "oneToOne",
@@ -33,6 +28,11 @@
     },
     "job_posting": {
       "type": "string"
+    },
+    "job_position": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::position.position"
     }
   }
 }
