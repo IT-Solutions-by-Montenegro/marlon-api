@@ -10,6 +10,12 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::job-posting.job-posting"
+    },
+    "title": {
+      "type": "string"
+    },
+    "caption": {
+      "type": "text"
     }
   }
 }

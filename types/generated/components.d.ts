@@ -268,7 +268,6 @@ export interface GlobalPersonImage extends Schema.Component {
       'oneToOne',
       'api::section.section'
     >;
-    Sections: Attribute.Enumeration<['Team Ambassador', 'Team']>;
   };
 }
 
@@ -527,6 +526,8 @@ export interface SectionsJobList extends Schema.Component {
       'oneToMany',
       'api::job-posting.job-posting'
     >;
+    title: Attribute.String;
+    caption: Attribute.Text;
   };
 }
 
