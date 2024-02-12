@@ -1657,17 +1657,43 @@ export interface ApiJobPostingJobPosting extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    position: Attribute.String;
-    duties_responsibilities: Attribute.RichText;
     date_posted: Attribute.Date;
     salary: Attribute.String;
     application_deadline: Attribute.Date;
-    office_location: Attribute.Relation<
+    position: Attribute.Relation<
       'api::job-posting.job-posting',
       'oneToOne',
-      'api::office-location.office-location'
+      'api::position.position'
     >;
-    job_description: Attribute.RichText;
+    location_list: Attribute.Relation<
+      'api::job-posting.job-posting',
+      'oneToOne',
+      'api::location-list.location-list'
+    >;
+    job_description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'standard';
+        }
+      >;
+    key_responsibilities: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'standard';
+        }
+      >;
+    requirements: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'standard';
+        }
+      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

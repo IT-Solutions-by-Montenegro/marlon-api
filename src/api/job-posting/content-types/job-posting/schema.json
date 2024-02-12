@@ -12,12 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "position": {
-      "type": "string"
-    },
-    "duties_responsibilities": {
-      "type": "richtext"
-    },
     "date_posted": {
       "type": "date"
     },
@@ -27,13 +21,39 @@
     "application_deadline": {
       "type": "date"
     },
-    "office_location": {
+    "position": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::office-location.office-location"
+      "target": "api::position.position"
+    },
+    "location_list": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::location-list.location-list"
     },
     "job_description": {
-      "type": "richtext"
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "standard"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
+    },
+    "key_responsibilities": {
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "standard"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
+    },
+    "requirements": {
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "standard"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
     }
   }
 }
