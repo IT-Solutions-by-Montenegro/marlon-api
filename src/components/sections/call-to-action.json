@@ -30,6 +30,11 @@
         "videos",
         "audios"
       ]
+    },
+    "style": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::style.style"
     }
   }
 }

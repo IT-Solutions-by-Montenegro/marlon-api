@@ -437,6 +437,11 @@ export interface SectionsCallToAction extends Schema.Component {
     content: Attribute.Text;
     button: Attribute.Component<'global.anchor', true>;
     cover: Attribute.Media;
+    style: Attribute.Relation<
+      'sections.call-to-action',
+      'oneToOne',
+      'api::style.style'
+    >;
   };
 }
 
