@@ -17,9 +17,6 @@
       "relation": "oneToMany",
       "target": "api::product-line.product-line"
     },
-    "state": {
-      "type": "string"
-    },
     "Status": {
       "type": "enumeration",
       "enum": [
@@ -30,39 +27,19 @@
     "date_joined": {
       "type": "date"
     },
-    "first_name": {
-      "type": "string"
+    "person": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::person.person"
     },
-    "last_name": {
-      "type": "string"
+    "ambasador_category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::ambasador-category.ambasador-category"
     },
-    "biography": {
-      "type": "text"
-    },
-    "socialmedia_link": {
-      "displayName": "Social Media Links",
-      "type": "component",
-      "repeatable": true,
-      "component": "elements.social-media-links"
-    },
-    "img": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
-    "photo_gallery": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+    "is_active": {
+      "type": "boolean",
+      "default": true
     }
   }
 }

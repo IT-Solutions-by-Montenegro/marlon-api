@@ -894,15 +894,19 @@ export interface ApiAmbassadorAmbassador extends Schema.CollectionType {
       'oneToMany',
       'api::product-line.product-line'
     >;
-    state: Attribute.String;
     Status: Attribute.Enumeration<['Active', 'Inactive']>;
     date_joined: Attribute.Date;
-    first_name: Attribute.String;
-    last_name: Attribute.String;
-    biography: Attribute.Text;
-    socialmedia_link: Attribute.Component<'elements.social-media-links', true>;
-    img: Attribute.Media;
-    photo_gallery: Attribute.Media;
+    person: Attribute.Relation<
+      'api::ambassador.ambassador',
+      'oneToOne',
+      'api::person.person'
+    >;
+    ambasador_category: Attribute.Relation<
+      'api::ambassador.ambassador',
+      'oneToOne',
+      'api::ambasador-category.ambasador-category'
+    >;
+    is_active: Attribute.Boolean & Attribute.DefaultTo<true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2054,7 +2058,6 @@ export interface ApiPositionPosition extends Schema.CollectionType {
           preset: 'standard';
         }
       >;
-    asc: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
