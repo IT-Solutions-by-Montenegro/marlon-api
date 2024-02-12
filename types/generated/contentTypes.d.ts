@@ -1670,6 +1670,7 @@ export interface ApiJobPostingJobPosting extends Schema.CollectionType {
       'oneToOne',
       'api::location-list.location-list'
     >;
+    job_posting: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

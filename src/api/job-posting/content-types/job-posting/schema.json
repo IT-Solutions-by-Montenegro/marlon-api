@@ -30,6 +30,9 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::location-list.location-list"
+    },
+    "job_posting": {
+      "type": "string"
     }
   }
 }
