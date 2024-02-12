@@ -30,30 +30,6 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::location-list.location-list"
-    },
-    "job_description": {
-      "type": "customField",
-      "options": {
-        "output": "HTML",
-        "preset": "standard"
-      },
-      "customField": "plugin::ckeditor.CKEditor"
-    },
-    "key_responsibilities": {
-      "type": "customField",
-      "options": {
-        "output": "HTML",
-        "preset": "standard"
-      },
-      "customField": "plugin::ckeditor.CKEditor"
-    },
-    "requirements": {
-      "type": "customField",
-      "options": {
-        "output": "HTML",
-        "preset": "standard"
-      },
-      "customField": "plugin::ckeditor.CKEditor"
     }
   }
 }

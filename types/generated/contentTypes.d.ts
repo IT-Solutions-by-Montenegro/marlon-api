@@ -1670,30 +1670,6 @@ export interface ApiJobPostingJobPosting extends Schema.CollectionType {
       'oneToOne',
       'api::location-list.location-list'
     >;
-    job_description: Attribute.RichText &
-      Attribute.CustomField<
-        'plugin::ckeditor.CKEditor',
-        {
-          output: 'HTML';
-          preset: 'standard';
-        }
-      >;
-    key_responsibilities: Attribute.RichText &
-      Attribute.CustomField<
-        'plugin::ckeditor.CKEditor',
-        {
-          output: 'HTML';
-          preset: 'standard';
-        }
-      >;
-    requirements: Attribute.RichText &
-      Attribute.CustomField<
-        'plugin::ckeditor.CKEditor',
-        {
-          output: 'HTML';
-          preset: 'standard';
-        }
-      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2018,6 +1994,7 @@ export interface ApiPositionPosition extends Schema.CollectionType {
     singularName: 'position';
     pluralName: 'positions';
     displayName: 'Position';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -2025,6 +2002,22 @@ export interface ApiPositionPosition extends Schema.CollectionType {
   attributes: {
     name: Attribute.String;
     description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'standard';
+        }
+      >;
+    responsibilities: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'standard';
+        }
+      >;
+    requirements: Attribute.RichText &
       Attribute.CustomField<
         'plugin::ckeditor.CKEditor',
         {

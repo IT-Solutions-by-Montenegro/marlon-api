@@ -4,7 +4,8 @@
   "info": {
     "singularName": "position",
     "pluralName": "positions",
-    "displayName": "Position"
+    "displayName": "Position",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,6 +16,22 @@
       "type": "string"
     },
     "description": {
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "standard"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
+    },
+    "responsibilities": {
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "standard"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
+    },
+    "requirements": {
       "type": "customField",
       "options": {
         "output": "HTML",
