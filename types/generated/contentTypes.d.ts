@@ -2536,6 +2536,42 @@ export interface ApiSocmedListSocmedList extends Schema.CollectionType {
   };
 }
 
+export interface ApiStyleStyle extends Schema.CollectionType {
+  collectionName: 'styles';
+  info: {
+    singularName: 'style';
+    pluralName: 'styles';
+    displayName: 'Style';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    section: Attribute.Relation<
+      'api::style.style',
+      'oneToOne',
+      'api::section.section'
+    >;
+    option: Attribute.JSON;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::style.style',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::style.style',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTeamTeam extends Schema.CollectionType {
   collectionName: 'teams';
   info: {
@@ -2815,6 +2851,7 @@ declare module '@strapi/types' {
       'api::section.section': ApiSectionSection;
       'api::social-link.social-link': ApiSocialLinkSocialLink;
       'api::socmed-list.socmed-list': ApiSocmedListSocmedList;
+      'api::style.style': ApiStyleStyle;
       'api::team.team': ApiTeamTeam;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'api::warranty-page.warranty-page': ApiWarrantyPageWarrantyPage;
