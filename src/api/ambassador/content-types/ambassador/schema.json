@@ -17,13 +17,6 @@
       "relation": "oneToMany",
       "target": "api::product-line.product-line"
     },
-    "Status": {
-      "type": "enumeration",
-      "enum": [
-        "Active",
-        "Inactive"
-      ]
-    },
     "date_joined": {
       "type": "date"
     },

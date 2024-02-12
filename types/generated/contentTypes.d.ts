@@ -894,7 +894,6 @@ export interface ApiAmbassadorAmbassador extends Schema.CollectionType {
       'oneToMany',
       'api::product-line.product-line'
     >;
-    Status: Attribute.Enumeration<['Active', 'Inactive']>;
     date_joined: Attribute.Date;
     person: Attribute.Relation<
       'api::ambassador.ambassador',
