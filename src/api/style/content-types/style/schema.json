@@ -4,7 +4,8 @@
   "info": {
     "singularName": "style",
     "pluralName": "styles",
-    "displayName": "Style"
+    "displayName": "Style",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -19,7 +20,7 @@
       "relation": "oneToOne",
       "target": "api::section.section"
     },
-    "option": {
+    "options": {
       "type": "json"
     }
   }

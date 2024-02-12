@@ -2542,6 +2542,7 @@ export interface ApiStyleStyle extends Schema.CollectionType {
     singularName: 'style';
     pluralName: 'styles';
     displayName: 'Style';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -2553,7 +2554,7 @@ export interface ApiStyleStyle extends Schema.CollectionType {
       'oneToOne',
       'api::section.section'
     >;
-    option: Attribute.JSON;
+    options: Attribute.JSON;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
