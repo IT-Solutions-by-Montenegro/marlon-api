@@ -1,12 +1,15 @@
 {
   "collectionName": "components_sections_job_lists",
   "info": {
-    "displayName": "Job List"
+    "displayName": "Job List",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "test": {
-      "type": "string"
+    "job_postings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::job-posting.job-posting"
     }
   }
 }

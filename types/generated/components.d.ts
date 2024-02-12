@@ -518,9 +518,14 @@ export interface SectionsJobList extends Schema.Component {
   collectionName: 'components_sections_job_lists';
   info: {
     displayName: 'Job List';
+    description: '';
   };
   attributes: {
-    test: Attribute.String;
+    job_postings: Attribute.Relation<
+      'sections.job-list',
+      'oneToMany',
+      'api::job-posting.job-posting'
+    >;
   };
 }
 
