@@ -502,9 +502,15 @@ export interface SectionsInfoTwo extends Schema.Component {
   collectionName: 'components_sections_info_twos';
   info: {
     displayName: 'Info Two';
+    description: '';
   };
   attributes: {
-    test: Attribute.String;
+    highlight: Attribute.String;
+    title: Attribute.String;
+    caption: Attribute.String;
+    image_1: Attribute.Media;
+    image_2: Attribute.Media;
+    image_3: Attribute.Media;
   };
 }
 
