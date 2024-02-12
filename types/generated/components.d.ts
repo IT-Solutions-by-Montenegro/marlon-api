@@ -507,7 +507,7 @@ export interface SectionsInfoTwo extends Schema.Component {
   attributes: {
     highlight: Attribute.String;
     title: Attribute.String;
-    caption: Attribute.String;
+    caption: Attribute.Text;
     image_1: Attribute.Media;
     image_2: Attribute.Media;
     image_3: Attribute.Media;
