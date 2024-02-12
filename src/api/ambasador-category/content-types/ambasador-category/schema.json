@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ambasador_categories",
+  "info": {
+    "singularName": "ambasador-category",
+    "pluralName": "ambasador-categories",
+    "displayName": "Ambasador Category"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}

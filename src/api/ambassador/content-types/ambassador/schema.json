@@ -45,32 +45,24 @@
       "repeatable": true,
       "component": "elements.social-media-links"
     },
-    "category": {
-      "type": "enumeration",
-      "enum": [
-        "Fishing",
-        "Snowboarding",
-        "Jet Skiing",
-        "Hunting",
-        "Snowmobiling"
-      ]
-    },
     "img": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
     "photo_gallery": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     }
   }
 }

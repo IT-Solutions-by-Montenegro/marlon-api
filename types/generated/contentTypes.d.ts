@@ -846,6 +846,37 @@ export interface ApiActionButtonActionButton extends Schema.CollectionType {
   };
 }
 
+export interface ApiAmbasadorCategoryAmbasadorCategory
+  extends Schema.CollectionType {
+  collectionName: 'ambasador_categories';
+  info: {
+    singularName: 'ambasador-category';
+    pluralName: 'ambasador-categories';
+    displayName: 'Ambasador Category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::ambasador-category.ambasador-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::ambasador-category.ambasador-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiAmbassadorAmbassador extends Schema.CollectionType {
   collectionName: 'ambassadors';
   info: {
@@ -870,9 +901,6 @@ export interface ApiAmbassadorAmbassador extends Schema.CollectionType {
     last_name: Attribute.String;
     biography: Attribute.Text;
     socialmedia_link: Attribute.Component<'elements.social-media-links', true>;
-    category: Attribute.Enumeration<
-      ['Fishing', 'Snowboarding', 'Jet Skiing', 'Hunting', 'Snowmobiling']
-    >;
     img: Attribute.Media;
     photo_gallery: Attribute.Media;
     createdAt: Attribute.DateTime;
@@ -2830,6 +2858,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::action-button.action-button': ApiActionButtonActionButton;
+      'api::ambasador-category.ambasador-category': ApiAmbasadorCategoryAmbasadorCategory;
       'api::ambassador.ambassador': ApiAmbassadorAmbassador;
       'api::ambassador-page.ambassador-page': ApiAmbassadorPageAmbassadorPage;
       'api::become-a-dealer.become-a-dealer': ApiBecomeADealerBecomeADealer;
