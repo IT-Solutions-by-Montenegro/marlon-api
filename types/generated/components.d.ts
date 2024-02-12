@@ -268,6 +268,7 @@ export interface GlobalPersonImage extends Schema.Component {
       'oneToOne',
       'api::section.section'
     >;
+    Sections: Attribute.Enumeration<['Team Ambassador', 'Team']>;
   };
 }
 

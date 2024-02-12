@@ -24,6 +24,13 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::section.section"
+    },
+    "Sections": {
+      "type": "enumeration",
+      "enum": [
+        "Team Ambassador",
+        "Team"
+      ]
     }
   }
 }
