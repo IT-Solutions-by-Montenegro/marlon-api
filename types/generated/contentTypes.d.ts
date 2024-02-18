@@ -1241,7 +1241,7 @@ export interface ApiContactPageContactPage extends Schema.SingleType {
   attributes: {
     title: Attribute.String;
     slug: Attribute.UID<'api::contact-page.contact-page', 'title'>;
-    components: Attribute.DynamicZone<
+    blocks: Attribute.DynamicZone<
       [
         'sections.call-to-action',
         'sections.banner',

@@ -19,7 +19,7 @@
       "type": "uid",
       "targetField": "title"
     },
-    "components": {
+    "blocks": {
       "type": "dynamiczone",
       "components": [
         "sections.call-to-action",
