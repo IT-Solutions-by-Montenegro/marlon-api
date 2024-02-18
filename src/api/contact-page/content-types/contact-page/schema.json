@@ -4,7 +4,8 @@
   "info": {
     "singularName": "contact-page",
     "pluralName": "contact-pages",
-    "displayName": "Contact Page"
+    "displayName": "Contact Page",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -21,13 +22,11 @@
     "components": {
       "type": "dynamiczone",
       "components": [
-        "contact.contact-section"
+        "sections.call-to-action",
+        "sections.banner",
+        "sections.nav-bar",
+        "sections.footer"
       ]
-    },
-    "office_location": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::office-location.office-location"
     }
   }
 }

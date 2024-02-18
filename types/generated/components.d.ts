@@ -494,10 +494,9 @@ export interface SectionsInfoOne extends Schema.Component {
   collectionName: 'components_sections_info_ones';
   info: {
     displayName: 'Info One';
+    description: '';
   };
-  attributes: {
-    test: Attribute.String;
-  };
+  attributes: {};
 }
 
 export interface SectionsInfoTwo extends Schema.Component {

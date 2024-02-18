@@ -1233,6 +1233,7 @@ export interface ApiContactPageContactPage extends Schema.SingleType {
     singularName: 'contact-page';
     pluralName: 'contact-pages';
     displayName: 'Contact Page';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1240,11 +1241,13 @@ export interface ApiContactPageContactPage extends Schema.SingleType {
   attributes: {
     title: Attribute.String;
     slug: Attribute.UID<'api::contact-page.contact-page', 'title'>;
-    components: Attribute.DynamicZone<['contact.contact-section']>;
-    office_location: Attribute.Relation<
-      'api::contact-page.contact-page',
-      'oneToOne',
-      'api::office-location.office-location'
+    components: Attribute.DynamicZone<
+      [
+        'sections.call-to-action',
+        'sections.banner',
+        'sections.nav-bar',
+        'sections.footer'
+      ]
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1726,6 +1729,7 @@ export interface ApiLocationListLocationList extends Schema.CollectionType {
     singularName: 'location-list';
     pluralName: 'location-lists';
     displayName: 'Location List';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1738,6 +1742,7 @@ export interface ApiLocationListLocationList extends Schema.CollectionType {
     address: Attribute.String;
     lat: Attribute.String;
     lon: Attribute.String;
+    email: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

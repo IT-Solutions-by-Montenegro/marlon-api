@@ -4,7 +4,8 @@
   "info": {
     "singularName": "location-list",
     "pluralName": "location-lists",
-    "displayName": "Location List"
+    "displayName": "Location List",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -30,6 +31,9 @@
       "type": "string"
     },
     "lon": {
+      "type": "string"
+    },
+    "email": {
       "type": "string"
     }
   }
