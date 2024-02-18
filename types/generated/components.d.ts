@@ -417,30 +417,6 @@ export interface SectionsBlog extends Schema.Component {
   };
 }
 
-export interface SectionsBranchAddress extends Schema.Component {
-  collectionName: 'components_sections_branch_addresses';
-  info: {
-    displayName: 'Branch Address';
-  };
-  attributes: {
-    location_list: Attribute.Relation<
-      'sections.branch-address',
-      'oneToOne',
-      'api::location-list.location-list'
-    >;
-  };
-}
-
-export interface SectionsCallActionForm extends Schema.Component {
-  collectionName: 'components_sections_call_action_forms';
-  info: {
-    displayName: 'Call Action Form';
-  };
-  attributes: {
-    call_to_action: Attribute.Component<'sections.call-to-action'>;
-  };
-}
-
 export interface SectionsCallActionImage extends Schema.Component {
   collectionName: 'components_sections_call_action_images';
   info: {
@@ -501,16 +477,6 @@ export interface SectionsFooter extends Schema.Component {
     brand: Attribute.Component<'global.anchor'>;
     socials: Attribute.Component<'global.anchor', true>;
     social_links: Attribute.Component<'global.social', true>;
-  };
-}
-
-export interface SectionsFormSection extends Schema.Component {
-  collectionName: 'components_sections_form_sections';
-  info: {
-    displayName: 'Form Section';
-  };
-  attributes: {
-    name: Attribute.String;
   };
 }
 
@@ -715,13 +681,10 @@ declare module '@strapi/types' {
       'sections.ambassador': SectionsAmbassador;
       'sections.banner': SectionsBanner;
       'sections.blog': SectionsBlog;
-      'sections.branch-address': SectionsBranchAddress;
-      'sections.call-action-form': SectionsCallActionForm;
       'sections.call-action-image': SectionsCallActionImage;
       'sections.call-to-action': SectionsCallToAction;
       'sections.category': SectionsCategory;
       'sections.footer': SectionsFooter;
-      'sections.form-section': SectionsFormSection;
       'sections.gallery': SectionsGallery;
       'sections.info-one': SectionsInfoOne;
       'sections.info-two': SectionsInfoTwo;

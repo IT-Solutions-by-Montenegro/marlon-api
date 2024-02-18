@@ -22,11 +22,9 @@
     "blocks": {
       "type": "dynamiczone",
       "components": [
-        "sections.call-to-action",
         "sections.banner",
         "sections.nav-bar",
-        "sections.footer",
-        "sections.call-action-form"
+        "sections.footer"
       ]
     }
   }
