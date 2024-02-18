@@ -1246,7 +1246,8 @@ export interface ApiContactPageContactPage extends Schema.SingleType {
         'sections.call-to-action',
         'sections.banner',
         'sections.nav-bar',
-        'sections.footer'
+        'sections.footer',
+        'sections.call-action-form'
       ]
     >;
     createdAt: Attribute.DateTime;

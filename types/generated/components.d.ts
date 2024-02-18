@@ -437,7 +437,7 @@ export interface SectionsCallActionForm extends Schema.Component {
     displayName: 'Call Action Form';
   };
   attributes: {
-    call_to_action: Attribute.Component<'sections.call-action-image'>;
+    call_to_action: Attribute.Component<'sections.call-to-action'>;
   };
 }
 
