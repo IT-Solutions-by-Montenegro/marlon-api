@@ -2727,13 +2727,15 @@ export interface ApiWarrantyPageWarrantyPage extends Schema.SingleType {
   attributes: {
     title: Attribute.String;
     slug: Attribute.UID<'api::warranty-page.warranty-page', 'title'>;
-    components: Attribute.DynamicZone<
-      ['global.banner', 'global.partners-logo']
-    >;
-    office_location: Attribute.Relation<
-      'api::warranty-page.warranty-page',
-      'oneToOne',
-      'api::office-location.office-location'
+    blocks: Attribute.DynamicZone<
+      [
+        'sections.nav-bar',
+        'sections.info-three',
+        'sections.footer',
+        'sections.call-to-action',
+        'sections.banner',
+        'sections.partners'
+      ]
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

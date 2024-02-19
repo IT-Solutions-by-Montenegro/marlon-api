@@ -19,17 +19,16 @@
       "type": "uid",
       "targetField": "title"
     },
-    "components": {
+    "blocks": {
       "type": "dynamiczone",
       "components": [
-        "global.banner",
-        "global.partners-logo"
+        "sections.nav-bar",
+        "sections.info-three",
+        "sections.footer",
+        "sections.call-to-action",
+        "sections.banner",
+        "sections.partners"
       ]
-    },
-    "office_location": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::office-location.office-location"
     }
   }
 }

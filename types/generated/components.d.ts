@@ -500,6 +500,19 @@ export interface SectionsGallery extends Schema.Component {
   };
 }
 
+export interface SectionsInfoFour extends Schema.Component {
+  collectionName: 'components_sections_info_fours';
+  info: {
+    displayName: 'Info Four';
+  };
+  attributes: {
+    paragraph: Attribute.Component<'sections.title-paragraph'>;
+    image: Attribute.Media;
+    title: Attribute.String;
+    caption: Attribute.Text;
+  };
+}
+
 export interface SectionsInfoOne extends Schema.Component {
   collectionName: 'components_sections_info_ones';
   info: {
@@ -507,6 +520,19 @@ export interface SectionsInfoOne extends Schema.Component {
     description: '';
   };
   attributes: {};
+}
+
+export interface SectionsInfoThree extends Schema.Component {
+  collectionName: 'components_sections_info_threes';
+  info: {
+    displayName: 'Info Three';
+  };
+  attributes: {
+    highlight: Attribute.String;
+    title: Attribute.String;
+    caption: Attribute.Text;
+    image_1: Attribute.Media;
+  };
 }
 
 export interface SectionsInfoTwo extends Schema.Component {
@@ -697,7 +723,9 @@ declare module '@strapi/types' {
       'sections.category': SectionsCategory;
       'sections.footer': SectionsFooter;
       'sections.gallery': SectionsGallery;
+      'sections.info-four': SectionsInfoFour;
       'sections.info-one': SectionsInfoOne;
+      'sections.info-three': SectionsInfoThree;
       'sections.info-two': SectionsInfoTwo;
       'sections.job-list': SectionsJobList;
       'sections.nav-bar': SectionsNavBar;

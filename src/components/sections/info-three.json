@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_sections_info_threes",
+  "info": {
+    "displayName": "Info Three"
+  },
+  "options": {},
+  "attributes": {
+    "highlight": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "caption": {
+      "type": "text"
+    },
+    "image_1": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
