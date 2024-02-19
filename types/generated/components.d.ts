@@ -167,6 +167,16 @@ export interface GlobalCallToAction extends Schema.Component {
   };
 }
 
+export interface GlobalConfig extends Schema.Component {
+  collectionName: 'components_global_configs';
+  info: {
+    displayName: 'Config';
+  };
+  attributes: {
+    config: Attribute.JSON;
+  };
+}
+
 export interface GlobalCustomers extends Schema.Component {
   collectionName: 'components_global_customers';
   info: {
@@ -584,9 +594,10 @@ export interface SectionsLocationFilter extends Schema.Component {
   collectionName: 'components_sections_location_filters';
   info: {
     displayName: 'Location Filter';
+    description: '';
   };
   attributes: {
-    config: Attribute.JSON;
+    config: Attribute.Component<'global.config'>;
   };
 }
 
@@ -720,6 +731,7 @@ declare module '@strapi/types' {
       'global.banner': GlobalBanner;
       'global.button': GlobalButton;
       'global.call-to-action': GlobalCallToAction;
+      'global.config': GlobalConfig;
       'global.customers': GlobalCustomers;
       'global.form-section': GlobalFormSection;
       'global.hamburger': GlobalHamburger;

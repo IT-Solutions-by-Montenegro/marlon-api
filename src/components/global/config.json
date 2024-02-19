@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_global_configs",
+  "info": {
+    "displayName": "Config"
+  },
+  "options": {},
+  "attributes": {
+    "config": {
+      "type": "json"
+    }
+  }
+}

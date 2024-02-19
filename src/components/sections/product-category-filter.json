@@ -1,8 +1,7 @@
 {
-  "collectionName": "components_sections_location_filters",
+  "collectionName": "components_sections_product_category_filters",
   "info": {
-    "displayName": "Location Filter",
-    "description": ""
+    "displayName": "Product Category Filter"
   },
   "options": {},
   "attributes": {
