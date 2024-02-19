@@ -1455,9 +1455,16 @@ export interface ApiFindADealerFindADealer extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    banner: Attribute.Component<'global.banner'>;
-    interactive_map: Attribute.Component<'find-a-dealer.interactive-map', true>;
-    call_to_action: Attribute.Component<'global.call-to-action'>;
+    title: Attribute.String;
+    slug: Attribute.Text;
+    blocks: Attribute.DynamicZone<
+      [
+        'sections.banner',
+        'sections.call-to-action',
+        'sections.footer',
+        'sections.title-paragraph'
+      ]
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

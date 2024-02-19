@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_sections_location_filters",
+  "info": {
+    "displayName": "Location Filter"
+  },
+  "options": {},
+  "attributes": {
+    "config": {
+      "type": "json"
+    }
+  }
+}

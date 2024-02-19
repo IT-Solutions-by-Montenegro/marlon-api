@@ -12,21 +12,20 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "banner": {
-      "type": "component",
-      "repeatable": false,
-      "component": "global.banner"
+    "title": {
+      "type": "string"
     },
-    "interactive_map": {
-      "displayName": "Interactive Map",
-      "type": "component",
-      "repeatable": true,
-      "component": "find-a-dealer.interactive-map"
+    "slug": {
+      "type": "text"
     },
-    "call_to_action": {
-      "type": "component",
-      "repeatable": false,
-      "component": "global.call-to-action"
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "sections.banner",
+        "sections.call-to-action",
+        "sections.footer",
+        "sections.title-paragraph"
+      ]
     }
   }
 }

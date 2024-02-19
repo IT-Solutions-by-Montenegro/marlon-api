@@ -580,6 +580,16 @@ export interface SectionsJobList extends Schema.Component {
   };
 }
 
+export interface SectionsLocationFilter extends Schema.Component {
+  collectionName: 'components_sections_location_filters';
+  info: {
+    displayName: 'Location Filter';
+  };
+  attributes: {
+    config: Attribute.JSON;
+  };
+}
+
 export interface SectionsNavBar extends Schema.Component {
   collectionName: 'components_sections_nav_bars';
   info: {
@@ -741,6 +751,7 @@ declare module '@strapi/types' {
       'sections.info-three': SectionsInfoThree;
       'sections.info-two': SectionsInfoTwo;
       'sections.job-list': SectionsJobList;
+      'sections.location-filter': SectionsLocationFilter;
       'sections.nav-bar': SectionsNavBar;
       'sections.nav-menu': SectionsNavMenu;
       'sections.navigation-menu': SectionsNavigationMenu;
