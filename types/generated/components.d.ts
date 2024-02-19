@@ -202,6 +202,16 @@ export interface GlobalHamburger extends Schema.Component {
   };
 }
 
+export interface GlobalHighlight extends Schema.Component {
+  collectionName: 'components_global_highlights';
+  info: {
+    displayName: 'Highlight';
+  };
+  attributes: {
+    text: Attribute.String;
+  };
+}
+
 export interface GlobalNavBarBranch extends Schema.Component {
   collectionName: 'components_global_nav_bar_branches';
   info: {
@@ -504,12 +514,14 @@ export interface SectionsInfoFour extends Schema.Component {
   collectionName: 'components_sections_info_fours';
   info: {
     displayName: 'Info Four';
+    description: '';
   };
   attributes: {
     paragraph: Attribute.Component<'sections.title-paragraph'>;
     image: Attribute.Media;
     title: Attribute.String;
     caption: Attribute.Text;
+    list: Attribute.Component<'global.highlight', true>;
   };
 }
 
@@ -701,6 +713,7 @@ declare module '@strapi/types' {
       'global.customers': GlobalCustomers;
       'global.form-section': GlobalFormSection;
       'global.hamburger': GlobalHamburger;
+      'global.highlight': GlobalHighlight;
       'global.nav-bar-branch': GlobalNavBarBranch;
       'global.nav-bar-item': GlobalNavBarItem;
       'global.nav-menu': GlobalNavMenu;

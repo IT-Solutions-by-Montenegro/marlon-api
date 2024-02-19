@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_global_highlights",
+  "info": {
+    "displayName": "Highlight"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    }
+  }
+}
