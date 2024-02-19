@@ -179,6 +179,16 @@ export interface GlobalCustomers extends Schema.Component {
   };
 }
 
+export interface GlobalFormSection extends Schema.Component {
+  collectionName: 'components_global_form_sections';
+  info: {
+    displayName: 'Form Section';
+  };
+  attributes: {
+    name: Attribute.String;
+  };
+}
+
 export interface GlobalHamburger extends Schema.Component {
   collectionName: 'components_global_hamburgers';
   info: {
@@ -663,6 +673,7 @@ declare module '@strapi/types' {
       'global.button': GlobalButton;
       'global.call-to-action': GlobalCallToAction;
       'global.customers': GlobalCustomers;
+      'global.form-section': GlobalFormSection;
       'global.hamburger': GlobalHamburger;
       'global.nav-bar-branch': GlobalNavBarBranch;
       'global.nav-bar-item': GlobalNavBarItem;

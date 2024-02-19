@@ -1242,7 +1242,12 @@ export interface ApiContactPageContactPage extends Schema.SingleType {
     title: Attribute.String;
     slug: Attribute.UID<'api::contact-page.contact-page', 'title'>;
     blocks: Attribute.DynamicZone<
-      ['sections.banner', 'sections.nav-bar', 'sections.footer']
+      [
+        'sections.banner',
+        'sections.nav-bar',
+        'sections.footer',
+        'sections.call-to-action'
+      ]
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

@@ -24,7 +24,8 @@
       "components": [
         "sections.banner",
         "sections.nav-bar",
-        "sections.footer"
+        "sections.footer",
+        "sections.call-to-action"
       ]
     }
   }
