@@ -24,7 +24,8 @@
         "sections.banner",
         "sections.call-to-action",
         "sections.footer",
-        "sections.title-paragraph"
+        "sections.title-paragraph",
+        "sections.nav-bar"
       ]
     }
   }

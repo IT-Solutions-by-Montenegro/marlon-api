@@ -1504,7 +1504,8 @@ export interface ApiFindADealerFindADealer extends Schema.SingleType {
         'sections.banner',
         'sections.call-to-action',
         'sections.footer',
-        'sections.title-paragraph'
+        'sections.title-paragraph',
+        'sections.nav-bar'
       ]
     >;
     createdAt: Attribute.DateTime;
