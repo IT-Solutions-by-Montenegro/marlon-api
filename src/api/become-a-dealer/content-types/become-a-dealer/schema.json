@@ -4,7 +4,8 @@
   "info": {
     "singularName": "become-a-dealer",
     "pluralName": "become-a-dealers",
-    "displayName": "Become a Dealer"
+    "displayName": "Become a Dealer",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,21 +19,15 @@
       "type": "uid",
       "targetField": "title"
     },
-    "components": {
+    "blocks": {
       "type": "dynamiczone",
       "components": [
-        "global.banner"
+        "sections.banner",
+        "sections.title-paragraph",
+        "sections.nav-bar",
+        "sections.info-four",
+        "sections.footer"
       ]
-    },
-    "dealer_application": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::dealer-application.dealer-application"
-    },
-    "office_location": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::office-location.office-location"
     }
   }
 }

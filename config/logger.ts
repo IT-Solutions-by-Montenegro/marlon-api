@@ -8,19 +8,19 @@ const {
 } = logger;
 
 export default {
-  // transports: [
-  //   new winston.transports.Console({
-  //     level: "warn",
-  //     format: winston.format.combine(
-  //       levelFilter("http"),
-  //       prettyPrint({ timestamps: "YYYY-MM-DD hh:mm:ss.SSS" })marl
-  //     ),
-  //   }),
-  // ],
-  settings: {
-    logger: {
-      level: "error",
-      transports: ["console"],
-    },
-  },
+  transports: [
+    new winston.transports.Console({
+      level: "warn",
+      format: winston.format.combine(
+        levelFilter("http"),
+        prettyPrint({ timestamps: "YYYY-MM-DD hh:mm:ss.SSS" })
+      ),
+    }),
+  ],
+  // settings: {
+  //   logger: {
+  //     level: "error",
+  //     transports: ["console"],
+  //   },
+  // },
 };

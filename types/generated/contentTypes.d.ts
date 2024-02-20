@@ -970,6 +970,7 @@ export interface ApiBecomeADealerBecomeADealer extends Schema.SingleType {
     singularName: 'become-a-dealer';
     pluralName: 'become-a-dealers';
     displayName: 'Become a Dealer';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -977,16 +978,14 @@ export interface ApiBecomeADealerBecomeADealer extends Schema.SingleType {
   attributes: {
     title: Attribute.String;
     slug: Attribute.UID<'api::become-a-dealer.become-a-dealer', 'title'>;
-    components: Attribute.DynamicZone<['global.banner']>;
-    dealer_application: Attribute.Relation<
-      'api::become-a-dealer.become-a-dealer',
-      'oneToOne',
-      'api::dealer-application.dealer-application'
-    >;
-    office_location: Attribute.Relation<
-      'api::become-a-dealer.become-a-dealer',
-      'oneToOne',
-      'api::office-location.office-location'
+    blocks: Attribute.DynamicZone<
+      [
+        'sections.banner',
+        'sections.title-paragraph',
+        'sections.nav-bar',
+        'sections.info-four',
+        'sections.footer'
+      ]
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
