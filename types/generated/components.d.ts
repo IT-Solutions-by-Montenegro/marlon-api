@@ -538,7 +538,6 @@ export interface SectionsInfoFour extends Schema.Component {
     description: '';
   };
   attributes: {
-    paragraph: Attribute.Component<'sections.title-paragraph'>;
     image: Attribute.Media;
     title: Attribute.String;
     caption: Attribute.Text;

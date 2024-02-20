@@ -6,11 +6,6 @@
   },
   "options": {},
   "attributes": {
-    "paragraph": {
-      "type": "component",
-      "repeatable": false,
-      "component": "sections.title-paragraph"
-    },
     "image": {
       "type": "media",
       "multiple": false,
