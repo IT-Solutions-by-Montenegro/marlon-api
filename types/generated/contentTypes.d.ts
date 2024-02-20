@@ -1201,6 +1201,17 @@ export interface ApiCategoryPageCategoryPage extends Schema.SingleType {
   attributes: {
     title: Attribute.String;
     slug: Attribute.Text;
+    blocks: Attribute.DynamicZone<
+      [
+        'sections.banner',
+        'sections.call-to-action',
+        'sections.category-filter',
+        'sections.footer',
+        'sections.nav-bar',
+        'sections.news',
+        'sections.title-paragraph'
+      ]
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

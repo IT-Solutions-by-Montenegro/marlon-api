@@ -17,6 +17,18 @@
     },
     "slug": {
       "type": "text"
+    },
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "sections.banner",
+        "sections.call-to-action",
+        "sections.category-filter",
+        "sections.footer",
+        "sections.nav-bar",
+        "sections.news",
+        "sections.title-paragraph"
+      ]
     }
   }
 }
