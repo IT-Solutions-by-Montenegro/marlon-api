@@ -29,22 +29,14 @@
     },
     "reason_of_contact": {
       "type": "enumeration",
-      "enum": [
-        "General Inquiries",
-        "Become a Dealer",
-        "Warranty",
-        "Products"
-      ]
+      "enum": ["General Inquiries", "Become a Dealer", "Warranty", "Products"]
     },
     "message": {
       "type": "text"
     },
     "status": {
       "type": "enumeration",
-      "enum": [
-        "Read",
-        "Unread"
-      ]
+      "enum": ["Read", "Unread"]
     }
   }
 }

@@ -171,9 +171,10 @@ export interface GlobalConfig extends Schema.Component {
   collectionName: 'components_global_configs';
   info: {
     displayName: 'Config';
+    description: '';
   };
   attributes: {
-    config: Attribute.JSON;
+    name: Attribute.String;
   };
 }
 
@@ -477,6 +478,16 @@ export interface SectionsCallToAction extends Schema.Component {
   };
 }
 
+export interface SectionsCategoryFilter extends Schema.Component {
+  collectionName: 'components_sections_category_filters';
+  info: {
+    displayName: 'Category Filter';
+  };
+  attributes: {
+    config: Attribute.Component<'global.config'>;
+  };
+}
+
 export interface SectionsCategory extends Schema.Component {
   collectionName: 'components_sections_categories';
   info: {
@@ -755,6 +766,7 @@ declare module '@strapi/types' {
       'sections.blog': SectionsBlog;
       'sections.call-action-image': SectionsCallActionImage;
       'sections.call-to-action': SectionsCallToAction;
+      'sections.category-filter': SectionsCategoryFilter;
       'sections.category': SectionsCategory;
       'sections.footer': SectionsFooter;
       'sections.gallery': SectionsGallery;

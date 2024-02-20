@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_sections_product_category_filters",
+  "collectionName": "components_sections_category_filters",
   "info": {
-    "displayName": "Product Category Filter"
+    "displayName": "Category Filter"
   },
   "options": {},
   "attributes": {

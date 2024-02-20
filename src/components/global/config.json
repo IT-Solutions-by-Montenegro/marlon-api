@@ -1,12 +1,13 @@
 {
   "collectionName": "components_global_configs",
   "info": {
-    "displayName": "Config"
+    "displayName": "Config",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "config": {
-      "type": "json"
+    "name": {
+      "type": "string"
     }
   }
 }
