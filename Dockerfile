@@ -10,9 +10,10 @@ COPY . ./
 
 RUN npm install --ignore-scripts=false --foreground-scripts --verbose sharp
 RUN npm install --platform=linuxmusl --arch=x64 sharp
+RUN pnpm install
 
-RUN NODE_ENV=production npm run build
-RUN  npm run build
+# RUN NODE_ENV=production npm run build
+# RUN  npm run build
 COPY . .
 
 USER node

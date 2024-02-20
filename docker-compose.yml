@@ -7,6 +7,10 @@ services:
       dockerfile: Dockerfile
     ports:
       - "${HOST_PORT}:${PORT}"
-
+    volumes:
+      - ./dist:/dist
+      - ./.tmp:/.tmp
+    environment:
+      NODE_ENV: ${NODE_ENV}
 
   # Add other services (e.g., a database service) if necessary
