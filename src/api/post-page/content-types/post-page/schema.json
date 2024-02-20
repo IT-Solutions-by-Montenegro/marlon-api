@@ -4,7 +4,8 @@
   "info": {
     "singularName": "post-page",
     "pluralName": "post-pages",
-    "displayName": "Post Page"
+    "displayName": "Post Page",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,11 +16,6 @@
       "type": "component",
       "repeatable": false,
       "component": "global.banner"
-    },
-    "call_to_action": {
-      "type": "component",
-      "repeatable": false,
-      "component": "global.call-to-action"
     },
     "post_gallery": {
       "type": "component",

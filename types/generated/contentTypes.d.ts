@@ -1288,7 +1288,9 @@ export interface ApiContactPageContactPage extends Schema.SingleType {
         'sections.banner',
         'sections.nav-bar',
         'sections.footer',
-        'sections.call-to-action'
+        'sections.call-to-action',
+        'sections.info-four',
+        'sections.contact-form'
       ]
     >;
     createdAt: Attribute.DateTime;
@@ -2222,13 +2224,13 @@ export interface ApiPostPagePostPage extends Schema.SingleType {
     singularName: 'post-page';
     pluralName: 'post-pages';
     displayName: 'Post Page';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     banner: Attribute.Component<'global.banner'>;
-    call_to_action: Attribute.Component<'global.call-to-action'>;
     post_gallery: Attribute.Component<'post.post-gallery'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

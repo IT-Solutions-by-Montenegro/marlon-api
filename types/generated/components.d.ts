@@ -159,11 +159,13 @@ export interface GlobalCallToAction extends Schema.Component {
   collectionName: 'components_global_call_to_actions';
   info: {
     displayName: 'Call to Action';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
     description: Attribute.Text;
-    button: Attribute.Component<'elements.button'>;
+    button: Attribute.Component<'global.anchor', true>;
+    highlight: Attribute.String;
   };
 }
 
@@ -502,6 +504,16 @@ export interface SectionsCategory extends Schema.Component {
   };
 }
 
+export interface SectionsContactForm extends Schema.Component {
+  collectionName: 'components_sections_contact_forms';
+  info: {
+    displayName: 'Contact Form';
+  };
+  attributes: {
+    cta: Attribute.Component<'global.call-to-action'>;
+  };
+}
+
 export interface SectionsFooter extends Schema.Component {
   collectionName: 'components_sections_footers';
   info: {
@@ -767,6 +779,7 @@ declare module '@strapi/types' {
       'sections.call-to-action': SectionsCallToAction;
       'sections.category-filter': SectionsCategoryFilter;
       'sections.category': SectionsCategory;
+      'sections.contact-form': SectionsContactForm;
       'sections.footer': SectionsFooter;
       'sections.gallery': SectionsGallery;
       'sections.info-four': SectionsInfoFour;
