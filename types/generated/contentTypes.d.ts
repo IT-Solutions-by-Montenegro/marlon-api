@@ -1193,12 +1193,14 @@ export interface ApiCategoryPageCategoryPage extends Schema.SingleType {
     singularName: 'category-page';
     pluralName: 'category-pages';
     displayName: 'Category Page';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     title: Attribute.String;
+    slug: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
