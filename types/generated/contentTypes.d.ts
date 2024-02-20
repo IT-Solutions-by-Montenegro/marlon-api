@@ -1187,6 +1187,36 @@ export interface ApiCategoryListCategoryList extends Schema.CollectionType {
   };
 }
 
+export interface ApiCategoryPageCategoryPage extends Schema.SingleType {
+  collectionName: 'category_pages';
+  info: {
+    singularName: 'category-page';
+    pluralName: 'category-pages';
+    displayName: 'Category Page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::category-page.category-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::category-page.category-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiContactFormContactForm extends Schema.CollectionType {
   collectionName: 'contact_forms';
   info: {
@@ -2883,6 +2913,7 @@ declare module '@strapi/types' {
       'api::call-action.call-action': ApiCallActionCallAction;
       'api::careers-page.careers-page': ApiCareersPageCareersPage;
       'api::category-list.category-list': ApiCategoryListCategoryList;
+      'api::category-page.category-page': ApiCategoryPageCategoryPage;
       'api::contact-form.contact-form': ApiContactFormContactForm;
       'api::contact-page.contact-page': ApiContactPageContactPage;
       'api::dealer.dealer': ApiDealerDealer;
